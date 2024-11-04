@@ -2,7 +2,6 @@
 
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { log } from 'console';
 import Link from 'next/link';
 
 export default function LoginPage() {
@@ -17,7 +16,6 @@ export default function LoginPage() {
     try {
       const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/loginSeller', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -26,14 +24,11 @@ export default function LoginPage() {
 
       const data = await response.json();
 
-      console.log(data);
-      
-
       if (response.ok) {
-        setMessage(`Login successful: ${data.message}`);
-        router.push('/home');
+        setMessage(`Login successful: ${data}`);
+        router.push('/home/[jai]');
       } else {
-        setMessage(`Error: ${data.message}`);
+        setMessage(`Error: ${data}`);
       }
     } catch (error) {
       console.error('An unexpected error occurred:', error);
@@ -98,7 +93,6 @@ export default function LoginPage() {
             {message && <p>{message}</p>}
           </form>
 
-          
         </div>
       </div>
     </div>
