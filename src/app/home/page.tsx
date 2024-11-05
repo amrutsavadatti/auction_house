@@ -8,6 +8,10 @@ export default function HomePage() {
     router.push('/seller/signin');
   };
 
+  const handleBuyerSignIn = () => {
+    router.push('/buyer/signin');
+  };
+
   return (
     <div>
       <div className="navbar text-neutral-content justify-center bg-black">
@@ -17,6 +21,9 @@ export default function HomePage() {
         <div className="flex items-center space-x-4">
           <span className="text-lg">Hey Customer!</span>
           <a className="btn bg-primary">Sign in</a>
+        </div>
+        <div>
+          <button onClick={handleBuyerSignIn} className="btn bg-primary mt-4">Buyer? Click here</button>
         </div>
         <div>
           <button onClick={handleSellerSignIn} className="btn bg-secondary mt-4">Seller? Click here</button>
