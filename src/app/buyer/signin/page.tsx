@@ -26,7 +26,7 @@ export default function BuyerLoginPage() {
 
       if (response.ok) {
         setMessage(`Login successful: ${data}`);
-        router.push('/home/[buyer]');
+        router.push('/buyer/main'); // Redirect to the buyer main page after login
       } else {
         setMessage(`Error: ${data.message || "Invalid credentials"}`);
       }
