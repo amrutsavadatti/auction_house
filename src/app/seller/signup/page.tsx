@@ -14,7 +14,7 @@ export default function SignUpPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/loginSeller', {
+      const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/createSeller', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

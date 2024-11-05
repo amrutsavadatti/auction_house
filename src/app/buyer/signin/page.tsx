@@ -16,6 +16,7 @@ export default function BuyerLoginPage() {
     try {
       const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/loginBuyer', {
         method: 'POST',
+        cache: 'no-store',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -26,15 +27,15 @@ export default function BuyerLoginPage() {
 
       if (response.ok) {
         setMessage(`Login successful: ${data}`);
-        router.push('/home/[buyer]');
+        router.push('/home/[jai]');
       } else {
-        setMessage(`Error: ${data.message || "Invalid credentials"}`);
+        setMessage(`Error: ${data}`);
       }
     } catch (error) {
       console.error('An unexpected error occurred:', error);
       setMessage('An unexpected error occurred.');
     }
-  };
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
