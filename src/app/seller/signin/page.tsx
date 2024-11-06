@@ -1,42 +1,24 @@
 "use client";
 
 import { useState, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [message, setMessage] = useState<string>('');
-  const router = useRouter();
 
-  const handleSubmit = async (e: FormEvent) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/loginSeller', {
-        method: 'POST',
-        cache: 'no-store',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-      console.log(data);
-
-      if (data.statusCode === 200) {
-        setMessage(`Login successful: ${data}`);
-        router.push('/home/');
-      } else {
-        setMessage(`Error: ${data.message}`);
-      }
-    } catch (error) {
-      console.error('An unexpected error occurred:', error);
-      setMessage('An unexpected error occurred.');
-    }
-  };
+    await signIn('credentials', { 
+      redirect: true,
+      callbackUrl: "/seller/home",
+      email: email,
+      password: password,
+    });
+  }
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -44,7 +26,7 @@ export default function LoginPage() {
         <div className="card-body items-center text-center justify-between">
           <h2 className="card-title">Sign In</h2>
 
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
+          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
             <label className="input input-bordered flex items-center gap-2 my-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +43,7 @@ export default function LoginPage() {
                 required className="grow"
                 placeholder="Email"
                 value={email}
+                name='email'
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
@@ -81,6 +64,7 @@ export default function LoginPage() {
                 className="grow"
                 placeholder="Password"
                 value={password}
+                name='password'
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />

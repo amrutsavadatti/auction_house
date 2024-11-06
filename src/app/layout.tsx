@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Providers from "./components/Providers";
+import { SigninButton } from "./components/SigninButton";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,10 +27,45 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="forest">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
+        <Providers>
+          {/* {children} */}
+          <div>
+
+            <nav>
+              <div className="navbar bg-base-100">
+                <div className="navbar-start">
+                  <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M4 6h16M4 12h8m-8 6h16" />
+                      </svg>
+                    </div>
+                  </div>
+                  <a href={process.env.NEXT_PUBLIC_BASE_URL + "/home"} className="btn btn-ghost text-xl">Fortran Auction 🏠</a>
+                </div>
+
+                <SigninButton />
+                {/* <div className="navbar-end">
+                </div> */}
+              </div>
+            </nav>
+
+            <main className="p-4 flex items-center justify-center">
+              {children}
+            </main>
+
+            </div>
+        </Providers>
       </body>
     </html>
   );

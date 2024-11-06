@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { SigninButton } from "../components/SigninButton";
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,10 +32,9 @@ export default function HomeLayout({ children }:  LayoutProps ) {
             <a className="btn btn-ghost text-xl">Fortran Auction 🏠</a>
           </div>
 
-          <div className="navbar-end">
-            <h2 className="mx-2">Hey Customer!</h2>
-            <a href="/home/userType"  className="btn bg-primary">Sign in</a>
-          </div>
+          <SigninButton />
+          {/* <div className="navbar-end">
+          </div> */}
         </div>
       </nav>
 
