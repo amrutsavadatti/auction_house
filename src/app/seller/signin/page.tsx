@@ -16,6 +16,7 @@ export default function LoginPage() {
     try {
       const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/loginSeller', {
         method: 'POST',
+        cache: 'no-store',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -23,12 +24,13 @@ export default function LoginPage() {
       });
 
       const data = await response.json();
+      console.log(data);
 
-      if (response.ok) {
+      if (data.statusCode === 200) {
         setMessage(`Login successful: ${data}`);
-        router.push('/home/[jai]');
+        router.push('/home/');
       } else {
-        setMessage(`Error: ${data}`);
+        setMessage(`Error: ${data.message}`);
       }
     } catch (error) {
       console.error('An unexpected error occurred:', error);
