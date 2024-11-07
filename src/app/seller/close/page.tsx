@@ -3,13 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+
 export default function CloseAccountPage() {
-    const [email, setEmail] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const router = useRouter();
 
     const handleCloseAccount = async () => {
-        setEmail("aa@g.com");
         try {
             const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/closeSeller', {
             method: 'POST',
@@ -17,10 +16,12 @@ export default function CloseAccountPage() {
             headers: {
             'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email}),
+            body: JSON.stringify({ email: localStorage.getItem("token") }),
         });
 
         if (response.ok) {
+            const data = await response.json();
+            localStorage.removeItem("token");
             router.push('/home');
         } else {
             const data = await response.json();

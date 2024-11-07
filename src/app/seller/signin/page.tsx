@@ -9,6 +9,10 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const handleCreate = () => {
+    router.push("/seller/signup");
+  };
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -22,10 +26,12 @@ const LoginPage = () => {
 
       if (res.ok) {
         const data = await res.json();
-        console.log(data);
-        console.log("###");
-        localStorage.setItem("token", data.userid); // Save token or userid if needed
-        router.push("/seller/home"); // Redirect on successful login
+        if (!data.userid) {
+          setError("Invalid email or password");
+        } else {
+          localStorage.setItem("token", data.userid); 
+          router.push("/seller/home");
+        }
       } else {
         setError("Invalid email or password");
       }
@@ -52,6 +58,7 @@ const LoginPage = () => {
         />
         <button type="submit">Login</button>
       </form>
+      <button  onClick={handleCreate} >Create account</button>
       {error && <p>{error}</p>}
     </div>
   );
