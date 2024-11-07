@@ -64,6 +64,7 @@ export default function BuyerHomePage() {
         }
 
         const data = await response.json();
+        localStorage.removeItem("token");
         alert(data.message || "Your account has been deactivated.");
         router.push("/buyer/signin"); // Redirect to sign-in page after account deactivation
       } catch (error) {

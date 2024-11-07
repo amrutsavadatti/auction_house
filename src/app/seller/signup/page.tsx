@@ -29,7 +29,7 @@ export default function SignUpPage() {
 
       if (response.ok) {
         setMessage(`Login successful: ${data.message}`);
-        router.push('/home');
+        router.push('/seller/signin');
       } else {
         setMessage(`Error: ${data.message}`);
       }

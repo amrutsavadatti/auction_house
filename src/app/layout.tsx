@@ -51,7 +51,7 @@ export default function RootLayout({
                       </svg>
                     </div>
                   </div>
-                  <a href={process.env.NEXT_PUBLIC_BASE_URL + "/home"} className="btn btn-ghost text-xl">Fortran Auction 🏠</a>
+                  <a href="/home" className="btn btn-ghost text-xl">Fortran Auction 🏠</a>
                 </div>
 
                 <SigninButton />

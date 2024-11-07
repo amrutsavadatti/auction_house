@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import LogoutButton from "../../components/LogoutButton";
+import Link from "next/link";
 
 interface Item {
     name: string;
@@ -10,8 +11,6 @@ interface Item {
     imageUrl: string;
     price: number;
     publishDate: string;
-    seller: string;
-    status: string;
   }
 
 export default function SellerHomePage() {
@@ -25,7 +24,7 @@ export default function SellerHomePage() {
         if (!token) {
           router.push("/seller/signin");
         } else {
-          setLoading(false); // Proceed to show content if logged in
+          setLoading(false);
         }
 
         const fetchItems = async () => {
@@ -44,6 +43,8 @@ export default function SellerHomePage() {
       
               const data = await response.json();
               setItems(data.items);
+              console.log(items)
+              console.log("items")
             } catch (error) {
               setError('Could not fetch items.');
               console.error(error);
@@ -63,9 +64,10 @@ export default function SellerHomePage() {
                 <a href="/seller/close">Close account</a>
                 
             </div>
-            <div className='m-2'>
-            <a href="/seller/item">items</a>
-            </div>
+              <div className='m-2'>
+                <a href="/seller/item">Add items</a>
+              </div>
+
             <div>
                 <LogoutButton />
             </div>
@@ -73,7 +75,6 @@ export default function SellerHomePage() {
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
-                {/* Table Header */}
                 <thead>
                     <tr>
                     <th>
@@ -86,7 +87,7 @@ export default function SellerHomePage() {
                     <th></th>
                     </tr>
                 </thead>
-                {/* Table Body */}
+
                 <tbody>
                     {items.map((item, index) => (
                     <tr key={index} className="border-b border-gray-700">
@@ -101,7 +102,7 @@ export default function SellerHomePage() {
                             <div className="mask mask-squircle h-12 w-12">
                                 <img
                                 src={item.imageUrl}
-                                alt={`${item.name} image`}
+                                // alt={`${item.name} image`}
                                 className="object-cover"
                                 />
                             </div>
@@ -113,13 +114,25 @@ export default function SellerHomePage() {
                         </div>
                         </td>
                         <td>
-                        {item.seller}
+                        {localStorage.getItem("token")}
                         <br />
-                        <span className="badge badge-ghost badge-sm">{item.status}</span>
                         </td>
                         <td>{item.publishDate}</td>
                         <th>
-                        <button className="btn btn-ghost btn-xs">details</button>
+                          <Link
+                            href={{
+                              pathname: `/seller/editItem`,
+                              query: {
+                                name: item.name,
+                                description: item.description,
+                                imageUrl: item.imageUrl,
+                                price: item.price,
+                                publishDate: item.publishDate,
+                              },
+                            }}
+                          >
+                            <button className="btn btn-ghost btn-xs">edit</button>
+                          </Link>
                         </th>
                     </tr>
                     ))}
