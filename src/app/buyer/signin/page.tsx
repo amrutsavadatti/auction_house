@@ -1,17 +1,18 @@
 "use client";
 
-import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 
 export default function BuyerLoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [message, setMessage] = useState<string>('');
-  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setMessage('');
 
     try {
       const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/loginBuyer', {
@@ -23,19 +24,22 @@ export default function BuyerLoginPage() {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
-        setMessage(`Login successful: ${data}`);
-        router.push('/home/[jai]');
+        const data = await response.json();
+        if (!data.userid) {
+          setMessage("Invalid email or password");
+        } else {
+          localStorage.setItem("token", data.userid); // Store user ID in localStorage
+          router.push("/buyer/home"); // Redirect to buyer home page
+        }
       } else {
-        setMessage(`Error: ${data}`);
+        setMessage("Invalid email or password");
       }
     } catch (error) {
       console.error('An unexpected error occurred:', error);
-      setMessage('An unexpected error occurred.');
+      setMessage("Something went wrong. Please try again.");
     }
-  }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
