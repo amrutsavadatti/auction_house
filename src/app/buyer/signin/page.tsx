@@ -30,7 +30,7 @@ export default function BuyerLoginPage() {
           setMessage("Invalid email or password");
         } else {
           localStorage.setItem("token", data.userid); // Store user ID in localStorage
-          router.push("/buyer/home"); // Redirect to buyer home page
+          router.push("/buyer/Home"); // Redirect to buyer home page
         }
       } else {
         setMessage("Invalid email or password");

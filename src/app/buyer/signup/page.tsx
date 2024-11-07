@@ -25,7 +25,7 @@ export default function BuyerSignUpPage() {
 
       if (response.ok) {
         setMessage(`Sign-up successful! Welcome, ${email}`);
-        router.push('/buyer/home');  // Added this so I can redirect the buyer to login page 
+        router.push('/buyer/signin');  // Added this so I can redirect the buyer to login page 
       } else {
         setMessage(`Error: ${data.message || 'Unable to sign up'}`);
       }
