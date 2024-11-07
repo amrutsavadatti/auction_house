@@ -40,9 +40,9 @@
 *insert here*
 
 ## Iteration 1 Work Distribution
-  Manas Pise: Front End Work (Buyer)
-  Amrut Savadatti: Front End Work (Seller)
-  Jai Patel: Back End, Helped with Front End Work
-  Pooja Kawatkar: Back End, Helped with Front End Work
+- Manas Pise: Front End Work (Buyer)
+- Amrut Savadatti: Front End Work (Seller)
+- Jai Patel: Back End, Helped with Front End Work
+- Pooja Kawatkar: Back End, Helped with Front End Work
 
 ## 
