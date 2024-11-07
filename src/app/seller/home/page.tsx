@@ -19,6 +19,8 @@ export default function SellerHomePage() {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
 
+    console.log(error);
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -43,11 +45,9 @@ export default function SellerHomePage() {
       
               const data = await response.json();
               setItems(data.items);
-              console.log(items)
-              console.log("items")
             } catch (error) {
-              setError('Could not fetch items.');
               console.error(error);
+              setError("An unexpected error occurred.");
             }
           };
       

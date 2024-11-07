@@ -37,6 +37,7 @@ const LoginPage = () => {
       }
     } catch (error) {
       setError("Something went wrong. Please try again.");
+      console.log(error)
     }
   };
 

@@ -1,7 +1,7 @@
 "use client"; 
 import { useRouter } from 'next/navigation';
 
-export default function accountSelection() {
+export default function AccountSelection() {
   const router = useRouter();
 
   const handleSellerSignIn = () => {

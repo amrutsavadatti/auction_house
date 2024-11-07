@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
 };
 
 module.exports = {
-  // output: 'export',
+  output: 'export',
 };
 
 export default nextConfig;

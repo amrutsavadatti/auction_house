@@ -20,7 +20,6 @@ export default function CloseAccountPage() {
         });
 
         if (response.ok) {
-            const data = await response.json();
             localStorage.removeItem("token");
             router.push('/home');
         } else {

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Providers from "./components/Providers";
 import { SigninButton } from "./components/SigninButton";
 
 const geistSans = localFont({
@@ -28,7 +27,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="forest">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
-        <Providers>
           {/* {children} */}
           <div>
 
@@ -65,7 +63,6 @@ export default function RootLayout({
             </main>
 
             </div>
-        </Providers>
       </body>
     </html>
   );

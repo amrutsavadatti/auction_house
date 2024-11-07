@@ -28,8 +28,9 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "../dump/Providers.tsx"  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "../dump/Providers.tsx" 
   ]
 }
