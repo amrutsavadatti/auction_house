@@ -101,12 +101,12 @@ function EditItemForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [name, setName] = useState(searchParams.get("name") || "");
+  const name = searchParams.get("name") || "";
   const [description, setDescription] = useState(searchParams.get("description") || "");
   const [imageUrl, setImageUrl] = useState(searchParams.get("imageUrl") || "");
   const [price, setPrice] = useState(searchParams.get("price") || "");
   const [publishDate, setPublishDate] = useState(searchParams.get("publishDate") || "");
-  const [seller, setSeller] = useState(searchParams.get("seller") || "");
+  const seller = searchParams.get("seller") || "";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

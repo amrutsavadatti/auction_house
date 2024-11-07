@@ -11,7 +11,7 @@ export default function AddItemPage() {
   const [setPrice, setSetPrice] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const sellerOfItem = useState(localStorage.getItem("token"));
+  //const sellerOfItem = useState(localStorage.getItem("token"));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ export default function AddItemPage() {
       setPrice,
       startDate,
       endDate,
-      sellerOfItem,
+      sellerOfItem:localStorage.getItem("token"),
     };
 
     try {
