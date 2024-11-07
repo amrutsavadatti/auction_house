@@ -2,25 +2,23 @@
 
 import { signIn, signOut, useSession } from 'next-auth/react'
 import React from 'react'
+import LogoutButton from './LogoutButton'
 
 export const SigninButton = () => {
-    const {data: session} = useSession();
-    console.log("this is session");
-    console.log(session);
-    if(session && session.user) {
+    if (localStorage.getItem("token")) {
         return (
             <div className="navbar-end">
-                <h2 className="mx-2">Hey {session.user.email}!</h2>
-                <button onClick={() => signOut}  className="bg-primary">Sign Out</button>
+                <h2 className="mx-2">Hey {localStorage.getItem("token")}!</h2>
+                <LogoutButton />
             </div>
         )
+    } else {
+        return (
+            <div className="navbar-end">
+                <h2 className="mx-2">Hey Customer!</h2>
+                <a href='home/userType'  className="bg-primary">Sign in</a>
+            </div>
+          )
     }
-
-  return (
-    <div className="navbar-end">
-        <h2 className="mx-2">Hey Customer!</h2>
-        <a href='home/userType'  className="bg-primary">Sign in</a>
-    </div>
-  )
 }
  
