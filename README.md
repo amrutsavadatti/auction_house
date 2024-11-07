@@ -12,23 +12,26 @@
 
 ## Landing Page URLs and Descriptions
   1) /home
-     General Home Page that gives two buttons to choose from: one to continue if user is a buyer and another to continue if user is a seller.
+     <br/>General Home Page that gives two buttons to choose from: one to continue if user is a buyer and another to continue if user is a seller.
   2) /buyer/signin
-     Sign-In page for Buyer that allows a buyer to sign in using an existing account or to sign up and create a new account.
+     <br/>Sign-In page for Buyer that allows a buyer to sign in using an existing account or to sign up and create a new account.
   3) /buyer/signup
-     Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page.
+     <br/>Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page.
   4) /buyer/Home
-     Buyer Home page that allows the buyer to add funds and view the updated funds amount. They can also close the buyer account, which reroutes the page back to the login page.
+     <br/>Buyer Home page that allows the buyer to add funds and view the updated funds amount. They can also close the buyer account, which reroutes the page back to the login page.
   5) /seller/home
-  On this page, the seller is able to view any added items and can close their account. Closing their account will reroute to the /seller/signin page and clicking add item button will reroute to the /seller/item page
-  6)/seller/signin
-  Sign-In page for Seller that allows a seller to sign in using an existing account or to sign up and create a new account.
-  7)/seller/signup
-  Sign Up page for Seller that allows a seller to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page.
-  8) /seller/item
-     This page allows the seller to put in all fields to add a new item. The seller can see the added item on the seller home page.
-  10) /seller/editItem
-      This page is routed when the seller clicks "edit item" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the seller/home page.
+  <br/>On this page, the seller is able to view any added items and can close their account. Closing their account will reroute to the /seller/signin page and clicking add item button will reroute to the /seller/item page
+
+6)/seller/signin
+  <br/>Sign-In page for Seller that allows a seller to sign in using an existing account or to sign up and create a new account.
+  
+<br/>7)/seller/signup
+  <br/>Sign Up page for Seller that allows a seller to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page.
+  
+<br/>8) /seller/item
+     <br/>This page allows the seller to put in all fields to add a new item. The seller can see the added item on the seller home page.
+<br/>9) /seller/editItem
+      <br/>This page is routed when the seller clicks "edit item" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the seller/home page.
 
 
 ## BUYER INSTRUCTIONS:
