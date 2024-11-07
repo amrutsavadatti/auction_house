@@ -6,6 +6,8 @@ import LogoutButton from "../../components/LogoutButton";
 
 export default function BuyerHomePage() {
     const [buyerEmail, setBuyerEmail] = useState<string | null>(null);
+    const [funds, setFunds] = useState<string | null>(null); // Set initial funds to 0
+    const [amountToAdd, setAmountToAdd] = useState<number>(0);
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
     const [loading, setLoading] = useState(true);
@@ -15,10 +17,37 @@ export default function BuyerHomePage() {
         if (!token) {
           router.push("/buyer/signin");
         } else {
-          setBuyerEmail(token); // Set buyer's email from token
-          setLoading(false); // Proceed to show content if logged in
+          setBuyerEmail(token);
+          setLoading(false);
         }
       }, [router]);
+
+    const handleAddFunds = async () => {
+      if (!buyerEmail) return;
+
+      try {
+        const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addFunds', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ buyerEmail: buyerEmail, fundsAmountAdd: amountToAdd }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data.body);
+          setFunds(data.body); // Update funds after adding successfully
+          alert("Funds added successfully.");
+          setAmountToAdd(0); // Reset input after adding funds
+        } else {
+          setError("Failed to add funds.");
+        }
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred while adding funds.");
+      }
+    };
 
     const handleCloseAccount = async () => {
       try {
@@ -50,6 +79,26 @@ export default function BuyerHomePage() {
             <div className="text-center mb-4">
                 <h2 className="text-2xl font-bold">Buyer Home Page</h2>
                 <p className="text-lg">Hey {buyerEmail}!</p>
+            </div>
+
+            <div className="text-center mb-4">
+                <p className="text-xl font-semibold">Available Funds: {funds !== null ? `$${funds}` : "0"}</p>
+            </div>
+
+            <div className="flex items-center space-x-4 mb-4">
+                <input
+                  type="number"
+                  value={amountToAdd}
+                  onChange={(e) => setAmountToAdd(Number(e.target.value))}
+                  placeholder="Enter amount to add"
+                  className="px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
+                />
+                <button
+                  onClick={handleAddFunds}
+                  className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition duration-200"
+                >
+                  Add Funds
+                </button>
             </div>
 
             <div className="flex space-x-4">
