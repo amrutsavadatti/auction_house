@@ -46,7 +46,17 @@
   7) To close the account, click on the close account button if it gives a message saying your account is closed successfully, you will not be able to log in to the buyer account with the same credentials
 
 ## SELLER INSTRUCTIONS:
-*insert here*
+1) To sign-in as a seller from the load-up page click sign-in on the top right 
+  2) Click where it says seller click here (it lands you to /seller/signin) 
+  3) In seller/sign-in press on create account: it lands you on /seller/signup if you want to create an account. 
+  4)Create credentials for a seller with an email address in the email field and password in the password field (example could be f@f.com and password: f)
+  3) After signing in you land up on /seller/signin again. Over here, sign in with the credentials you entered
+  4) After signing you end up on the /seller/home page where you are allowed to review all items, which should be nothing, since we have created a new account. You should see the close account button here, as well. 
+  5) Click on Add Items button, which should bring you to /seller/item. Fill in all of the fields and add the item. 
+  6) You should be able to view that newly added item on /seller/home.  
+  7) Let's say you made a mistake and want to edit the item. You should be able to view "edit item" button. Click the button to go to /seller/editItem
+  8) Change a field you want to modify the information for and edit the item. You should be able to see the modified item on the seller home page.
+  9) To close the account, click on the close account button if it gives a message saying your account is closed successfully, you will not be able to log in to the seller account with the same credentials
 
 ## Iteration 1 Work Distribution
 - Manas Pise: Front End Work (Buyer)
