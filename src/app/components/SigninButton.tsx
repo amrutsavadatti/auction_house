@@ -1,11 +1,17 @@
 "use client"
 
-import { signIn, signOut, useSession } from 'next-auth/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import LogoutButton from './LogoutButton'
 
 export const SigninButton = () => {
-    if (localStorage.getItem("token")) {
+    const [token, setToken] = useState<string | null>(null);
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem("token");
+        setToken(storedToken);
+      }, []);
+       
+    if (token) {
         return (
             <div className="navbar-end">
                 <h2 className="mx-2">Hey {localStorage.getItem("token")}!</h2>
