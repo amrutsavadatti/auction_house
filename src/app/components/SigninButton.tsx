@@ -2,9 +2,17 @@
 
 import React, { useEffect, useState } from 'react'
 import LogoutButton from './LogoutButton'
+import { useRouter } from "next/navigation";
+
 
 export const SigninButton = () => {
     const [token, setToken] = useState<string | null>(null);
+    const router = useRouter();
+
+
+    const handleSignIn = () => {
+        router.push("/home/userType");
+      };
 
     useEffect(() => {
         const storedToken = localStorage.getItem("token");
@@ -22,7 +30,7 @@ export const SigninButton = () => {
         return (
             <div className="navbar-end">
                 <h2 className="mx-2">Hey Customer!</h2>
-                <a href='home/userType'  className="bg-primary">Sign in</a>
+                <button onClick={handleSignIn} className="btn btn-ghost">Sign In</button>
             </div>
           )
     }

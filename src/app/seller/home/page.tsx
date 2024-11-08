@@ -13,6 +13,11 @@ interface Item {
     publishDate: string;
   }
 
+
+
+
+  
+
 export default function SellerHomePage() {
     const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);
@@ -21,6 +26,14 @@ export default function SellerHomePage() {
 
     console.log(error);
 
+    const handleAddItem = () => {
+      router.push("/seller/item");
+    };
+
+    const handleClose = () => {
+      router.push("/seller/close");
+    };
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -28,6 +41,7 @@ export default function SellerHomePage() {
         } else {
           setLoading(false);
         }
+
 
         const fetchItems = async () => {
             try {
@@ -61,11 +75,10 @@ export default function SellerHomePage() {
     return (
         <div className='flex flex-col justify-center '>
             <div className="bg-accent m-2">
-                <a href="/seller/close">Close account</a>
-                
+                <button onClick={handleClose} className="btn btn-ghost">Close Account</button>
             </div>
               <div className='m-2'>
-                <a href="/seller/item">Add items</a>
+              <button onClick={handleAddItem} className="btn btn-ghost">Add Items</button>
               </div>
 
             <div>
