@@ -61,7 +61,8 @@
 ## Iteration 1 Work Distribution
 - Manas Pise: Front End Work (Buyer)
 - Amrut Savadatti: Front End Work (Seller)
-- Jai Patel: Back End, Helped with Front End Work
+- Jai Patel: Back End, Helped with Front End Work, S3 Bucket
 - Pooja Kawatkar: Back End, Helped with Front End Work
 
-## 
+## General Notes
+Please make sure not to refresh the live URLs, as it runs into a 404 not found error. We reached out to the professor and other teams who are experiencing the same issue, but we are not sure how to go about solving it.
