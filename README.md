@@ -42,20 +42,19 @@ URL for AWS APP: **insert here
     
   10) /seller/editItem <br/>
     This page is routed when the seller clicks "edit item" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the /seller/home page. 
-    
-  11) 
+     
 
 
 ## BUYER INSTRUCTIONS:
   1) To sign-in as a buyer from the load-up page click sign-in on the top right 
   2) Click where it says buyer click here (it lands you to /buyer/signin) 
   3) In buyer/sign-in press on create account it lands you on buyer/signup if you want to create an account. 
-  4)Create credentials for a buyer with an email address in the email field and password in the password field (example could be e@e.com and password: e)
-  3) After signing in you land up on buyer/signin again. Over here, sign in with the credentials you entered
-  4) After signing you end up on the buyer/home page where you are allowed to add funds and to close account 
-  5) To add funds make sure you amount greater than 10 by toggling before the 0 and amount less than 0 by toggling after as the 0 cannot be deleted. 
-  6) Once you add funds by clicking the button you can view the funds the buyer has
-  7) To close the account, click on the close account button if it gives a message saying your account is closed successfully, you will not be able to log in to the buyer account with the same credentials
+  4) Create credentials for a buyer with an email address in the email field and password in the password field (example could be e@e.com and password: e)
+  5) After signing in you land up on buyer/signin again. Over here, sign in with the credentials you entered
+  6) After signing you end up on the buyer/home page where you are allowed to add funds and to close account
+  7) To add funds make sure you amount greater than 10 by toggling before the 0 and amount less than 0 by toggling after as the 0 cannot be deleted.
+  8) Once you add funds by clicking the button you can view the funds the buyer has
+  9) To close the account, click on the close account button if it gives a message saying your account is closed successfully, you will not be able to log in to the buyer account with the same credentials
 
 ## SELLER INSTRUCTIONS:
 1) To sign-in as a seller from the load-up page click sign-in on the top right 
