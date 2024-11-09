@@ -12,7 +12,7 @@ const LogoutButton: FC = () => {
   };
 
   return (
-    <button onClick={handleLogout} style={{ cursor: "pointer" }}>
+    <button className="btn btn-outline btn-warning" onClick={handleLogout} style={{ cursor: "pointer" }}>
       Logout
     </button>
   );

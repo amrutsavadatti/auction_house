@@ -27,14 +27,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
-    <html lang="en" data-theme="winter">
+    <html lang="en" data-theme="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
           {/* {children} */}
           <div>
 
             <nav>
-              <div className="navbar bg-base-100">
+              <div className="navbar  bg-primary text-primary-content bg-base-100">
                 <div className="navbar-start">
                   <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,7 +53,7 @@ export default function RootLayout({
                       </svg>
                     </div>
                   </div>
-                  {/* <button onClick={handleHome} className="btn btn-ghost text-xl">Fortran Auction 🏠</button> */}
+
                   <HomeButton />
                 </div>
 

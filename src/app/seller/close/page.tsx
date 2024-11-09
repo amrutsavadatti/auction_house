@@ -33,16 +33,21 @@ export default function CloseAccountPage() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-black">
-        <h2 className="text-xl font-bold mb-4">Close Account</h2>
-        <p className="mb-4 text-center">Are you sure you want to close your account? This action is irreversible.</p>
-        <button
-            onClick={handleCloseAccount}
-            className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700 transition"
-        >
-            Close Account
-        </button>
-        {errorMessage && <p className="mt-4 text-red-500">{errorMessage}</p>}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <div className="card bg-neutral text-neutral-content w-96">
+                <div className="card-body items-center text-center justify-between">
+                    <h2 className="card-title text-red-500">Close Account</h2>
+                    <h3>Are you sure? this change is Irreversible!!</h3>
+                    <button
+                        onClick={handleCloseAccount}
+                        className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700 transition"
+                    >
+                        Confirm
+                    </button>
+                    {errorMessage && <p className="mt-4 text-red-500">{errorMessage}</p>}
+
+                </div>
+            </div>
         </div>
     );
 }

@@ -49,60 +49,66 @@ export default function AddItemPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Add New Item</h1>
-      <form onSubmit={handleSubmit} className="w-full max-w-md p-4 bg-white shadow-md rounded">
-        <input
-          type="text"
-          placeholder="Item Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="input mb-4"
-          required
-        />
-        <textarea
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="textarea mb-4"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          className="input mb-4"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Set Price"
-          value={setPrice}
-          onChange={(e) => setSetPrice(e.target.value)}
-          className="input mb-4"
-          required
-        />
-        <input
-          type="datetime-local"
-          placeholder="Start Date"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-          className="input mb-4"
-          required
-        />
-        <input
-          type="datetime-local"
-          placeholder="End Date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          className="input mb-4"
-          required
-        />
-        <button type="submit" className="btn btn-primary w-full">
-          Submit
-        </button>
-      </form>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div className="card bg-neutral text-neutral-content w-96">
+        <div className="card-body items-center text-center justify-between">
+          <h2 className="card-title">Add Item</h2>
+
+          <form onSubmit={handleSubmit} className="w-full max-w-md p-4 rounded">
+            <input
+              type="text"
+              placeholder="Item Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="input mb-4"
+              required
+            />
+            <textarea
+              placeholder="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="textarea mb-4"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Image URL"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              className="input mb-4"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Set Price"
+              value={setPrice}
+              onChange={(e) => setSetPrice(e.target.value)}
+              className="input mb-4"
+              required
+            />
+            <input
+              type="datetime-local"
+              placeholder="Start Date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="input mb-4"
+              required
+            />
+            <input
+              type="datetime-local"
+              placeholder="End Date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="input mb-4"
+              required
+            />
+            <button type="submit" className="btn btn-accent w-full">
+              Submit
+            </button>
+          </form>
+
+        </div>
+      </div>
     </div>
   );
 }

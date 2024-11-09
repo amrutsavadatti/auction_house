@@ -8,14 +8,10 @@ import Link from "next/link";
 interface Item {
     name: string;
     description: string;
-    imageUrl: string;
-    price: number;
+    figureimageout: string;
+    setPrice: number;
     publishDate: string;
   }
-
-
-
-
   
 
 export default function SellerHomePage() {
@@ -59,6 +55,7 @@ export default function SellerHomePage() {
       
               const data = await response.json();
               setItems(data.items);
+              console.log(items + " items");
             } catch (error) {
               console.error(error);
               setError("An unexpected error occurred.");
@@ -70,87 +67,98 @@ export default function SellerHomePage() {
       }, [router]);
     
       if (loading) return <p>Loading...</p>;
+      console.log(items)
 
 
     return (
         <div className='flex flex-col justify-center '>
-            <div className="bg-accent m-2">
-                <button onClick={handleClose} className="btn btn-ghost">Close Account</button>
+
+            <div className='flex justify-center m-2'>
+              <button onClick={handleAddItem} className="btn btn-primary">Add Items</button>
             </div>
-              <div className='m-2'>
-              <button onClick={handleAddItem} className="btn btn-ghost">Add Items</button>
+
+            <div className="m-4 bg-accent-content p-4 rounded-xl">
+              <div className="overflow-x-auto">
+                  <table className="table w-full">
+                  <thead>
+                      <tr>
+                      <th>
+                          <label>
+                          </label>
+                      </th>
+                      <th>Item Name</th>
+                      <th>Price</th>
+                      <th>Seller</th>
+                      <th>Listing Date</th>
+                      <th>Action</th>
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      {items.map((item, index) => (
+                      <tr key={index} className="border-b border-gray-700">
+                          <th>
+                          <label>
+                              <h2>{index + 1}</h2>
+                          </label>
+                          </th>
+                          <td>
+                          <div className="flex items-center gap-3">
+                            <div className="avatar">
+                                <div className="mask mask-squircle h-12 w-12">
+                                    <img
+                                    src={item.figureimageout}
+                                    onClick={() => {console.log(item.figureimageout + "##")}}
+                                    // alt={`${item.name} image`}
+                                    className="object-cover"
+                                    />
+                                </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">{item.name}</div>
+                              <div className="text-sm opacity-50">{item.description}</div>
+                              </div>
+                          </div>
+                          </td>
+                          <td>
+                            {"$ "+item.setPrice}
+                          <br />
+                          </td>
+                          <td>
+                            {localStorage.getItem("token")}
+                          <br />
+                          </td>
+                          <td>{item.publishDate}</td>
+                          <th>
+                            <Link
+                              href={{
+                                pathname: `/seller/editItem`,
+                                query: {
+                                  name: item.name,
+                                  description: item.description,
+                                  imageUrl: item.figureimageout,
+                                  price: item.setPrice,
+                                  publishDate: item.publishDate,
+                                },
+                              }}
+                            >
+                              <button className="btn btn-outline btn-warning btn-xs ">edit</button>
+                            </Link>
+                          </th>
+                      </tr>
+                      ))}
+                  </tbody>
+                  </table>
+              </div>
+            </div>
+            <div className="flex justify-between m-4">
+              <div className="m-2">
+                  <button onClick={handleClose} className="btn btn-error">Close Account</button>
               </div>
 
-            <div>
+              <div >
                 <LogoutButton />
-            </div>
-
-
-            <div className="overflow-x-auto">
-                <table className="table w-full">
-                <thead>
-                    <tr>
-                    <th>
-                        <label>
-                        </label>
-                    </th>
-                    <th>Item Name</th>
-                    <th>Seller</th>
-                    <th>Listing Date</th>
-                    <th></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {items.map((item, index) => (
-                    <tr key={index} className="border-b border-gray-700">
-                        <th>
-                        <label>
-                            <h2>{index + 1}</h2>
-                        </label>
-                        </th>
-                        <td>
-                        <div className="flex items-center gap-3">
-                            <div className="avatar">
-                            <div className="mask mask-squircle h-12 w-12">
-                                <img
-                                src={item.imageUrl}
-                                // alt={`${item.name} image`}
-                                className="object-cover"
-                                />
-                            </div>
-                            </div>
-                            <div>
-                            <div className="font-bold">{item.name}</div>
-                            <div className="text-sm opacity-50">{item.description}</div>
-                            </div>
-                        </div>
-                        </td>
-                        <td>
-                        {localStorage.getItem("token")}
-                        <br />
-                        </td>
-                        <td>{item.publishDate}</td>
-                        <th>
-                          <Link
-                            href={{
-                              pathname: `/seller/editItem`,
-                              query: {
-                                name: item.name,
-                                description: item.description,
-                                imageUrl: item.imageUrl,
-                                price: item.price,
-                                publishDate: item.publishDate,
-                              },
-                            }}
-                          >
-                            <button className="btn btn-ghost btn-xs">edit</button>
-                          </Link>
-                        </th>
-                    </tr>
-                    ))}
-                </tbody>
-                </table>
+              </div>
             </div>
         </div>
     );

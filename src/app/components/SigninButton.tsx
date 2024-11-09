@@ -30,7 +30,7 @@ export const SigninButton = () => {
         return (
             <div className="navbar-end">
                 <h2 className="mx-2">Hey Customer!</h2>
-                <button onClick={handleSignIn} className="btn btn-ghost">Sign In</button>
+                <button onClick={handleSignIn} className="btn btn-accent">Sign In</button>
             </div>
           )
     }
