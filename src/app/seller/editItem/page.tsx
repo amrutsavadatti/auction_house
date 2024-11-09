@@ -71,7 +71,6 @@ function EditItemForm() {
           <form onSubmit={handleSubmit} className="w-full max-w-md p-4 rounded">
               <label className="mb-4">Description: </label>
               <input
-                placeholder="Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="textarea mb-4"
@@ -80,7 +79,6 @@ function EditItemForm() {
             <label>Image: </label>
             <input
               type="text"
-              placeholder="Image URL"
               value={image}
               onChange={(e) => setImage(e.target.value)}
               className="input mb-4"
@@ -89,7 +87,6 @@ function EditItemForm() {
             <label>Price: </label>
             <input
               type="number"
-              placeholder="Price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               className="input mb-4"
@@ -98,7 +95,6 @@ function EditItemForm() {
             <label>Publish Date: </label>
             <input
               type="datetime-local"
-              placeholder="Publish Date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               className="input mb-4"

@@ -11,7 +11,24 @@ export default function AddItemPage() {
   const [setPrice, setSetPrice] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  //const sellerOfItem = useState(localStorage.getItem("token"));
+
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imageURL, setImageURL] = useState('');
+
+    const handleImageUpload = async () => {
+      if (!name || !imageFile) return;
+
+      const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/generateUploadURL?itemName=${name}');
+      const { uploadURL } = await response.json();
+
+      await fetch(uploadURL, {
+          method: 'PUT',
+          headers: { 'Content-Type': imageFile.type },
+          body: imageFile,
+      });
+
+      setImageURL(uploadURL.split('?')[0]); 
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,6 +71,18 @@ export default function AddItemPage() {
         <div className="card-body items-center text-center justify-between">
           <h2 className="card-title">Add Item</h2>
 
+          <div className="flex flex-col p-2 m-2">
+           
+            <input
+                type="file"
+                onChange={(e) => setImageFile(e.target.files ? e.target.files[0] : null)}
+            />
+            <button onClick={handleImageUpload}>Upload Item</button>
+
+            {imageURL && <img src={imageURL} alt={name} />}
+
+          </div>
+
           <form onSubmit={handleSubmit} className="w-full max-w-md p-4 rounded">
             <input
               type="text"
@@ -78,6 +107,7 @@ export default function AddItemPage() {
               className="input mb-4"
               required
             />
+
             <input
               type="text"
               placeholder="Set Price"
