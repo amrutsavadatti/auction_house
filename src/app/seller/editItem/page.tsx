@@ -13,7 +13,7 @@ function EditItemForm() {
   const [price, setPrice] = useState(searchParams.get("price") || "");
 
   // Format publish date to "YYYY-MM-DDTHH:MM"
-  const formatDateTime = (dateString) => {
+  const formatDateTime = (dateString:string) => {
     if (!dateString) return "";
     const date = new Date(dateString);
     const year = date.getFullYear();
@@ -24,9 +24,9 @@ function EditItemForm() {
     return `${year}-${month}-${day}T${hours}:${minutes}`;
   };
 
-  const [startDate, setStartDate] = useState(formatDateTime(searchParams.get("publishDate")));
+  const [startDate, setStartDate] = useState(formatDateTime(searchParams.get("publishDate") || ""));
   
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.FormEvent) => {
     e.preventDefault();
 
     const updatedItem = {

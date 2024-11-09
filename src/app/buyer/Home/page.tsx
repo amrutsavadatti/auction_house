@@ -22,6 +22,34 @@ export default function BuyerHomePage() {
         }
       }, [router]);
 
+    
+      useEffect(() => {
+        const fetchCurrentFunds = async () => {
+            try {
+                const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getFunds', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ buyerEmail: buyerEmail }),
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setFunds(data.body); // Set the funds from the response
+                } else {
+                    setError("Failed to fetch current funds.");
+                }
+            } catch (error) {
+                setError("An unexpected error occurred while fetching funds.");
+                console.error(error);
+            }
+        };
+        if(buyerEmail){
+          fetchCurrentFunds();
+        }
+    }, [buyerEmail]);
+
+
     const handleAddFunds = async () => {
       if (!buyerEmail) return;
 
