@@ -7,36 +7,62 @@ export default function AddItemPage() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
   const [setPrice, setSetPrice] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
 
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [imageURL, setImageURL] = useState('');
 
-    const handleImageUpload = async () => {
-      if (!name || !imageFile) return;
+  const obtainURL = async (file: File) => {
+    try {
+      const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/uploadImage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          body: `{"fileName":"${file.name}","fileType":"${file.type}"}`
+        })
+      });
 
-      const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/generateUploadURL?itemName=${name}');
-      const { uploadURL } = await response.json();
+      const data = await res.json();
+      console.log(JSON.parse(data.body));
+      const myURL = JSON.parse(data.body);
+      return myURL;
+    } catch (error) {
+      console.error("Error obtaining image URL:", error);
+      alert("An error occurred. Please try again.");
+      return null
+    }
+  }
+
+    const handleImageUpload = async (file: File, uploadURL: string) => {
+      if (!name || !file) return;
 
       await fetch(uploadURL, {
           method: 'PUT',
-          headers: { 'Content-Type': imageFile.type },
-          body: imageFile,
+          headers: { 'Content-Type': file.type },
+          body: file,
       });
 
-      setImageURL(uploadURL.split('?')[0]); 
+      return uploadURL.split('?')[0]; 
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const imageURLs = await Promise.all(
+      imageFiles.map(async (file) => {
+        const getImageURL = await obtainURL(file);
+        return await handleImageUpload(file, getImageURL);
+      })
+    )
+    
+
     const postBody = {
       name,
       description,
-      image,
+      image: imageURLs[0],
       setPrice,
       startDate,
       endDate,
@@ -75,11 +101,15 @@ export default function AddItemPage() {
            
             <input
                 type="file"
-                onChange={(e) => setImageFile(e.target.files ? e.target.files[0] : null)}
+                onChange={(e) => {
+                  if (e.target.files) {
+                    setImageFiles(imageFiles.concat(Array.from(e.target.files)));
+                  }
+                }}
             />
-            <button onClick={handleImageUpload}>Upload Item</button>
 
-            {imageURL && <img src={imageURL} alt={name} />}
+            {/* {imageURL && <img src={imageURL} alt={name} />} */}
+
 
           </div>
 
@@ -99,15 +129,6 @@ export default function AddItemPage() {
               className="textarea mb-4"
               required
             />
-            <input
-              type="text"
-              placeholder="Image URL"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              className="input mb-4"
-              required
-            />
-
             <input
               type="text"
               placeholder="Set Price"

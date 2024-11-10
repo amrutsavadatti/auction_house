@@ -9,7 +9,8 @@ function EditItemForm() {
 
   const name = searchParams.get("name") || "";
   const [description, setDescription] = useState(searchParams.get("description") || "");
-  const [image, setImage] = useState(searchParams.get("imageUrl") || "");
+  // const [image, setImage] = useState(searchParams.get("imageUrl") || "");
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [price, setPrice] = useState(searchParams.get("price") || "");
 
   // Format publish date to "YYYY-MM-DDTHH:MM"
@@ -26,13 +27,57 @@ function EditItemForm() {
 
   const [startDate, setStartDate] = useState(formatDateTime(searchParams.get("publishDate") || ""));
   
+
+  const obtainURL = async (file: File) => {
+    try {
+      const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/uploadImage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          body: `{"fileName":"${file.name}","fileType":"${file.type}"}`
+        })
+      });
+
+      const data = await res.json();
+      console.log(JSON.parse(data.body));
+      const myURL = JSON.parse(data.body);
+      return myURL;
+    } catch (error) {
+      console.error("Error obtaining image URL:", error);
+      alert("An error occurred. Please try again.");
+      return null
+    }
+  }
+
+    const handleImageUploadEdit = async (file: File, uploadURL: string) => {
+      if (!name || !file) return;
+
+      await fetch(uploadURL, {
+          method: 'PUT',
+          headers: { 'Content-Type': file.type },
+          body: file,
+      });
+
+      return uploadURL.split('?')[0]; 
+  };
+
+
   const handleSubmit = async (e:React.FormEvent) => {
     e.preventDefault();
+
+    const imageURLs = await Promise.all(
+      imageFiles.map(async (file) => {
+        const getImageURL = await obtainURL(file);
+        return await handleImageUploadEdit(file, getImageURL);
+      })
+    )
 
     const updatedItem = {
       name,
       description,
-      image,
+      image:imageURLs[0],
       setPrice: parseFloat(price),
       startDate,
     };
@@ -69,6 +114,14 @@ function EditItemForm() {
         <div className="card-body flex-col items-center text-center justify-between">
           <h2 className="card-title">Edit Item</h2>
           <form onSubmit={handleSubmit} className="w-full max-w-md p-4 rounded">
+              <input
+                type="file"
+                onChange={(e) => {
+                  if (e.target.files) {
+                    setImageFiles(imageFiles.concat(Array.from(e.target.files)));
+                  }
+                }}
+              />
               <label className="mb-4">Description: </label>
               <input
                 value={description}
@@ -76,14 +129,14 @@ function EditItemForm() {
                 className="textarea mb-4"
                 required
               />
-            <label>Image: </label>
+            {/*<label>Image: </label>
             <input
               type="text"
               value={image}
               onChange={(e) => setImage(e.target.value)}
               className="input mb-4"
               required
-            />
+            />*/}
             <label>Price: </label>
             <input
               type="number"
