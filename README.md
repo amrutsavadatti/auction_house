@@ -11,7 +11,7 @@
   10) Review Items (Seller)
 
 ## Landing Page URLs and Descriptions
-URL for AWS APP: **insert here
+URL for AWS APP: http://finalbucketauctionhouse.s3-website.us-east-2.amazonaws.com/
 
   1) / <br/>
     Landing page. User can click on sign in button on the top right corner. Redirects you to /home/userType
@@ -73,7 +73,10 @@ URL for AWS APP: **insert here
 - Manas Pise: Front End Work (Buyer)
 - Amrut Savadatti: Front End Work (Seller)
 - Jai Patel: Back End, Helped with Front End Work, S3 Bucket
-- Pooja Kawatkar: Back End, Helped with Front End Work
+- Pooja Kawatkar: Back End, Helped with Front End Work, Seller Images (S3/Front End)
 
 ## General Notes
 Please make sure not to refresh the live URLs, as it runs into a 404 not found/403 forbidden error. We reached out to the professor and other teams who are experiencing the same issue, but we are not sure how to go about solving it.
+
+Pooja is still trying to get past the Hydration error she discussed with Professor Heineman about in class on Nov. 7th. As a result, her commits to this repo have been less for this iteration.
+
