@@ -8,7 +8,7 @@ const LogoutButton: FC = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    router.push("/home");
+    router.push("/");
   };
 
   return (

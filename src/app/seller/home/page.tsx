@@ -11,6 +11,7 @@ interface Item {
     figureimageout: string;
     setPrice: number;
     publishDate: string;
+    status: string;
   }
   
 
@@ -30,6 +31,75 @@ export default function SellerHomePage() {
       router.push("/seller/close");
     };
 
+    const handlePublish = async (iName) => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/publishItem', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+             itemName: iName,
+             seller: localStorage.getItem("token")})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        fetchItems();
+        
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    };
+
+    const handleRemove = async (iName) => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/removeInactiveItem', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+             itemName: iName,
+             seller: localStorage.getItem("token")})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        fetchItems();
+        
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    };
+
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/reviewItems', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ seller: localStorage.getItem("token")})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+
+        const data = await response.json();
+        setItems(data.items);
+        console.log(items + " items");
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    };
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -37,30 +107,6 @@ export default function SellerHomePage() {
         } else {
           setLoading(false);
         }
-
-
-        const fetchItems = async () => {
-            try {
-              const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/reviewItems', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ seller: localStorage.getItem("token")})
-              });
-      
-              if (!response.ok) {
-                throw new Error('Failed to fetch items');
-              }
-      
-              const data = await response.json();
-              setItems(data.items);
-              console.log(items + " items");
-            } catch (error) {
-              console.error(error);
-              setError("An unexpected error occurred.");
-            }
-          };
       
           fetchItems();
 
@@ -88,9 +134,9 @@ export default function SellerHomePage() {
                       </th>
                       <th>Item Name</th>
                       <th>Price</th>
-                      <th>Seller</th>
+                      <th>Status</th>
                       <th>Listing Date</th>
-                      <th>Action</th>
+                      <th>Actions</th>
                       </tr>
                   </thead>
 
@@ -125,7 +171,7 @@ export default function SellerHomePage() {
                           <br />
                           </td>
                           <td>
-                            {localStorage.getItem("token")}
+                            {item.status}
                           <br />
                           </td>
                           <td>{item.publishDate}</td>
@@ -142,8 +188,15 @@ export default function SellerHomePage() {
                                 },
                               }}
                             >
-                              <button className="btn btn-outline btn-warning btn-xs ">edit</button>
+                              <button className="btn btn-outline btn-warning btn-xs ">Edit</button>
                             </Link>
+                          </th>
+                          <th>
+                            <button className={`btn btn-outline btn-success btn-xs ${item.status === "active" ? "btn-disabled" : ""}`} onClick = {() => handlePublish(item.name)} >Publish</button>
+                          </th>
+
+                          <th>
+                            <button className={`btn btn-outline btn-error btn-xs ${item.status === "active" ? "btn-disabled" : ""}`} onClick = {() => handleRemove(item.name)} >Remove</button>
                           </th>
                       </tr>
                       ))}
