@@ -12,6 +12,10 @@ export default function AccountSelection() {
     router.push('/buyer/signin');
   };
 
+  const handleAdminSignIn = () => {
+    router.push('/admin/signin');
+  };
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div className="card bg-neutral text-neutral-content w-96">
@@ -21,10 +25,13 @@ export default function AccountSelection() {
            <span className="text-lg">Hey Customer!</span>
          </div>
          <div>
-           <button onClick={handleBuyerSignIn} className="btn btn-accent mt-4">Buyer? Click here</button>
+           <button onClick={handleBuyerSignIn} className="btn btn-info mt-4">Buyer? Click here</button>
          </div>
          <div>
            <button onClick={handleSellerSignIn} className="btn btn-warning mt-4">Seller? Click here</button>
+         </div>
+         <div>
+           <button onClick={handleAdminSignIn} className="btn btn-success mt-4">Admin? Click here</button>
          </div>
 
         </div>

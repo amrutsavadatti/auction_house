@@ -23,11 +23,6 @@ export default function Home() {
 
     console.log(error);
 
-    const handleSort = (type:string) => {
-      setSortType(type)
-      sort();
-
-    };
     const handleSearch = async (e: FormEvent) => {
       e.preventDefault();
       try {
@@ -53,7 +48,8 @@ export default function Home() {
       }
     };
 
-    const sort = async () => {
+    const handleSort = async (e: FormEvent) => {
+      e.preventDefault();
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/sortItemsCustomer', {
           method: 'POST',
@@ -114,41 +110,7 @@ export default function Home() {
 
     return (
         <div className='flex flex-col justify-center '>
-
-            <div className='flex justify-center m-2'>
-              <form onSubmit={handleSearch}>
-                <input
-                  type="text"
-                  placeholder="Keyword"
-                  value={keyword}
-                  onChange={(e) => setKeyword(e.target.value)}
-                  className="input mb-4"
-                />
-                <input type="number"
-                  placeholder="lowerBound"
-                  onChange={(e) => setMinimum(e.target.value)}
-                  className="input mb-4"
-                  >
-                </input>
-                <input type="number"
-                  placeholder="upperBound"
-                  onChange={(e) => setMaximum(e.target.value)}
-                  className="input mb-4"
-                  >
-                </input>
-                <button type ="submit" className="btn btn-outline btn-xs "> search </button>
-              </form>
-
-              <div className="dropdown dropdown-hover">
-                <div tabIndex={0} role="button" className="btn btn-outline btn-xs m-3" style={{ minWidth: "100px" }}>sort</div>
-                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <li><a className="btn btn-outline btn-xs mt-2"onClick={() => handleSort("setPrice")}>set price</a></li>
-                  <li><a className="btn btn-outline btn-xs mt-2" onClick={() => handleSort("publishDate")}>publish date</a></li>
-                  <li><a className="btn btn-outline btn-xs mt-2" onClick={() => handleSort("expirationDate")}>expiration date</a></li>
-                </ul>
-              </div>
-              
-            </div>
+            <h1 style={{display: 'flex', justifyContent: 'center', fontWeight: 'bold', fontSize: '40px'}}>List of Active Items</h1>
 
             <div className="m-4 bg-accent-content p-4 rounded-xl">
               <div className="overflow-x-auto">
@@ -202,21 +164,7 @@ export default function Home() {
                           </td>
                           <td>{ item.publishDate }</td>
                           <th>
-                            <Link
-                              href={{
-                                pathname: `/customer/viewItem`,
-                                query: {
-                                  name: item.name,
-                                  description: item.description,
-                                  figureimageout: item.figureimageout,
-                                  price: item.setPrice,
-                                  publishDate: item.publishDate,
-                                  sellerOfItem: item.sellerOfItem
-                                },
-                              }}
-                            >
-                              <button className="btn btn-outline btn-warning btn-xs ">view item</button>
-                            </Link>
+                              <button className="btn btn-outline btn-info btn-xs " /* onClick = {() => handleFreezeItem(item.name)} */>freeze item</button>
                           </th>
                       </tr>
                       ))}
