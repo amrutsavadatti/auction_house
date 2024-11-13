@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 interface Item {
@@ -17,23 +16,22 @@ interface Item {
 export default function Home() {
     const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState(false);
     const [minimum, setMinimum] = useState("");
     const [maximum, setMaximum] = useState("");
     const [keyword, setKeyword] = useState("");
+    const [sortType, setSortType] = useState("");
 
-    //console.log(error);
+    console.log(error);
 
-    const handleSearchByKeyword = async (e: FormEvent) => {
+    const handleSearch = async (e: FormEvent) => {
       e.preventDefault();
-      console.log("inside")
       try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/searchNameDescriptionCustomer', {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/searchCustomerCombination', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ "keyword": keyword})
+          body: JSON.stringify({ "keyword" : keyword, "lowerBound": minimum, "upperBound": maximum})
         });
 
         if (!response.ok) {
@@ -50,19 +48,19 @@ export default function Home() {
       }
     };
 
-    const handlePriceByRange = async (e: FormEvent) => {
+    const handleSort = async (e: FormEvent) => {
       e.preventDefault();
       try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/searchPriceRange', {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/sortItemsCustomer', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ "lowerBound": minimum, "upperBound": maximum})
+          body: JSON.stringify({ "sorter" : sortType})
         });
 
         if (!response.ok) {
-          throw new Error('Failed to search items');
+          throw new Error('Failed to sort items');
         }
 
         const data = await response.json();
@@ -106,7 +104,7 @@ export default function Home() {
 
       }, []);
     
-      if (loading) return <p>Loading...</p>;
+
       console.log(items)
 
 
@@ -114,17 +112,14 @@ export default function Home() {
         <div className='flex flex-col justify-center '>
 
             <div className='flex justify-center m-2'>
-              <form onSubmit={handleSearchByKeyword}>
+              <form onSubmit={handleSearch}>
                 <input
                   type="text"
-                  placeholder="Search By Keyword"
+                  placeholder="Keyword"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
                   className="input mb-4"
                 />
-                <button type ="submit" className="btn btn-outline btn-warning btn-xs "> search by keyword </button>
-              </form>
-              <form onSubmit = {handlePriceByRange}>
                 <input type="number"
                   placeholder="lowerBound"
                   onChange={(e) => setMinimum(e.target.value)}
@@ -137,7 +132,17 @@ export default function Home() {
                   className="input mb-4"
                   >
                 </input>
-                <button type ="submit" className="btn btn-outline btn-warning btn-xs "> search by price </button>
+                <button type ="submit" className="btn btn-outline btn-warning btn-xs "> search </button>
+              </form>
+
+              <form onSubmit={handleSort}>
+                <button type ="submit" className="btn btn-outline btn-warning btn-xs " onClick={() => setSortType("setPrice")}> SORT BY PRICE </button>
+              </form>
+              <form onSubmit={handleSort}>
+                <button type ="submit" className="btn btn-outline btn-warning btn-xs " onClick={() => setSortType("publishDate")}> SORT BY PUBLISH DATE </button>
+              </form>
+              <form onSubmit={handleSort}>
+                <button type ="submit" className="btn btn-outline btn-warning btn-xs " onClick={() => setSortType("expirationDate")}> SORT BY EXPIRATION DATE </button>
               </form>
               
             </div>
