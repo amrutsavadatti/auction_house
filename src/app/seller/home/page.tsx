@@ -109,7 +109,6 @@ export default function SellerHomePage() {
                                     <img
                                     src={item.figureimageout}
                                     onClick={() => {console.log(item.figureimageout + "##")}}
-                                    // alt={`${item.name} image`}
                                     className="object-cover"
                                     />
                                 </div>

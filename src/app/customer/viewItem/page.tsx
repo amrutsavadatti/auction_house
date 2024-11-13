@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function ViewItem() {
@@ -8,25 +7,9 @@ export default function ViewItem() {
   const searchParams = useSearchParams();
 
   const name = searchParams.get("name") || "";
-  const [description, setDescription] = useState(searchParams.get("description") || "");
-  const [image, setImage] = useState(searchParams.get("figureimageout") || "");
-  const [price, setPrice] = useState(searchParams.get("price") || "");
-
-  // Format publish date to "YYYY-MM-DDTHH:MM"
-  const formatDateTime = (dateString:string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${year}-${month}-${day}T${hours}:${minutes}`;
-  };
-
-  const [startDate, setStartDate] = useState(formatDateTime(searchParams.get("publishDate") || ""));
-  
-
+  const description = searchParams.get("description") || "";
+  const image = searchParams.get("figureimageout") || "";
+  const price = searchParams.get("price") || "";
 
 
   const handleBack = async (e:React.FormEvent) => {
