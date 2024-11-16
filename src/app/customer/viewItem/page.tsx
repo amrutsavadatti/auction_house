@@ -1,8 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import React,{ Suspense } from "react";
 
-export default function ViewItem() {
+function ViewItemContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -19,7 +20,7 @@ export default function ViewItem() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div className="card bg-neutral text-neutral-content w-96">
         <div className="card-body flex-col items-center text-center justify-between">
             <h2 className="card-title">{name}</h2>
@@ -38,5 +39,11 @@ export default function ViewItem() {
       </div>
     </div>
   );
+  
 }
 
+export default function ViewItem() {
+  <Suspense fallback = {<div></div>}>
+    <ViewItemContent/>
+  </Suspense>
+}

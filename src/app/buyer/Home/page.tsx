@@ -49,6 +49,10 @@ export default function BuyerHomePage() {
         }
     }, [buyerEmail]);
 
+    const handleActiveBids = () => {
+      router.push('/buyer/reviewActiveBids');
+    }
+
 
     const handleAddFunds = async () => {
       if (!buyerEmail) return;
@@ -138,6 +142,14 @@ export default function BuyerHomePage() {
                   Close Account
                 </button>
                 <LogoutButton />
+            </div>
+            <div>
+              <button
+                  onClick={handleActiveBids}
+                  className="mt-4 py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200"
+                >
+                  Review Active Bids
+                </button>
             </div>
 
             {error && (

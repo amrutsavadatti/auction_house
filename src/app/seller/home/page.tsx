@@ -31,7 +31,7 @@ export default function SellerHomePage() {
       router.push("/seller/close");
     };
 
-    const handlePublish = async (iName) => {
+    const handlePublish = async (iName: string) => {
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/publishItem', {
           method: 'POST',
@@ -54,7 +54,7 @@ export default function SellerHomePage() {
       }
     };
 
-    const handleRemove = async (iName) => {
+    const handleRemove = async (iName:string) => {
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/removeInactiveItem', {
           method: 'POST',

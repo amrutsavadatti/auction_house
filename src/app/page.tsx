@@ -49,6 +49,7 @@ export default function Home() {
         console.log("First item:", items[0]);  // Log only the first item to inspect its structure
 
       } catch (error) {
+        console.log(error);
         setError("An unexpected error occurred.");
       }
     };
@@ -73,6 +74,7 @@ export default function Home() {
         console.log("First item:", items[0]);  // Log only the first item to inspect its structure
 
       } catch (error) {
+        console.log(error);
         setError("An unexpected error occurred.");
       }
     };

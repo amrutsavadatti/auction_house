@@ -1,7 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface Item {
     name: string;
@@ -16,62 +15,9 @@ interface Item {
 export default function Home() {
     const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const [minimum, setMinimum] = useState("");
-    const [maximum, setMaximum] = useState("");
-    const [keyword, setKeyword] = useState("");
-    const [sortType, setSortType] = useState("");
 
     console.log(error);
 
-    const handleSearch = async (e: FormEvent) => {
-      e.preventDefault();
-      try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/searchCustomerCombination', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ "keyword" : keyword, "lowerBound": minimum, "upperBound": maximum})
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to search items');
-        }
-
-        const data = await response.json();
-        setItems(data.items);
-        console.log("Number of items:", items.length);
-        console.log("First item:", items[0]);  // Log only the first item to inspect its structure
-
-      } catch (error) {
-        setError("An unexpected error occurred.");
-      }
-    };
-
-    const handleSort = async (e: FormEvent) => {
-      e.preventDefault();
-      try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/sortItemsCustomer', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ "sorter" : sortType})
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to sort items');
-        }
-
-        const data = await response.json();
-        setItems(data.items);
-        console.log("Number of items:", items.length);
-        console.log("First item:", items[0]);  // Log only the first item to inspect its structure
-
-      } catch (error) {
-        setError("An unexpected error occurred.");
-      }
-    };
 
     useEffect(() => {
 
