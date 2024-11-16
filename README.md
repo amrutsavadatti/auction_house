@@ -9,6 +9,21 @@
   8) Add Item (Seller)
   9) Edit Item (Seller)
   10) Review Items (Seller)
+  11) Remove inactive item (Seller)
+  12) Publish Item (Seller)
+  13) Fulfill Item (Seller)
+  14) Archive Item (Seller)
+  15) Search Items (Customer)
+  16) View Item (Customer)
+  17) Sort items (Customer)
+  18) View Item (Buyer)
+  19) Place Bid (Buyer)
+  20) Review Active Bids (Buyer)
+  21) Review Purchases (Buyer)
+  22) Search recently sold (Buyer)
+  23) Sort recently sold (Buyer)
+  24) Unfreeze Item (Admin)
+  25) Freeze Item (Admin)
 
 ## Landing Page URLs and Descriptions
 URL for AWS APP: http://finalbucketauctionhouse.s3-website.us-east-2.amazonaws.com/
