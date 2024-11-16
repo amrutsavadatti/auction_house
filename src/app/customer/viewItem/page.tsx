@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import React,{ Suspense } from "react";
+import React from "react";
 
-function ViewItemContent() {
+export default function ViewItem() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -42,8 +42,8 @@ function ViewItemContent() {
   
 }
 
-export default function ViewItem() {
+/*export default function ViewItem() {
   <Suspense fallback = {<div></div>}>
     <ViewItemContent/>
   </Suspense>
-}
+}*/
