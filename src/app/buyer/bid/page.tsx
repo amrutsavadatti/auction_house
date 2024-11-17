@@ -35,15 +35,20 @@ export default function ViewItem() {
               body: JSON.stringify({
                  "itemName" : name,
                  "buyer": localStorage.getItem('token'),
-                 "value": amountToAdd.toString,
+                 "value": amountToAdd,
                  "dateMade": date,
                 })
             });
     
             if (response.ok) {
-                const data = await response.json();
+              const data = await response.json();
+              if (data.statusCode === 200) {
+                console.log(data);
                 alert("Bid placed successfully");
                 router.push("/buyer/reviewActiveBids");
+              } else {
+                alert(`${ data.error }`)
+              }
             }
         } else {
             alert("Bid higher that current bid")

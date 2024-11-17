@@ -49,12 +49,10 @@ export default function Home() {
       }, []);
     
 
-      //console.log(items)
-
 
     return (
         <div className='flex flex-col justify-center '>
-            <h1 style={{display: 'flex', justifyContent: 'center', fontWeight: 'bold', fontSize: '40px'}}>List of Active Bids</h1>
+            <h1 style={{display: 'flex', justifyContent: 'center', fontWeight: 'bold', fontSize: '40px'}}>My Bids</h1>
 
             <div className="m-4 bg-accent-content p-4 rounded-xl">
               <div className="overflow-x-auto">
