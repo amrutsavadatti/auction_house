@@ -12,7 +12,13 @@ export default function ViewItem() {
   const description = searchParams.get("description") || "";
   const image = searchParams.get("figureimageout") || "";
   const price = searchParams.get("price") || "";
-  const date = searchParams.get("publishDate") || "";
+
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
 
   const [amountToAdd, setAmountToAdd] = useState<number>(0);
 
@@ -36,7 +42,7 @@ export default function ViewItem() {
                  "itemName" : name,
                  "buyer": localStorage.getItem('token'),
                  "value": amountToAdd,
-                 "dateMade": date,
+                 "dateMade": `${year}-${month}-${day}T${hours}:${minutes}`,
                 })
             });
     
