@@ -18,8 +18,8 @@ interface Item {
 export default function SellerHomePage() {
     const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const router = useRouter();
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
     console.log(error);
 

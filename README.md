@@ -40,7 +40,7 @@ URL for AWS APP: http://finalbucketauctionhouse.s3-website.us-east-2.amazonaws.c
   4) /buyer/signup <br/>
     Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/buyer/signin).
     
-  5) /buyer/Home <br/>
+  5) /buyer/home <br/>
      Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/buyer/signin).
     
   6) /seller/signin <br/>

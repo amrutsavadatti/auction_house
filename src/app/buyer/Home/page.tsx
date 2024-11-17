@@ -1,162 +1,253 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import LogoutButton from "../../components/LogoutButton";
 
-export default function BuyerHomePage() {
-    const [buyerEmail, setBuyerEmail] = useState<string | null>(null);
-    const [funds, setFunds] = useState<string | null>(null); // Set initial funds to 0
-    const [amountToAdd, setAmountToAdd] = useState<number>(0);
+interface Item {
+    name: string;
+    description: string;
+    figureimageout: string;
+    setPrice: number;
+    publishDate: string;
+    sellerOfItem: string
+  }
+  
+
+export default function Home() {
+    const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [minimum, setMinimum] = useState("");
+    const [maximum, setMaximum] = useState("");
+    const [keyword, setKeyword] = useState("");
+    const [sortType, setSortType] = useState("");
     const router = useRouter();
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          router.push("/buyer/signin");
-        } else {
-          setBuyerEmail(token);
-          setLoading(false);
-        }
-      }, [router]);
+    console.log(error);
 
-    
-      useEffect(() => {
-        const fetchCurrentFunds = async () => {
-            try {
-                const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getFunds', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ buyerEmail: buyerEmail }),
-                });
-                if (response.ok) {
-                    const data = await response.json();
-                    setFunds(data.body); // Set the funds from the response
-                } else {
-                    setError("Failed to fetch current funds.");
-                }
-            } catch (error) {
-                setError("An unexpected error occurred while fetching funds.");
-                console.error(error);
-            }
-        };
-        if(buyerEmail){
-          fetchCurrentFunds();
-        }
-    }, [buyerEmail]);
+    const handleSort = (type:string) => {
+      setSortType(type)
+      sort();
 
-    const handleActiveBids = () => {
-      router.push('/buyer/reviewActiveBids');
-    }
-
-
-    const handleAddFunds = async () => {
-      if (!buyerEmail) return;
-
-      try {
-        const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addFunds', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ buyerEmail: buyerEmail, fundsAmountAdd: amountToAdd }),
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log(data.body);
-          setFunds(data.body); // Update funds after adding successfully
-          alert("Funds added successfully.");
-          setAmountToAdd(0); // Reset input after adding funds
-        } else {
-          setError("Failed to add funds.");
-        }
-      } catch (error) {
-        console.error(error);
-        setError("An unexpected error occurred while adding funds.");
-      }
     };
-
-    const handleCloseAccount = async () => {
+    const handleSearch = async (e: FormEvent) => {
+      e.preventDefault();
       try {
-        const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/closeBuyer', {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/searchCustomerCombination', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email: buyerEmail })
+          body: JSON.stringify({ "keyword" : keyword, "lowerBound": minimum, "upperBound": maximum})
         });
 
         if (!response.ok) {
-          throw new Error("Failed to close account");
+          throw new Error('Failed to search items');
         }
 
         const data = await response.json();
-        localStorage.removeItem("token");
-        alert(data.message || "Your account has been deactivated.");
-        router.push("/buyer/signin"); // Redirect to sign-in page after account deactivation
+        setItems(data.items);
+        console.log("Number of items:", items.length);
+        console.log("First item:", items[0]);  // Log only the first item to inspect its structure
+
       } catch (error) {
-        console.error(error);
+        console.log(error);
         setError("An unexpected error occurred.");
       }
     };
 
-    if (loading) return <p>Loading...</p>;
+    const handleFunds = () => {
+      router.push("/buyer/funds");
+    };
+
+    const handleActiveBids = () => {
+      router.push("/buyer/reviewActiveBids");
+    };
+
+    const sort = async () => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/sortItemsCustomer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ "sorter" : sortType})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to sort items');
+        }
+
+        const data = await response.json();
+        setItems(data.items);
+        console.log("Number of items:", items.length);
+        console.log("First item:", items[0]);  // Log only the first item to inspect its structure
+
+      } catch (error) {
+        console.log(error);
+        setError("An unexpected error occurred.");
+      }
+    };
+
+    useEffect(() => {
+
+        const fetchItems = async () => {
+            try {
+              const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getActiveItemsCustomer', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ "placeholder": "placeholder"})
+              });
+      
+              if (!response.ok) {
+                throw new Error('Failed to fetch items');
+              }
+      
+              const data = await response.json();
+              setItems(data.items);
+              console.log("Number of items:", items.length);
+              console.log("First item:", items[0]);  // Log only the first item to inspect its structure
+
+            } catch (error) {
+              console.error(error);
+              setError("An unexpected error occurred.");
+            }
+          };
+      
+          fetchItems();
+
+      }, []);
+    
+
+      console.log(items)
+
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white'>
-            <div className="text-center mb-4">
-                <h2 className="text-2xl font-bold">Buyer Home Page</h2>
-                <p className="text-lg">Hey {buyerEmail}!</p>
+        <div className='flex flex-col justify-center '>
+
+          <div className='flex justify-between'>
+            <div className='flex justify-center m-2'>
+              <button onClick={handleActiveBids} className="btn btn-success">Active Bids</button>
             </div>
 
-            <div className="text-center mb-4">
-                <p className="text-xl font-semibold">Available Funds: {funds !== null ? `$${funds}` : "0"}</p>
+            <div className='flex justify-center m-2'>
+              <button onClick={handleFunds} className="btn btn-warning">Add Funds</button>
             </div>
 
-            <div className="flex items-center space-x-4 mb-4">
+          </div>
+
+
+            <div className='flex justify-center m-2'>
+              <form onSubmit={handleSearch}>
                 <input
-                  type="number"
-                  value={amountToAdd}
-                  onChange={(e) => setAmountToAdd(Number(e.target.value))}
-                  placeholder="Enter amount to add"
-                  className="px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
+                  type="text"
+                  placeholder="Keyword"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
+                  className="input mb-4"
                 />
-                <button
-                  onClick={handleAddFunds}
-                  className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 transition duration-200"
-                >
-                  Add Funds
-                </button>
-            </div>
+                <input type="number"
+                  placeholder="lowerBound"
+                  onChange={(e) => setMinimum(e.target.value)}
+                  className="input mb-4"
+                  >
+                </input>
+                <input type="number"
+                  placeholder="upperBound"
+                  onChange={(e) => setMaximum(e.target.value)}
+                  className="input mb-4"
+                  >
+                </input>
+                <button type ="submit" className="btn btn-outline btn-xs "> search </button>
+              </form>
 
-            <div className="flex space-x-4">
-                <button
-                  onClick={handleCloseAccount}
-                  className="py-2 px-4 bg-red-600 text-white rounded hover:bg-red-700 transition duration-200"
-                >
-                  Close Account
-                </button>
-                <LogoutButton />
-            </div>
-            <div>
-              <button
-                  onClick={handleActiveBids}
-                  className="mt-4 py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200"
-                >
-                  Review Active Bids
-                </button>
-            </div>
-
-            {error && (
-              <div className="mt-4 p-4 text-red-400 bg-gray-700 rounded">
-                {error}
+              <div className="dropdown dropdown-hover">
+                <div tabIndex={0} role="button" className="btn btn-outline btn-xs m-3" style={{ minWidth: "100px" }}>sort</div>
+                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                  <li><a className="btn btn-outline btn-xs mt-2"onClick={() => handleSort("setPrice")}>set price</a></li>
+                  <li><a className="btn btn-outline btn-xs mt-2" onClick={() => handleSort("publishDate")}>publish date</a></li>
+                  <li><a className="btn btn-outline btn-xs mt-2" onClick={() => handleSort("expirationDate")}>expiration date</a></li>
+                </ul>
               </div>
-            )}
+              
+            </div>
+
+            <div className="m-4 bg-accent-content p-4 rounded-xl">
+              <div className="overflow-x-auto">
+                  <table className="table w-full">
+                  <thead>
+                      <tr>
+                      <th>
+                          <label>
+                          </label>
+                      </th>
+                      <th>Item Name</th>
+                      <th>Price</th>
+                      <th>Seller</th>
+                      <th>Listing Date</th>
+                      <th>Action</th>
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                      {items.map((item, index) => (
+                      <tr key={index} className="border-b border-gray-700">
+                          <th>
+                          <label>
+                              <h2>{index + 1}</h2>
+                          </label>
+                          </th>
+                          <td>
+                          <div className="flex items-center gap-3">
+                            <div className="avatar">
+                                <div className="mask mask-squircle h-12 w-12">
+                                    <img
+                                    src={item.figureimageout}
+                                    onClick={() => {console.log(item.figureimageout + "##")}}
+                                    className="object-cover"
+                                    />
+                                </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">{item.name}</div>
+                              <div className="text-sm opacity-50">{item.description}</div>
+                              </div>
+                          </div>
+                          </td>
+                          <td>
+                            {"$ "+item.setPrice}
+                          <br />
+                          </td>
+                          <td>
+                            { item.sellerOfItem }
+                          <br />
+                          </td>
+                          <td>{ item.publishDate }</td>
+                          <th>
+                            <Link
+                              href={{
+                                pathname: `/buyer/bid`,
+                                query: {
+                                  name: item.name,
+                                  description: item.description,
+                                  figureimageout: item.figureimageout,
+                                  price: item.setPrice,
+                                  publishDate: item.publishDate,
+                                  sellerOfItem: item.sellerOfItem
+                                },
+                              }}
+                            >
+                              <button className="btn btn-outline btn-warning btn-xs ">view item</button>
+                            </Link>
+                          </th>
+                      </tr>
+                      ))}
+                  </tbody>
+                  </table>
+              </div>
+            </div>
         </div>
     );
 }

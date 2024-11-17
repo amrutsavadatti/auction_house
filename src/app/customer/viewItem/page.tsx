@@ -41,9 +41,3 @@ export default function ViewItem() {
   );
   
 }
-
-/*export default function ViewItem() {
-  <Suspense fallback = {<div></div>}>
-    <ViewItemContent/>
-  </Suspense>
-}*/

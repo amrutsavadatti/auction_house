@@ -46,7 +46,7 @@ export default function Home() {
         const data = await response.json();
         setItems(data.items);
         console.log("Number of items:", items.length);
-        console.log("First item:", items[0]);  // Log only the first item to inspect its structure
+        console.log("First item:", items[0]);
 
       } catch (error) {
         console.log(error);
