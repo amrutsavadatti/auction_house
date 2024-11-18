@@ -17,9 +17,10 @@ interface Item {
 
 export default function SellerHomePage() {
     const [items, setItems] = useState<Item[]>([]);
+    const [unpublishableItems, setUnpublishableItems] = useState<string[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState(true);
     const router = useRouter();
+    const [loading, setLoading] = useState(true);
 
     console.log(error);
 
@@ -47,6 +48,7 @@ export default function SellerHomePage() {
           throw new Error('Failed to fetch items');
         }
         fetchItems();
+        findUnpublish();
         
       } catch (error) {
         console.error(error);
@@ -68,6 +70,65 @@ export default function SellerHomePage() {
 
         if (!response.ok) {
           throw new Error('Failed to fetch items');
+        }
+        fetchItems();
+        findUnpublish();
+        
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    };
+
+    const findUnpublish = async () => {
+      try {
+        const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getUnpublishableItems', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({})
+        });
+    
+        if (!response.ok) {
+          throw new Error('Failed to fetch unpublishable items');
+        }
+        
+    
+        const data = await response.json();
+        console.log(data);
+        setUnpublishableItems(data.unpublishable.map(item => item.name));
+        console.log(unpublishableItems.includes("nobids"));
+        console.log(unpublishableItems.includes("active2"));
+        //console.log(unpublishItems);
+        //setUnpublishableItems(unpublishItems);
+        console.log("Unpublishable items: ", unpublishableItems);
+
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+        setUnpublishableItems([]);
+      }
+    };
+
+    const handleUnpublishItem =  async(iName:string) => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/unpublishItem', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            itemName: iName,
+            seller: localStorage.getItem("token")
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch unpublishable items');
+        }
+        else{
+          findUnpublish();
         }
         fetchItems();
         
@@ -109,6 +170,7 @@ export default function SellerHomePage() {
         }
       
           fetchItems();
+          findUnpublish();
 
       }, [router]);
     
@@ -196,6 +258,13 @@ export default function SellerHomePage() {
 
                           <th>
                             <button className={`btn btn-outline btn-error btn-xs ${item.status === "active" ? "btn-disabled" : ""}`} onClick = {() => handleRemove(item.name)} >Remove</button>
+                          </th>
+                          <th>
+                          <button 
+                            className={`btn btn-outline btn-success btn-xs ${!unpublishableItems.includes(item.name) ? "btn-disabled" : ""}`}
+                            onClick={() => handleUnpublishItem(item.name)}>
+                            Unpublish
+                          </button>
                           </th>
                       </tr>
                       ))}

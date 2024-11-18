@@ -10,7 +10,8 @@ interface Item {
     figureimageout: string;
     setPrice: number;
     publishDate: string;
-    sellerOfItem: string
+    sellerOfItem: string;
+    highestBid: number
   }
   
 
@@ -185,6 +186,7 @@ export default function Home() {
                       </th>
                       <th>Item Name</th>
                       <th>Price</th>
+                      <th>Current Highest Bid</th>
                       <th>Seller</th>
                       <th>Listing Date</th>
                       <th>Action</th>
@@ -218,6 +220,10 @@ export default function Home() {
                           </td>
                           <td>
                             {"$ "+item.setPrice}
+                          <br />
+                          </td>
+                          <td>
+                            {"$ " + item.highestBid}
                           <br />
                           </td>
                           <td>
