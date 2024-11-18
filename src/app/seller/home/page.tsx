@@ -138,6 +138,30 @@ export default function SellerHomePage() {
       }
     };
 
+    const handleArchive = async (iName:string) => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/archiveItem', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ itemName: iName,seller: localStorage.getItem("token")})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch unpublishable items');
+        }
+        else{
+          findUnpublish();
+        }
+        fetchItems();
+        
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    }
+
     const fetchItems = async () => {
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/reviewItems', {
@@ -253,11 +277,11 @@ export default function SellerHomePage() {
                             </Link>
                           </th>
                           <th>
-                            <button className={`btn btn-outline btn-success btn-xs ${item.status === "active" ? "btn-disabled" : ""}`} onClick = {() => handlePublish(item.name)} >Publish</button>
+                            <button className={`btn btn-outline btn-success btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`} onClick = {() => handlePublish(item.name)} >Publish</button>
                           </th>
 
                           <th>
-                            <button className={`btn btn-outline btn-error btn-xs ${item.status === "active" ? "btn-disabled" : ""}`} onClick = {() => handleRemove(item.name)} >Remove</button>
+                            <button className={`btn btn-outline btn-error btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`} onClick = {() => handleRemove(item.name)} >Remove</button>
                           </th>
                           <th>
                           <button 
@@ -265,6 +289,9 @@ export default function SellerHomePage() {
                             onClick={() => handleUnpublishItem(item.name)}>
                             Unpublish
                           </button>
+                          </th>
+                          <th>
+                            <button className={`btn btn-outline btn-error btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`}  onClick = {() => handleArchive(item.name)} >Archive</button>
                           </th>
                       </tr>
                       ))}
