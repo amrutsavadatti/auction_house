@@ -13,19 +13,6 @@ function EditItemForm() {
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [price, setPrice] = useState(searchParams.get("price") || "");
 
-  // Format publish date to "YYYY-MM-DDTHH:MM"
-  const formatDateTime = (dateString:string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${year}-${month}-${day}T${hours}:${minutes}`;
-  };
-
-  const [startDate, setStartDate] = useState(formatDateTime(searchParams.get("publishDate") || ""));
   
 
   const obtainURL = async (file: File) => {
@@ -78,8 +65,7 @@ function EditItemForm() {
       name,
       description,
       image:imageURLs[0],
-      setPrice: parseFloat(price),
-      startDate,
+      setPrice: parseFloat(price)
     };
 
     console.log(updatedItem)
@@ -142,14 +128,6 @@ function EditItemForm() {
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              className="input mb-4"
-              required
-            />
-            <label>Publish Date: </label>
-            <input
-              type="datetime-local"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
               className="input mb-4"
               required
             />

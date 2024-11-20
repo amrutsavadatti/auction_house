@@ -10,7 +10,7 @@ interface Item {
     description: string;
     figureimageout: string;
     setPrice: number;
-    publishDate: string;
+    highestBid: number;
     status: string;
   }
   
@@ -32,28 +32,8 @@ export default function SellerHomePage() {
       router.push("/seller/close");
     };
 
-    const handlePublish = async (iName: string) => {
-      try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/publishItem', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-             itemName: iName,
-             seller: localStorage.getItem("token")})
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch items');
-        }
-        fetchItems();
-        findUnpublish();
-        
-      } catch (error) {
-        console.error(error);
-        setError("An unexpected error occurred.");
-      }
+    const handlePublish = () => {
+      router.push("/seller/publishItem");
     };
 
     const handleRemove = async (iName:string) => {
@@ -221,7 +201,6 @@ export default function SellerHomePage() {
                       <th>Item Name</th>
                       <th>Price</th>
                       <th>Status</th>
-                      <th>Listing Date</th>
                       <th>Actions</th>
                       </tr>
                   </thead>
@@ -259,7 +238,6 @@ export default function SellerHomePage() {
                             {item.status}
                           <br />
                           </td>
-                          <td>{item.publishDate}</td>
                           <th>
                             <Link
                               href={{
@@ -269,15 +247,23 @@ export default function SellerHomePage() {
                                   description: item.description,
                                   imageUrl: item.figureimageout,
                                   price: item.setPrice,
-                                  publishDate: item.publishDate,
                                 },
                               }}
                             >
-                              <button className="btn btn-outline btn-warning btn-xs ">Edit</button>
+                              <button className={`btn btn-outline btn-warning btn-xs ${item.status === "active" || item.status === "archived"? "btn-disabled" : ""}`}>Edit</button>
                             </Link>
                           </th>
                           <th>
-                            <button className={`btn btn-outline btn-success btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`} onClick = {() => handlePublish(item.name)} >Publish</button>
+                          <Link
+                              href={{
+                                pathname: `/seller/publishItem`,
+                                query: {
+                                  name: item.name
+                                },
+                              }}
+                            >
+                              <button className={`btn btn-outline btn-success btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`} onClick = {() => handlePublish()} >Publish</button>
+                          </Link>
                           </th>
 
                           <th>

@@ -137,22 +137,6 @@ export default function AddItemPage() {
               className="input mb-4"
               required
             />
-            <input
-              type="datetime-local"
-              placeholder="Start Date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              className="input mb-4"
-              required
-            />
-            <input
-              type="datetime-local"
-              placeholder="End Date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              className="input mb-4"
-              required
-            />
             <button type="submit" className="btn btn-accent w-full">
               Submit
             </button>
