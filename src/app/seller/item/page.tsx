@@ -8,8 +8,8 @@ export default function AddItemPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [setPrice, setSetPrice] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const startDate = useState("");
+  const endDate = useState("");
   const [imageFiles, setImageFiles] = useState<File[]>([]);
 
 
@@ -107,10 +107,6 @@ export default function AddItemPage() {
                   }
                 }}
             />
-
-            {/* {imageURL && <img src={imageURL} alt={name} />} */}
-
-
           </div>
 
           <form onSubmit={handleSubmit} className="w-full max-w-md p-4 rounded">

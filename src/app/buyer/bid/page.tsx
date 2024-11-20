@@ -96,9 +96,6 @@ export default function ViewItem() {
             <button type="submit" className="btn btn-success w-full rounded-full">Place Bid</button>
           </form>
 
-
-
-
         <button onClick={handleBack} className="btn btn-primary w-full	">
             Back
         </button>

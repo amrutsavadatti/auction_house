@@ -1,5 +1,3 @@
-/* name seller publish date end date */
-
 "use client";
 
 import { useState } from "react";

@@ -9,7 +9,6 @@ function EditItemForm() {
 
   const name = searchParams.get("name") || "";
   const [description, setDescription] = useState(searchParams.get("description") || "");
-  // const [image, setImage] = useState(searchParams.get("imageUrl") || "");
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [price, setPrice] = useState(searchParams.get("price") || "");
 
@@ -115,14 +114,6 @@ function EditItemForm() {
                 className="textarea mb-4"
                 required
               />
-            {/*<label>Image: </label>
-            <input
-              type="text"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              className="input mb-4"
-              required
-            />*/}
             <label>Price: </label>
             <input
               type="number"
