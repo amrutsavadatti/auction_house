@@ -91,6 +91,24 @@ export default function Home() {
     };
 
     useEffect(() => {
+      const checkforCompletedItem = async () => {
+        try {
+          const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/completion', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({})
+          });
+  
+          if (!response.ok) {
+            throw new Error('Failed to check for completed items');
+          }
+        } catch (error) {
+          console.error(error);
+          setError("An unexpected error occurred.");
+        }
+      };
 
         const fetchItems = async () => {
             try {
@@ -116,6 +134,8 @@ export default function Home() {
               setError("An unexpected error occurred.");
             }
           };
+
+          checkforCompletedItem();
       
           fetchItems();
 

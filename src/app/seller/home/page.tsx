@@ -192,6 +192,25 @@ export default function SellerHomePage() {
       }
     };
 
+    const checkforCompletedItem = async () => {
+      try {
+        const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/completion', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to check for completed items');
+        }
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    };
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -200,6 +219,7 @@ export default function SellerHomePage() {
           setLoading(false);
         }
       
+          checkforCompletedItem();
           fetchItems();
           findUnpublish();
           getSellerFunds(token);
@@ -278,7 +298,7 @@ export default function SellerHomePage() {
                                 },
                               }}
                             >
-                              <button className={`btn btn-outline btn-warning btn-xs ${item.status === "active" || item.status === "archived"? "btn-disabled" : ""}`}>Edit</button>
+                              <button className={`btn btn-outline btn-warning btn-xs ${item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed"? "btn-disabled" : ""}`}>Edit</button>
                             </Link>
                           </th>
                           <th>
