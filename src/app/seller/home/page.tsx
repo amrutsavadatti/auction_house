@@ -21,6 +21,7 @@ export default function SellerHomePage() {
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
     const [loading, setLoading] = useState(true);
+    const [funds, setFunds] = useState("")
 
     console.log(error);
 
@@ -142,6 +143,32 @@ export default function SellerHomePage() {
       }
     }
 
+    const getSellerFunds = async (seller:String) => {
+      try {
+        const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getFundsSeller', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ sellerEmail: seller})
+        });
+    
+        if (!response.ok) {
+          throw new Error('Failed to fetch seller funds');
+        }
+        
+    
+        const data = await response.json();
+        console.log(data);
+        setFunds(data.funds)
+        console.log(data.funds);
+
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    };
+
     const fetchItems = async () => {
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/reviewItems', {
@@ -175,6 +202,7 @@ export default function SellerHomePage() {
       
           fetchItems();
           findUnpublish();
+          getSellerFunds(token);
 
       }, [router]);
     
@@ -189,14 +217,14 @@ export default function SellerHomePage() {
               <button onClick={handleAddItem} className="btn btn-primary">Add Items</button>
             </div>
 
+            <h3><b>My Funds: {funds}</b></h3>
+
             <div className="m-4 bg-accent-content p-4 rounded-xl">
               <div className="overflow-x-auto">
                   <table className="table w-full">
                   <thead>
                       <tr>
                       <th>
-                          <label>
-                          </label>
                       </th>
                       <th>Item Name</th>
                       <th>Price</th>
