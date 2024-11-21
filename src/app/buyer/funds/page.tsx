@@ -93,12 +93,19 @@ export default function BuyerHomePage() {
 
         if (!response.ok) {
           throw new Error("Failed to close account");
+        } else {
+          const data = await response.json();
+          if (data.statusCode === 200) {
+            localStorage.removeItem("token");
+            alert(data.message || "Your account has been deactivated.");
+            router.push("/buyer/signin"); // Redirect to sign-in page after account deactivation
+          } else {
+            alert(data.message)
+            router.push('/buyer/home')
+          }
         }
 
-        const data = await response.json();
-        localStorage.removeItem("token");
-        alert(data.message || "Your account has been deactivated.");
-        router.push("/buyer/signin"); // Redirect to sign-in page after account deactivation
+        
       } catch (error) {
         console.error(error);
         setError("An unexpected error occurred.");

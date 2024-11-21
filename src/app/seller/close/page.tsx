@@ -20,8 +20,14 @@ export default function CloseAccountPage() {
         });
 
         if (response.ok) {
-            localStorage.removeItem("token");
-            router.push('/home');
+
+            let data = await response.json()
+            if(data.statusCode === 200){
+                localStorage.removeItem("token");
+                router.push('/');
+            }
+            alert(data.message)
+            router.push('/seller/home')
         } else {
             const data = await response.json();
             setErrorMessage(data.message || 'Failed to close account.');
