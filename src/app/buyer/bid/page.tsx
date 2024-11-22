@@ -39,7 +39,7 @@ export default function ViewItem() {
   const handleBid = async (e:React.FormEvent) => {
     e.preventDefault();
       try {
-        if (amountToAdd > parseInt(price, 10)) {
+        if (amountToAdd >= parseInt(price, 10)) {
             const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/placeBid', {
               method: 'POST',
               headers: {
