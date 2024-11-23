@@ -78,7 +78,7 @@ export default function SellerHomePage() {
     
         const data = await response.json();
         console.log(data);
-        setUnpublishableItems(data.unpublishable.map(item => item.name));
+        setUnpublishableItems(data.unpublishable.map((item : {name:string;}) => item.name));
         console.log(unpublishableItems.includes("nobids"));
         console.log(unpublishableItems.includes("active2"));
         //console.log(unpublishItems);
@@ -143,7 +143,7 @@ export default function SellerHomePage() {
       }
     }
 
-    const getSellerFunds = async (seller:String) => {
+    const getSellerFunds = async (seller:string) => {
       try {
         const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getFundsSeller', {
           method: 'POST',
@@ -217,12 +217,12 @@ export default function SellerHomePage() {
           router.push("/seller/signin");
         } else {
           setLoading(false);
+          getSellerFunds(token);
         }
       
           checkforCompletedItem();
           fetchItems();
           findUnpublish();
-          getSellerFunds(token);
 
       }, [router]);
     

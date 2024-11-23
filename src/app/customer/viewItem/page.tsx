@@ -2,8 +2,9 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
+import { Suspense } from "react";
 
-export default function ViewItem() {
+function ViewItem() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -40,4 +41,14 @@ export default function ViewItem() {
     </div>
   );
   
+}
+
+
+
+export default function ViewItemPage() {
+  return (
+    <Suspense fallback={<p>Loading item data...</p>}>
+      <ViewItem />
+    </Suspense>
+  );
 }

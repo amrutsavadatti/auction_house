@@ -3,8 +3,10 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import React from "react";
+import { Suspense } from "react";
 
-export default function ViewItem() {
+
+function ViewItem() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -90,7 +92,7 @@ export default function ViewItem() {
               const data = await response.json();
               setBids(data.body);
             } catch (error) {
-              console.error(this.error);
+              console.error(error);
             }
           };
       
@@ -193,3 +195,13 @@ export default function ViewItem() {
   );
   
 }
+
+
+export default function ViewItemPage() {
+  return (
+    <Suspense fallback={<p>Loading item data...</p>}>
+      <ViewItem />
+    </Suspense>
+  );
+}
+

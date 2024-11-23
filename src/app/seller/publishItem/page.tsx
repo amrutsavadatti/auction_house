@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function PublishItem() {
+function PublishItem() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const itemName = searchParams.get("name") || "";
@@ -77,5 +78,15 @@ export default function PublishItem() {
         </div>
       </div>
     </div>
+  );
+}
+
+
+
+export default function PublishItemPage() {
+  return (
+    <Suspense fallback={<p>Loading item data...</p>}>
+      <PublishItem />
+    </Suspense>
   );
 }

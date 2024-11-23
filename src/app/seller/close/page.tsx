@@ -21,7 +21,7 @@ export default function CloseAccountPage() {
 
         if (response.ok) {
 
-            let data = await response.json()
+            const data = await response.json()
             if(data.statusCode === 200){
                 localStorage.removeItem("token");
                 router.push('/');
