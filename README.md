@@ -26,7 +26,7 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
   1) / <br/>
     Landing page. User is in customer mode and can view all active, published items (can view its set price, highest bid, seller name, published date). The customer has the option to search based off of a keyword or buy putting a price filter. They also can sort the items based on price, publish date, and expiration date.For every item, the user has the option to click "view item", redirecting you to /customer/viewItem. User can click on sign in button on the top right corner. Redirects you to /home/userType
 
-  2) /customer/viewItem
+  2) /customer/viewItem <br/>
      Page that provides the customer an item's image, description, and its set price. Has the option to go back to customer home page.
     
   3) /home/userType <br/>
@@ -41,13 +41,13 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
   6) /buyer/home <br/>
      Home page for the buyer. Similar to the landing page, the buyer is able to see all the active and published items. On the page, the buyer has the option to click "view item", rerouting to the bid page (/buyer/bid). The buyer can also click "active bids", rerouting to /buyer/reviewActiveBids. Finally, the buyer can click "Add Funds", rerouting to /buyer/funds.
 
-  7) /buyer/bid
+  7) /buyer/bid <br/>
     Page for the buyer to view information about a specific item and to place a bid. They can also view all the previous bids made for that item. Buyer can click "place bid", should they have enough funds, rerouting to the /buyer/home page.
 
-  8) /buyer/reviewActiveBids
+  8) /buyer/reviewActiveBids <br/>
     Page for Buyer to review all active bids they have made. Shows a table with information of the item name and the bid value.
 
-  9) /buyer/funds
+  9) /buyer/funds <br/>
     Page for buyer to view their total funds. They have the option to add funds by entering amount to add and clicking "add funds" button. The "logout" button, when clicked, reroutes to /, the general home page. "Close Account" button, when clicked, removes the account.
     
   10) /seller/signin <br/>
@@ -64,9 +64,6 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
     
   14) /seller/editItem <br/>
     This page is routed when the seller clicks "edit" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the /seller/home page.
-
-  15) 
-  16) 
      
 
 
