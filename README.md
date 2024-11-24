@@ -97,7 +97,7 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
 - Amrut Savadatti: Front End Work (Seller)
 - Jai Patel: Back End, Helped with Front End Work, S3 Bucket
 - Pooja Kawatkar: Back End, Helped with Front End Work, Seller Images (S3/Front End)
-- 
+
 ## Iteration 2 Work Distribution
 - Manas Pise: Back End Work
 - Amrut Savadatti: Front End Work
