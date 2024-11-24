@@ -24,37 +24,40 @@
 URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/seller/home
 
   1) / <br/>
-    Landing page. User can click on sign in button on the top right corner. Redirects you to /home/userType
+    Landing page. User is in customer mode and can view all active, published items (can view its set price, highest bid, seller name, published date) For every item, the user has the option to click "view item", redirecting you to /customer/viewItem. User can click on sign in button on the top right corner. Redirects you to /home/userType
+
+  2) /customer/viewItem
+     Page that provides the customer an item's image, description, and its set price. Has the option to go back to customer home page.
     
-  2) /home/userType <br/>
+  3) /home/userType <br/>
     Page that gives two buttons to choose from: one to continue if user is a buyer and another to continue if user is a seller. If user clicks buyer: redirects to /buyer/signin. If user clicks seller: redirects to /seller/signin.
     
-  3) /buyer/signin <br/>
+  4) /buyer/signin <br/>
     Sign-In page for Buyer that allows a buyer to sign in using an existing account or create a new account. If user clicks on "create account": redirects to /buyer/signup.
     
-  4) /buyer/signup <br/>
+  5) /buyer/signup <br/>
     Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/buyer/signin).
     
-  5) /buyer/home <br/>
+  6) /buyer/home <br/>
      Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/buyer/signin).
     
-  6) /seller/signin <br/>
+  7) /seller/signin <br/>
     Sign-In page for seller that allows a seller to sign in using an existing account or create a new account. If user clicks on "create account": redirects to /seller/signup 
     
-  7) /seller/signup <br/>
+  8) /seller/signup <br/>
     Sign Up page for seller that allows a seller to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/seller/signin). 
     
-  8) /seller/home <br/>
-    On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. 
+  9) /seller/home <br/>
+    On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. If the item is inactive, the seller has the option to remove the item altogether or archive it.
     
-  9) /seller/item <br/>
+  10) /seller/item <br/>
     This page allows the seller to enter all fields to add a new item. The seller can see the added item on the seller home page. 
     
-  10) /seller/editItem <br/>
+  11) /seller/editItem <br/>
     This page is routed when the seller clicks "edit" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the /seller/home page.
 
-  11) 
   12) 
+  13) 
      
 
 
