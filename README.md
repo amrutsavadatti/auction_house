@@ -12,19 +12,19 @@
   11) Remove inactive item (Seller)
   12) Publish Item (Seller)
   13) Unpublish Item (Seller)
-  14) Search Items (Customer)
-  15) View Item (Customer)
-  16) Sort items (Customer)
-  17) View Item (Buyer)
-  18) Place Bid (Buyer)
-  19) Review Active Bids (Buyer)
-  20) Review Purchases (Buyer)
+  14) Archive Item (Seller)
+  15) Search Items (Customer)
+  16) View Item (Customer)
+  17) Sort items (Customer)
+  18) View Item (Buyer)
+  19) Place Bid (Buyer)
+  20) Review Active Bids (Buyer)
 
 ## Landing Page URLs and Descriptions
-URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/seller/home
+URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
 
   1) / <br/>
-    Landing page. User is in customer mode and can view all active, published items (can view its set price, highest bid, seller name, published date) For every item, the user has the option to click "view item", redirecting you to /customer/viewItem. User can click on sign in button on the top right corner. Redirects you to /home/userType
+    Landing page. User is in customer mode and can view all active, published items (can view its set price, highest bid, seller name, published date). The customer has the option to search based off of a keyword or buy putting a price filter. They also can sort the items based on price, publish date, and expiration date.For every item, the user has the option to click "view item", redirecting you to /customer/viewItem. User can click on sign in button on the top right corner. Redirects you to /home/userType
 
   2) /customer/viewItem
      Page that provides the customer an item's image, description, and its set price. Has the option to go back to customer home page.
@@ -39,25 +39,34 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/sell
     Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/buyer/signin).
     
   6) /buyer/home <br/>
-     Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/buyer/signin).
+     Home page for the buyer. Similar to the landing page, the buyer is able to see all the active and published items. On the page, the buyer has the option to click "view item", rerouting to the bid page (/buyer/bid). The buyer can also click "active bids", rerouting to /buyer/reviewActiveBids. Finally, the buyer can click "Add Funds", rerouting to /buyer/funds.
+
+  7) /buyer/bid
+    Page for the buyer to view information about a specific item and to place a bid. They can also view all the previous bids made for that item. Buyer can click "place bid", should they have enough funds, rerouting to the /buyer/home page.
+
+  8) /buyer/reviewActiveBids
+    Page for Buyer to review all active bids they have made. Shows a table with information of the item name and the bid value.
+
+  9) /buyer/funds
+    Page for buyer to view their total funds. They have the option to add funds by entering amount to add and clicking "add funds" button. The "logout" button, when clicked, reroutes to /, the general home page. "Close Account" button, when clicked, removes the account.
     
-  7) /seller/signin <br/>
+  10) /seller/signin <br/>
     Sign-In page for seller that allows a seller to sign in using an existing account or create a new account. If user clicks on "create account": redirects to /seller/signup 
     
-  8) /seller/signup <br/>
+  11) /seller/signup <br/>
     Sign Up page for seller that allows a seller to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/seller/signin). 
     
-  9) /seller/home <br/>
+  12) /seller/home <br/>
     On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. If the item is inactive, the seller has the option to remove the item altogether or archive it.
     
-  10) /seller/item <br/>
+  13) /seller/item <br/>
     This page allows the seller to enter all fields to add a new item. The seller can see the added item on the seller home page. 
     
-  11) /seller/editItem <br/>
+  14) /seller/editItem <br/>
     This page is routed when the seller clicks "edit" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the /seller/home page.
 
-  12) 
-  13) 
+  15) 
+  16) 
      
 
 
