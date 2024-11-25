@@ -75,9 +75,9 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
 
 ## INSTRUCTIONS:
   1) Once you're on the landing page, you should be able to view all the active items that are published. Since you're in customer view, you will be able to see the item's set price, current highest bid, the seller, publishing date, and an option to view the item.
-  2) Use the search fields to filter by keyword and price range. If you leave the lower bound blank, the upper bound will act as the maximum price filter. Feel free to experiment with different combinations to get different results.
+  2) Use the search fields to filter by keyword and price range. If you leave the lower bound blank, the upper bound will act as the maximum price filter (Vice versa). Feel free to experiment with different combinations to get different results.
   3) The customer also has the ability to sort through the active items list based on either price, published date, and expiration date.
-  4) Let's say the customer wants to buy one of these items. Click the top right corner "Sign In" button, which reroutes to /home/userType. Choose "buyer? click here" button to sign in as a buyer. When signing in write in ur credentials "a@a.com" with password "a". Click Login.
+  4) Let's say the customer wants to buy one of these items. Click the top right corner "Sign In" button, which reroutes to /home/userType. Choose "buyer? click here" button to sign in as a buyer. When signing in, write in ur credentials "a@a.com" with password "a". Click Login.
   5) Now you're in buyer mode. You should be able to see the same active items as you did when you were on the home page (Customer View). However now if you click the "view item" button next to item "activePH1", you not only see the general item description, set price, and image, but you also see the option to place bid. On the right you should be able to see the bid history of the item.
   6) Let's place a bid on activePH1. It must be higher than the highest bid, which is currently $46. Enter $50 and click place bid.
   7) At the buyer home page, you should see a green button on the top left "Active Bids". Click the button, rerouting to /buyer/reviewActiveBids.
@@ -103,4 +103,6 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
 
 ## General Notes
 Please make sure not to refresh the live URLs, as it runs into a 404 not found/403 forbidden error. We reached out to the professor and other teams who are experiencing the same issue, but we are not sure how to go about solving it.
+
+For the "Search Items (Customer)" and "Sort Items (Customer)" use cases, you may have to click on the search button and/or sorting filters twice in order to see the changes on the screen.
 
