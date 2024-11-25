@@ -67,29 +67,18 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
      
 
 
-## BUYER INSTRUCTIONS:
-  1) To sign-in as a buyer from the load-up page click sign-in on the top right 
-  2) Click where it says buyer click here (it lands you to /buyer/signin) 
-  3) In buyer/sign-in press on create account it lands you on buyer/signup if you want to create an account. 
-  4) Create credentials for a buyer with an email address in the email field and password in the password field (example could be e@e.com and password: e)
-  5) After signing in you land up on buyer/signin again. Over here, sign in with the credentials you entered
-  6) After signing you end up on the buyer/home page where you are allowed to add funds and to close account
-  7) To add funds make sure you amount greater than 10 by toggling before the 0 and amount less than 0 by toggling after as the 0 cannot be deleted.
-  8) Once you add funds by clicking the button you can view the funds the buyer has
-  9) To close the account, click on the close account button if it gives a message saying your account is closed successfully, you will not be able to log in to the buyer account with the same credentials
-
-## SELLER INSTRUCTIONS:
-1) To sign-in as a seller from the load-up page click sign-in on the top right 
-  2) Click where it says seller click here (it lands you to /seller/signin) 
-  3) In seller/sign-in press on create account: it lands you on /seller/signup if you want to create an account. 
-  4)Create credentials for a seller with an email address in the email field and password in the password field (example could be f@f.com and password: f)
-  3) After signing in you land up on /seller/signin again. Over here, sign in with the credentials you entered
-  4) After signing you end up on the /seller/home page where you are allowed to review all items, which should be nothing, since we have created a new account. You should see the close account button here, as well. 
-  5) Click on Add Items button, which should bring you to /seller/item. Fill in all of the fields and add the item. 
-  6) You should be able to view that newly added item on /seller/home.  
-  7) Let's say you made a mistake and want to edit the item. You should be able to view "edit item" button. Click the button to go to /seller/editItem
-  8) Change a field you want to modify the information for and edit the item. You should be able to see the modified item on the seller home page.
-  9) To close the account, click on the close account button if it gives a message saying your account is closed successfully, you will not be able to log in to the seller account with the same credentials
+## INSTRUCTIONS:
+  1) Once you're on the landing page, you should be able to view all the active items that are published. Since you're in customer view, you will be able to see the item's set price, current highest bid, the seller, publishing date, and an option to view the item.
+  2) Use the search fields to filter by keyword and price range. If you leave the lower bound blank, the upper bound will act as the maximum price filter. Feel free to experiment with different combinations to get different results.
+  3) The customer also has the ability to sort through the active items list based on either price, published date, and expiration date.
+  4) Let's say the customer wants to buy one of these items. Click the top right corner "Sign In" button, which reroutes to /home/userType. Choose "buyer? click here" button to sign in as a buyer. When signing in write in ur credentials "a@a.com" with password "a". Click Login.
+  5) Now you're in buyer mode. You should be able to see the same active items as you did when you were on the home page (Customer View). However now if you click the "view item" button next to item "activePH1", you not only see the general item description, set price, and image, but you also see the option to place bid. On the right you should be able to see the bid history of the item.
+  6) Let's place a bid on activePH1. It must be higher than the highest bid, which is currently $45. Enter $50 and click place bid.
+  7) At the buyer home page, you should see a green button on the top left "Active Bids". Click the button, rerouting to /buyer/reviewActiveBids.
+  8) Here, as buyer, you will be able to see all your active bids. This is shown through a table with the item name and the bid value.
+  9) As usual, if you click "Add Funds", you should be able to see and add any funds.
+  10) Logout and log in as seller this time. Use credentials: "i@i.com" with password "i"
+  11) You should be rerouted to /seller/home. Here, you should see a list of all the items created by i@i.com seller.
 
 
 ## Iteration 1 Work Distribution
