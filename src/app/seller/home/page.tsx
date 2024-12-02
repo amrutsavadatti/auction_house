@@ -78,7 +78,7 @@ export default function SellerHomePage() {
     
         const data = await response.json();
         console.log(data);
-        setUnpublishableItems(data.unpublishable.map((item : {name:string;}) => item.name));
+        setUnpublishableItems(data.unpublishable.map(item => item.name));
         console.log(unpublishableItems.includes("nobids"));
         console.log(unpublishableItems.includes("active2"));
         //console.log(unpublishItems);
@@ -143,7 +143,7 @@ export default function SellerHomePage() {
       }
     }
 
-    const getSellerFunds = async (seller:string) => {
+    const getSellerFunds = async (seller:String) => {
       try {
         const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getFundsSeller', {
           method: 'POST',
@@ -217,12 +217,12 @@ export default function SellerHomePage() {
           router.push("/seller/signin");
         } else {
           setLoading(false);
-          getSellerFunds(token);
         }
       
           checkforCompletedItem();
           fetchItems();
           findUnpublish();
+          getSellerFunds(token);
 
       }, [router]);
     
@@ -297,21 +297,34 @@ export default function SellerHomePage() {
                                   price: item.setPrice,
                                 },
                               }}
+                              className={item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed" ? "pointer-events-none" : ""}
                             >
-                              <button className={`btn btn-outline btn-warning btn-xs ${item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed"? "btn-disabled" : ""}`}>Edit</button>
+                              <button
+                                className={`btn btn-outline btn-warning btn-xs ${
+                                  item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed" ? "btn-disabled" : ""
+                                }`}
+                              >
+                                Edit
+                              </button>
+                              
                             </Link>
                           </th>
                           <th>
-                          <Link
+                            <Link
                               href={{
-                                pathname: `/seller/publishItem`,
-                                query: {
-                                  name: item.name
-                                },
+                                pathname: "/seller/publishItem",
+                                query: { name: item.name },
                               }}
+                              className={item.status !== "inactive" ? "pointer-events-none" : ""}
                             >
-                              <button className={`btn btn-outline btn-success btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`} onClick = {() => handlePublish()} >Publish</button>
-                          </Link>
+                              <button
+                                className={`btn btn-outline btn-success btn-xs ${
+                                  item.status !== "inactive" ? "btn-disabled" : ""
+                                }`}
+                              >
+                                Publish
+                              </button>
+                            </Link>
                           </th>
 
                           <th>
