@@ -130,7 +130,31 @@ export default function SellerHomePage() {
         });
 
         if (!response.ok) {
-          throw new Error('Failed to fetch unpublishable items');
+          throw new Error('Failed to fetch archive items');
+        }
+        else{
+          findUnpublish();
+        }
+        fetchItems();
+        
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    }
+
+    const handleFulfill = async (iName:string) => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/archiveItem', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ itemName: iName,seller: localStorage.getItem("token")})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch fulfill items');
         }
         else{
           findUnpublish();
@@ -339,6 +363,9 @@ export default function SellerHomePage() {
                           </th>
                           <th>
                             <button className={`btn btn-outline btn-error btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`}  onClick = {() => handleArchive(item.name)} >Archive</button>
+                          </th>
+                          <th>
+                            <button className={`btn btn-outline btn-info btn-xs ${item.status !== "completed" ? "btn-disabled" : ""}`}  onClick = {() => handleFulfill(item.name)} >Fulfill</button>
                           </th>
                       </tr>
                       ))}
