@@ -12,6 +12,7 @@ interface Item {
     setPrice: number;
     highestBid: number;
     status: string;
+    wasFrozen: number;
   }
   
 
@@ -145,7 +146,7 @@ export default function SellerHomePage() {
 
     const handleFulfill = async (iName:string) => {
       try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/archiveItem', {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/fullfillItem', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -365,7 +366,7 @@ export default function SellerHomePage() {
                             <button className={`btn btn-outline btn-error btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`}  onClick = {() => handleArchive(item.name)} >Archive</button>
                           </th>
                           <th>
-                            <button className={`btn btn-outline btn-info btn-xs ${item.status !== "completed" ? "btn-disabled" : ""}`}  onClick = {() => handleFulfill(item.name)} >Fulfill</button>
+                            <button className={`btn btn-outline btn-info btn-xs ${item.status !== "completed" || item.wasFrozen == 1 ? "btn-disabled" : ""}`}  onClick = {() => handleFulfill(item.name)} >Fulfill</button>
                           </th>
                       </tr>
                       ))}

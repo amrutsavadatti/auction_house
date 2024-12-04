@@ -65,6 +65,10 @@ export default function Home() {
       router.push("/buyer/reviewActiveBids");
     };
 
+    const handleReviewPurchases = () => {
+      router.push("/buyer/reviewPurchases");
+    };
+
     const sort = async () => {
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/sortItemsCustomer', {
@@ -151,6 +155,10 @@ export default function Home() {
           <div className='flex justify-between'>
             <div className='flex justify-center m-2'>
               <button onClick={handleActiveBids} className="btn btn-success">Active Bids</button>
+            </div>
+
+            <div className='flex justify-center m-2'>
+              <button onClick={handleReviewPurchases} className="btn btn-info">Review Purchases</button>
             </div>
 
             <div className='flex justify-center m-2'>
