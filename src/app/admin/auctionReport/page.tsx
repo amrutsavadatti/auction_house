@@ -12,7 +12,6 @@ interface SoldItem {
   }
 export default function auctionReport() {
     const [items, setItems] = useState<SoldItem[]>([]);
-    const [commission, setCommissionValues] = useState<number[]>([]);
     const [sum, setSum] = useState<number>(0);
 
     const generateAuctionReport = async () => {
@@ -36,13 +35,10 @@ export default function auctionReport() {
             console.log(items + " items");
             let sumOfCommissionValues = 0;
             for (const i of data.items) {
-                //console.log("hi")
                 console.log(`commission: ${i.commision}`);
                 sumOfCommissionValues += i.commision;
             }
-            //console.log("Sum " + sumOfCommissionValues)
             setSum(sumOfCommissionValues);
-            //console.log(sum)
         } catch (error) {
           console.error(error);
         }
