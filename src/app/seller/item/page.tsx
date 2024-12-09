@@ -11,6 +11,7 @@ export default function AddItemPage() {
   const startDate = useState("");
   const endDate = useState("");
   const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [submitType, setSubmitType] = useState('');
 
 
   const obtainURL = async (file: File) => {
@@ -48,6 +49,52 @@ export default function AddItemPage() {
       return uploadURL.split('?')[0]; 
   };
 
+  
+  const handleSaleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const imageURLs = await Promise.all(
+      imageFiles.map(async (file) => {
+        const getImageURL = await obtainURL(file);
+        return await handleImageUpload(file, getImageURL);
+      })
+    )
+    
+
+    const postBody = {
+      name,
+      description,
+      image: imageURLs[0],
+      setPrice,
+      startDate,
+      endDate,
+      sellerOfItem:localStorage.getItem("token"),
+    };
+
+
+    try {
+      const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addItemBuyNow", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postBody),
+      });
+
+      if (res.ok) {
+        console.log(res);
+        alert("Item added successfully!");
+        router.push("/seller/home");
+      } else {
+        alert("Failed to add item.");
+      }
+    } catch (error) {
+      console.error("Error adding item:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+  
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -69,25 +116,49 @@ export default function AddItemPage() {
       sellerOfItem:localStorage.getItem("token"),
     };
 
-    try {
-      const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addItem", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postBody),
-      });
 
-      if (res.ok) {
-        console.log(res);
-        alert("Item added successfully!");
-        router.push("/seller/home");
-      } else {
-        alert("Failed to add item.");
+    if (submitType === 'auction') {
+      try {
+        const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addItem", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postBody),
+        });
+  
+        if (res.ok) {
+          console.log(res);
+          alert("Item added successfully!");
+          router.push("/seller/home");
+        } else {
+          alert("Failed to add item.");
+        }
+      } catch (error) {
+        console.error("Error adding item:", error);
+        alert("An error occurred. Please try again.");
       }
-    } catch (error) {
-      console.error("Error adding item:", error);
-      alert("An error occurred. Please try again.");
+    } else if (submitType === 'sale') {
+      try {
+        const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addItemBuyNow", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postBody),
+        });
+  
+        if (res.ok) {
+          console.log(res);
+          alert("Item added successfully!");
+          router.push("/seller/home");
+        } else {
+          alert("Failed to add item.");
+        }
+      } catch (error) {
+        console.error("Error adding item:", error);
+        alert("An error occurred. Please try again.");
+      }
     }
   };
 
@@ -133,8 +204,20 @@ export default function AddItemPage() {
               className="input mb-4"
               required
             />
-            <button type="submit" className="btn btn-accent w-full">
-              Submit
+            <button
+                type="button"
+                className="btn btn-accent w-full m-2"
+                onClick={handleSubmit}
+            >
+                Add to Auction
+            </button>
+
+            <button
+                type="button"
+                className="btn btn-warning w-full m-2"
+                onClick={handleSaleSubmit}
+            >
+                Add for Sale
             </button>
           </form>
 
