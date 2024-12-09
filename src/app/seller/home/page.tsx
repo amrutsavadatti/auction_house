@@ -35,10 +35,6 @@ export default function SellerHomePage() {
       router.push("/seller/close");
     };
 
-    // const handlePublish = () => {
-    //   router.push("/seller/publishItem");
-    // };
-
     const handleRemove = async (iName:string) => {
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/removeInactiveItem', {
@@ -83,8 +79,6 @@ export default function SellerHomePage() {
         setUnpublishableItems(data.unpublishable.map(item => item.name));
         console.log(unpublishableItems.includes("nobids"));
         console.log(unpublishableItems.includes("active2"));
-        //console.log(unpublishItems);
-        //setUnpublishableItems(unpublishItems);
         console.log("Unpublishable items: ", unpublishableItems);
 
       } catch (error) {
@@ -145,14 +139,14 @@ export default function SellerHomePage() {
       }
     }
 
-    const handleFulfill = async (iName:string) => {
+    const handleFulfill = async (iName:string, buyNow: number) => {
       try {
         const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/fullfillItem', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ itemName: iName,seller: localStorage.getItem("token")})
+          body: JSON.stringify({ itemName: iName,seller: localStorage.getItem("token"), "buyNow": buyNow.toString()})
         });
 
         if (!response.ok) {
@@ -397,7 +391,7 @@ export default function SellerHomePage() {
                             <button className={`btn btn-outline btn-error btn-xs ${item.status !== "inactive" ? "btn-disabled" : ""}`}  onClick = {() => handleArchive(item.name)} >Archive</button>
                           </th>
                           <th>
-                            <button className={`btn btn-outline btn-info btn-xs ${item.status !== "completed" || item.wasFrozen == 1 ? "btn-disabled" : ""}`}  onClick = {() => handleFulfill(item.name)} >Fulfill</button>
+                            <button className={`btn btn-outline btn-info btn-xs ${item.status !== "completed" || item.wasFrozen == 1 ? "btn-disabled" : ""}`}  onClick = {() => handleFulfill(item.name, item.buyNow)} >Fulfill</button>
                           </th>
                           <th>
                             <button className={`btn btn-outline btn-info btn-xs ${item.status !== "frozen" ? "btn-disabled" : ""}`}  onClick = {() => handleRequestUnfreeze(item.name)} >Request Unfreeze</button>
