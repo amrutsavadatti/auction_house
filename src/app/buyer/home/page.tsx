@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -11,7 +11,8 @@ interface Item {
     setPrice: number;
     publishDate: string;
     sellerOfItem: string;
-    highestBid: number
+    highestBid: number;
+    buyNow: number;
   }
   
 
@@ -185,7 +186,8 @@ export default function Home() {
                                   figureimageout: item.figureimageout,
                                   price: item.setPrice,
                                   publishDate: item.publishDate,
-                                  sellerOfItem: item.sellerOfItem
+                                  sellerOfItem: item.sellerOfItem,
+                                  buyNow: item.buyNow
                                 },
                               }}
                             >

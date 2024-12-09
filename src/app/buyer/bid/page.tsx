@@ -14,6 +14,8 @@ function ViewItem() {
   const description = searchParams.get("description") || "";
   const image = searchParams.get("figureimageout") || "";
   const price = searchParams.get("price") || "";
+  const buyNow = searchParams.get("buyNow") || "";
+  const seller = searchParams.get("sellerOfItem") || "";
 
   const now = new Date();
   const year = now.getFullYear();
@@ -30,6 +32,8 @@ function ViewItem() {
     value: number;
     buyer: string;
   }
+
+
 
 
   const handleBack = async (e:React.FormEvent) => {
@@ -67,6 +71,37 @@ function ViewItem() {
             }
         } else {
             alert("Bid higher that current bid")
+        }
+      } catch (error) {
+        console.log(error);
+      }
+  };
+
+  const handleBuyNow = async (e:React.FormEvent) => {
+    e.preventDefault();
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/buyNowBuyer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+             "itemName" : name,
+             "buyer": localStorage.getItem('token'),
+             "value": amountToAdd,
+             "seller": seller,
+            })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.statusCode === 200) {
+            console.log(data);
+            alert("Purchase request sent");
+            router.push("/buyer/reviewActiveBids");
+          } else {
+            alert(data.error);
+          }
         }
       } catch (error) {
         console.log(error);
@@ -117,23 +152,34 @@ function ViewItem() {
                   className="object-cover"
               />
           </div>
-          <form onSubmit={handleBid}>
-              <label className="input input-bordered flex items-center gap-2 my-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  className="h-4 w-4 opacity-70">
-                </svg>
-              <input
-                  type="number"
-                  value={amountToAdd}
-                  onChange={(e) => setAmountToAdd(Number(e.target.value))}
-                  placeholder="Enter amount to add"
-                  className="px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
-              />
-              </label>
-              <button type="submit" className="btn btn-success w-full rounded-full">Place Bid</button>
+          <form>
+              {buyNow === '1' ? (
+                  <button onClick={handleBuyNow} className="btn btn-accent w-full rounded-full">
+                      Buy Now
+                  </button>
+              ) : (
+                <div>
+                  <label className="input input-bordered flex items-center gap-2 my-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-4 w-4 opacity-70">
+                    </svg>
+                    <input
+                        type="number"
+                        value={amountToAdd}
+                        onChange={(e) => setAmountToAdd(Number(e.target.value))}
+                        placeholder="Enter amount to add"
+                        className="px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
+                    />
+                  </label>
+                  <button onClick={handleBid} className="btn btn-primary w-full rounded-full">
+                      Place Bid
+                  </button>
+                </div>
+              )}
+
             </form>
 
           <button onClick={handleBack} className="btn btn-primary w-full	">
