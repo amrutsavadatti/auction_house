@@ -11,7 +11,6 @@ export default function AddItemPage() {
   const startDate = useState("");
   const endDate = useState("");
   const [imageFiles, setImageFiles] = useState<File[]>([]);
-  const [submitType, setSubmitType] = useState('');
 
 
   const obtainURL = async (file: File) => {
@@ -117,48 +116,25 @@ export default function AddItemPage() {
     };
 
 
-    if (submitType === 'auction') {
-      try {
-        const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addItem", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(postBody),
-        });
-  
-        if (res.ok) {
-          console.log(res);
-          alert("Item added successfully!");
-          router.push("/seller/home");
-        } else {
-          alert("Failed to add item.");
-        }
-      } catch (error) {
-        console.error("Error adding item:", error);
-        alert("An error occurred. Please try again.");
+    try {
+      const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addItem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postBody),
+      });
+
+      if (res.ok) {
+        console.log(res);
+        alert("Item added successfully!");
+        router.push("/seller/home");
+      } else {
+        alert("Failed to add item.");
       }
-    } else if (submitType === 'sale') {
-      try {
-        const res = await fetch("https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/addItemBuyNow", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(postBody),
-        });
-  
-        if (res.ok) {
-          console.log(res);
-          alert("Item added successfully!");
-          router.push("/seller/home");
-        } else {
-          alert("Failed to add item.");
-        }
-      } catch (error) {
-        console.error("Error adding item:", error);
-        alert("An error occurred. Please try again.");
-      }
+    } catch (error) {
+      console.error("Error adding item:", error);
+      alert("An error occurred. Please try again.");
     }
   };
 
