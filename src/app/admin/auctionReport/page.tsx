@@ -45,9 +45,6 @@ export default function auctionReport() {
       };
 
       useEffect(() => {
-        //const commissions = items.map((item) => item.commision);
-        
-        //setCommissionValues(commissions);
         
           generateAuctionReport();
 

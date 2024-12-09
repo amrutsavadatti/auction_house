@@ -1,8 +1,17 @@
 "use client"; 
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+interface SoldItem {
+  itemName: string;
+  salePrice: number;
+  commision: number;
+}
 
 export default function AdminHome() {
   const router = useRouter();
+  const [items, setItems] = useState<SoldItem[]>([]);
+  const [sum, setSum] = useState<number>(0);
 
   const handleActiveItems = () => {
     router.push('/admin/activeItems');
@@ -20,6 +29,41 @@ export default function AdminHome() {
     router.push('/admin/forensicsReport');
   };
 
+  const generateAuctionReport = async () => {
+        try {
+            const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/generateAuctionReport', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({placeholder:"placeholder"})
+            });
+        
+            if (!response.ok) {
+                throw new Error('Failed to fetch auction items');
+            }
+            
+
+            const data = await response.json();
+            console.log(data.items);
+            setItems(data.items);
+            console.log(items + " items");
+            let sumOfCommissionValues = 0;
+            for (const i of data.items) {
+                console.log(`commission: ${i.commision}`);
+                sumOfCommissionValues += i.commision;
+            }
+            setSum(sumOfCommissionValues);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      useEffect(() => {
+        
+        generateAuctionReport();
+
+    }, [router]);
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div className="card bg-neutral text-neutral-content w-400">
@@ -27,7 +71,7 @@ export default function AdminHome() {
 
         <div className="flex items-center space-x-4">
            {/* <span className="text-lg">Hey {localStorage.getItem("token")}!</span> */}
-           <span className="text-lg">Hey!</span>
+           <span className="text-lg">Hey Admin!</span>
          </div>
 
          <div className="flex w-full">
@@ -57,7 +101,7 @@ export default function AdminHome() {
         </div>
            
          <div>
-            <span className="badge badge-ghost mt-4 rounded-box"> Insert Admin Funds Here</span>
+            <span className="badge badge-ghost mt-4 rounded-box"> My Funds: ${sum}</span>
          </div>
 
         </div>
@@ -65,3 +109,4 @@ export default function AdminHome() {
     </div>
   );
 }
+
