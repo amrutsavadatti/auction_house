@@ -168,6 +168,31 @@ export default function SellerHomePage() {
       }
     }
 
+    const handleRequestUnfreeze = async (iName:string) => {
+      try {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/requestUnfreezeItem', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ itemName: iName,seller: localStorage.getItem("token")})
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to request to unfreeze item');
+        }
+        else{
+          findUnpublish();
+        }
+        fetchItems();
+        
+      } catch (error) {
+        console.error(error);
+        setError("An unexpected error occurred.");
+      }
+    }
+
+
     const getSellerFunds = async (seller:String) => {
       try {
         const response = await fetch('https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getFundsSeller', {
@@ -322,11 +347,11 @@ export default function SellerHomePage() {
                                   price: item.setPrice,
                                 },
                               }}
-                              className={item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed" ? "pointer-events-none" : ""}
+                              className={item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed" || item.status === "frozen" ? "pointer-events-none" : ""}
                             >
                               <button
                                 className={`btn btn-outline btn-warning btn-xs ${
-                                  item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed" ? "btn-disabled" : ""
+                                  item.status === "active" || item.status === "archived" || item.status === "failed" || item.status === "completed" || item.status === "frozen" ? "btn-disabled" : ""
                                 }`}
                               >
                                 Edit
@@ -367,6 +392,9 @@ export default function SellerHomePage() {
                           </th>
                           <th>
                             <button className={`btn btn-outline btn-info btn-xs ${item.status !== "completed" || item.wasFrozen == 1 ? "btn-disabled" : ""}`}  onClick = {() => handleFulfill(item.name)} >Fulfill</button>
+                          </th>
+                          <th>
+                            <button className={`btn btn-outline btn-info btn-xs ${item.status !== "frozen" ? "btn-disabled" : ""}`}  onClick = {() => handleRequestUnfreeze(item.name)} >Request Unfreeze</button>
                           </th>
                       </tr>
                       ))}
