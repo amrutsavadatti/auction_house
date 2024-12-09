@@ -18,48 +18,10 @@ interface Item {
 export default function Home() {
     const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const [minimum, setMinimum] = useState("");
-    const [maximum, setMaximum] = useState("");
-    const [keyword, setKeyword] = useState("");
-    const [sortType, setSortType] = useState("");
     const router = useRouter();
 
     console.log(error);
 
-    const handleSort = (type:string) => {
-      setSortType(type)
-      sort();
-
-    };
-    const handleSearch = async (e: FormEvent) => {
-      e.preventDefault();
-      try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/searchCustomerCombination', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ "keyword" : keyword, "lowerBound": minimum, "upperBound": maximum})
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to search items');
-        }
-
-        const data = await response.json();
-        setItems(data.items);
-        console.log("Number of items:", items.length);
-        console.log("First item:", items[0]);
-
-      } catch (error) {
-        console.log(error);
-        setError("An unexpected error occurred.");
-      }
-    };
-
-    const handleFunds = () => {
-      router.push("/buyer/funds");
-    };
 
     const handleActiveBids = () => {
       router.push("/buyer/reviewActiveBids");
@@ -69,30 +31,15 @@ export default function Home() {
       router.push("/buyer/reviewPurchases");
     };
 
-    const sort = async () => {
-      try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/sortItemsCustomer', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ "sorter" : sortType})
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to sort items');
-        }
-
-        const data = await response.json();
-        setItems(data.items);
-        console.log("Number of items:", items.length);
-        console.log("First item:", items[0]);
-
-      } catch (error) {
-        console.log(error);
-        setError("An unexpected error occurred.");
-      }
+    const handleFunds = () => {
+      router.push("/buyer/funds");
     };
+
+    const recentlySoldItems = () => {
+      router.push("/buyer/recentlySoldItems");
+    };
+
+
 
     useEffect(() => {
       const checkforCompletedItem = async () => {
@@ -162,47 +109,17 @@ export default function Home() {
             </div>
 
             <div className='flex justify-center m-2'>
+              <button onClick={recentlySoldItems} className="btn btn-info">Recently Sold Items</button>
+            </div>
+
+            <div className='flex justify-center m-2'>
               <button onClick={handleFunds} className="btn btn-warning">Add Funds</button>
             </div>
 
           </div>
-
-            <div className='flex justify-center m-2'>
-              <form onSubmit={handleSearch}>
-                <input
-                  type="text"
-                  placeholder="Keyword"
-                  value={keyword}
-                  onChange={(e) => setKeyword(e.target.value)}
-                  className="input mb-4"
-                />
-                <input type="number"
-                  placeholder="lowerBound"
-                  onChange={(e) => setMinimum(e.target.value)}
-                  className="input mb-4"
-                  >
-                </input>
-                <input type="number"
-                  placeholder="upperBound"
-                  onChange={(e) => setMaximum(e.target.value)}
-                  className="input mb-4"
-                  >
-                </input>
-                <button type ="submit" className="btn btn-outline btn-xs "> search </button>
-              </form>
-
-              <div className="dropdown dropdown-hover">
-                <div tabIndex={0} role="button" className="btn btn-outline btn-xs m-3" style={{ minWidth: "100px" }}>sort</div>
-                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <li><a className="btn btn-outline btn-xs mt-2"onClick={() => handleSort("setPrice")}>set price</a></li>
-                  <li><a className="btn btn-outline btn-xs mt-2" onClick={() => handleSort("publishDate")}>publish date</a></li>
-                  <li><a className="btn btn-outline btn-xs mt-2" onClick={() => handleSort("expirationDate")}>expiration date</a></li>
-                </ul>
-              </div>
-              
-            </div>
-
-            <div className="m-4 bg-accent-content p-4 rounded-xl">
+          
+          
+          <div className="m-4 bg-accent-content p-4 rounded-xl">
               <div className="overflow-x-auto">
                   <table className="table w-full">
                   <thead>

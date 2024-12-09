@@ -18,9 +18,9 @@ export default function Home() {
 
     console.log(error);
 
-    const handleFreezeItem = async (iSeller: string, iName: string) => {
+    const handleUnfreezeItem = async (iSeller: string, iName: string) => {
       try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/freezeItem', {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/unfreezeItem', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export default function Home() {
         });
 
         if (!response.ok) {
-          throw new Error('Failed to freeze item');
+          throw new Error('Failed to unfreeze item');
         }
         
       } catch (error) {
@@ -43,7 +43,7 @@ export default function Home() {
 
     const fetchItems = async () => {
       try {
-        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getActiveItemsCustomer', {
+        const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/getFrozenItems', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ export default function Home() {
 
     return (
         <div className='flex flex-col justify-center '>
-            <h1 style={{display: 'flex', justifyContent: 'center', fontWeight: 'bold', fontSize: '40px'}}>List of Active Items</h1>
+            <h1 style={{display: 'flex', justifyContent: 'center', fontWeight: 'bold', fontSize: '40px'}}>List of Frozen Items</h1>
 
             <div className="m-4 bg-accent-content p-4 rounded-xl">
               <div className="overflow-x-auto">
@@ -133,7 +133,7 @@ export default function Home() {
                           </td>
                           <td>{ item.publishDate }</td>
                           <th>
-                              <button className="btn btn-outline btn-info btn-xs " onClick = {() => handleFreezeItem(item.sellerOfItem, item.name)} >freeze item</button>
+                              <button className="btn btn-outline btn-info btn-xs " onClick = {() => handleUnfreezeItem(item.sellerOfItem, item.name)} >unfreeze item</button>
                           </th>
                       </tr>
                       ))}

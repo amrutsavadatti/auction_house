@@ -9,6 +9,7 @@ interface Item {
     figureimageout: string;
     setPrice: number;
     highestBid: number;
+    expirationDate: string;
     publishDate: string;
     sellerOfItem: string
   }
@@ -139,6 +140,7 @@ export default function Home() {
         <div className='flex flex-col justify-center '>
 
             <div className='flex justify-center m-2'>
+              
               <form onSubmit={handleSearch}>
                 <input
                   type="text"
