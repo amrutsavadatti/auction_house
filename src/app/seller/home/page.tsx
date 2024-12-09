@@ -13,6 +13,7 @@ interface Item {
     highestBid: number;
     status: string;
     wasFrozen: number;
+    buyNow: number;
   }
   
 
@@ -34,9 +35,9 @@ export default function SellerHomePage() {
       router.push("/seller/close");
     };
 
-    const handlePublish = () => {
-      router.push("/seller/publishItem");
-    };
+    // const handlePublish = () => {
+    //   router.push("/seller/publishItem");
+    // };
 
     const handleRemove = async (iName:string) => {
       try {
@@ -299,6 +300,7 @@ export default function SellerHomePage() {
                       <th>Item Name</th>
                       <th>Price</th>
                       <th>Status</th>
+                      <th>Type</th>
                       <th>Actions</th>
                       </tr>
                   </thead>
@@ -334,6 +336,10 @@ export default function SellerHomePage() {
                           </td>
                           <td>
                             {item.status}
+                          <br />
+                          </td>
+                          <td>
+                          {item.buyNow === 1 ? 'Sale' : 'Auction'}
                           <br />
                           </td>
                           <th>

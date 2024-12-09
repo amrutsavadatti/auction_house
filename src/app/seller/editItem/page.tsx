@@ -93,6 +93,77 @@ function EditItemForm() {
     }
   };
 
+  
+  const handleBuySubmit = async (e:React.FormEvent) => {
+    e.preventDefault();
+
+    const updatedItem = {
+      "itemName" : name,
+      "seller" : localStorage.getItem("token")
+    };
+
+    console.log(updatedItem)
+
+    try {
+      const response = await fetch(
+        "https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/turnOnBuyNow",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedItem),
+        }
+      );
+
+      if (response.ok) {
+        alert("Item updated successfully!");
+        router.push("/seller/home");
+      } else {
+        alert("Failed to update item.");
+      }
+    } catch (error) {
+      console.error("Error updating item:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
+  const handleBidSubmit = async (e:React.FormEvent) => {
+    e.preventDefault();
+
+    const updatedItem = {
+      "itemName" : name,
+      "seller" : localStorage.getItem("token")
+    };
+
+    console.log(updatedItem)
+
+    try {
+      const response = await fetch(
+        "https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/turnOffBuyNow",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedItem),
+        }
+      );
+
+      if (response.ok) {
+        alert("Item updated successfully!");
+        router.push("/seller/home");
+      } else {
+        alert("Failed to update item.");
+      }
+    } catch (error) {
+      console.error("Error updating item:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
+
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div className="card bg-neutral text-neutral-content w-96">
@@ -122,8 +193,33 @@ function EditItemForm() {
               className="input mb-4"
               required
             />
-            <button type="submit" className="btn btn-primary w-full">
+
+            {/* <button type="submit" className="btn btn-primary w-full">
               Update Item
+            </button> */}
+
+            <button
+                type="button"
+                className="btn btn-primary w-full m-2"
+                onClick={handleSubmit}
+            >
+                Update Item
+            </button>
+
+            <button
+                type="button"
+                className="btn btn-warning w-full m-2"
+                onClick={handleBuySubmit}
+            >
+                Turn to Buy Now
+            </button>
+
+            <button
+                type="button"
+                className="btn btn-success w-full m-2"
+                onClick={handleBidSubmit}
+            >
+                Turn to Bid
             </button>
           </form>
         </div>
