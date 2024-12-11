@@ -8,7 +8,7 @@ interface SoldItem {
     salePrice: number;
     commision: number;
   }
-export default function auctionReport() {
+export default function AuctionReport() {
     const [items, setItems] = useState<SoldItem[]>([]);
     const [sum, setSum] = useState<number>(0);
 

@@ -8,7 +8,7 @@ interface Item {
     finalSalePrice: number;
     boughtByBuyer: string;
   }
-export default function reviewPurchases() {
+export default function ReviewPurchases() {
     const [items, setItems] = useState<Item[]>([]);
 
     const fetchPurchases = async () => {

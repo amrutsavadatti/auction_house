@@ -15,7 +15,7 @@ interface Item {
     expirationDate: string;
     highestBid: number
   }
-export default function recentlySoldItems(){
+export default function RecentlySoldItems(){
 
     const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);

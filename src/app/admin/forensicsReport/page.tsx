@@ -11,7 +11,7 @@ interface Item {
     boughtByBuyer: string
 }
 
-export default function auctionReport() {
+export default function AuctionReport() {
     const [mean, setMean] = useState("");
     const [median, setMedian] = useState("");
     const [mFrequency, setModeFrequency] = useState("");
