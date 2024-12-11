@@ -2,7 +2,6 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 interface Item {
     name: string;
@@ -19,7 +18,7 @@ export default function RecentlySoldItems(){
 
     const [items, setItems] = useState<Item[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const router = useRouter();
+    console.log(error);
 
     const [minimum, setMinimum] = useState("");
     const [maximum, setMaximum] = useState("");

@@ -13,16 +13,6 @@ function ViewItem() {
   const name = searchParams.get("name") || "";
   //const description = searchParams.get("description") || "";
   const image = searchParams.get("figureimageout") || "";
-  const price = searchParams.get("price") || "";
-
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const day = String(now.getDate()).padStart(2, '0');
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-
-  const [amountToAdd, setAmountToAdd] = useState<number>(0);
   const [bids, setBids] = useState<Bid[]>([]);
 
   interface Bid {
@@ -38,40 +28,6 @@ function ViewItem() {
     router.push("/buyer/recentlySoldItems");
   };
 
-  const handleBid = async (e:React.FormEvent) => {
-    e.preventDefault();
-      try {
-        if (amountToAdd >= parseInt(price, 10)) {
-            const response = await fetch(' https://zseolpzln7.execute-api.us-east-2.amazonaws.com/Initial/placeBid', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                 "itemName" : name,
-                 "buyer": localStorage.getItem('token'),
-                 "value": amountToAdd,
-                 "dateMade": `${year}-${month}-${day}T${hours}:${minutes}`,
-                })
-            });
-    
-            if (response.ok) {
-              const data = await response.json();
-              if (data.statusCode === 200) {
-                console.log(data);
-                alert("Bid placed successfully");
-                router.push("/buyer/reviewActiveBids");
-              } else {
-                alert(data.error);
-              }
-            }
-        } else {
-            alert("Bid higher that current bid")
-        }
-      } catch (error) {
-        console.log(error);
-      }
-  };
 
       useEffect(() => {
 
