@@ -11,7 +11,7 @@ function ViewItem() {
   const searchParams = useSearchParams();
 
   const name = searchParams.get("name") || "";
-  const description = searchParams.get("description") || "";
+  //const description = searchParams.get("description") || "";
   const image = searchParams.get("figureimageout") || "";
   const price = searchParams.get("price") || "";
 

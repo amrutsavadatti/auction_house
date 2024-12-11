@@ -1,0 +1,1011 @@
+commit acdbf76f179a80e2718aaeda2ce6e355683187b3
+Author: ManasPise03 <151983653+ManasPise03@users.noreply.github.com>
+Date:   Tue Nov 26 11:56:42 2024 -0500
+
+    Add files via upload
+    
+    Iteration2 backend lambdas
+
+ .../getActiveItemsCustomer/index.mjs               |  52 ++++++++++
+ .../getActiveItemsCustomer/package-lock.json       | 109 +++++++++++++++++++++
+ .../getActiveItemsCustomer/package.json            |  14 +++
+ lambda/publishItem/publishItem/index.mjs           |  52 ++++++++++
+ lambda/publishItem/publishItem/package-lock.json   | 109 +++++++++++++++++++++
+ lambda/publishItem/publishItem/package.json        |  14 +++
+ .../removeInactiveItem/index.mjs                   |  46 +++++++++
+ .../removeInactiveItem/package-lock.json           | 109 +++++++++++++++++++++
+ .../removeInactiveItem/package.json                |  14 +++
+ lambda/reviewActiveBids/reviewActiveBids/index.mjs |  54 ++++++++++
+ .../reviewActiveBids/package-lock.json             | 109 +++++++++++++++++++++
+ .../reviewActiveBids/reviewActiveBids/package.json |  15 +++
+ lambda/viewItemBuyer/viewItemBuyer/index.mjs       |  49 +++++++++
+ .../viewItemBuyer/viewItemBuyer/package-lock.json  |  98 ++++++++++++++++++
+ lambda/viewItemBuyer/viewItemBuyer/package.json    |  14 +++
+ 15 files changed, 858 insertions(+)
+
+commit caf54b24500d3270274a171aed10b509c8ec921b
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Mon Nov 25 18:44:49 2024 -0500
+
+    Additional General Lambdas
+
+ lambda/getFundsSeller/index.mjs                |  42 ++++++++++
+ lambda/getFundsSeller/package-lock.json        | 109 +++++++++++++++++++++++++
+ lambda/getFundsSeller/package.json             |  14 ++++
+ lambda/getUnpublishableItems/index.mjs         |  50 ++++++++++++
+ lambda/getUnpublishableItems/package-lock.json | 109 +++++++++++++++++++++++++
+ lambda/getUnpublishableItems/package.json      |  15 ++++
+ 6 files changed, 339 insertions(+)
+
+commit 595b2575a74e797196e9148f396747da2739613d
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Mon Nov 25 18:37:57 2024 -0500
+
+    Adding half lambdas
+
+ lambda/archiveItem/index.mjs                 |  48 ++++++++++
+ lambda/archiveItem/package-lock.json         | 109 ++++++++++++++++++++++
+ lambda/archiveItem/package.json              |  15 +++
+ lambda/placeBid/index.mjs                    | 133 +++++++++++++++++++++++++++
+ lambda/placeBid/package-lock.json            |  98 ++++++++++++++++++++
+ lambda/placeBid/package.json                 |  14 +++
+ lambda/searchItemsCustomer/index.mjs         |  62 +++++++++++++
+ lambda/searchItemsCustomer/package-lock.json | 109 ++++++++++++++++++++++
+ lambda/searchItemsCustomer/package.json      |  17 ++++
+ lambda/sortItemsCustomer/index.mjs           |  80 ++++++++++++++++
+ lambda/sortItemsCustomer/package-lock.json   | 109 ++++++++++++++++++++++
+ lambda/sortItemsCustomer/package.json        |  13 +++
+ lambda/unpublishItem/index.mjs               |  48 ++++++++++
+ lambda/unpublishItem/package-lock.json       | 109 ++++++++++++++++++++++
+ lambda/unpublishItem/package.json            |  15 +++
+ 15 files changed, 979 insertions(+)
+
+commit efa708e26e317eac6fbcdfe57b3c92098042ab90
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Nov 25 16:47:12 2024 -0500
+
+    Update README.md
+
+ README.md | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit 994080754b799bb548c6beca70cc74b0b5da11e6
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Nov 25 16:38:47 2024 -0500
+
+    update README.md
+
+ README.md | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+commit 99c254dbee9c3d605570560fa6c60a15beda9ea5
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Nov 25 14:47:16 2024 -0500
+
+    Update README.md (started to write instrcutions for grader)
+
+ README.md | 35 ++++++++++++-----------------------
+ 1 file changed, 12 insertions(+), 23 deletions(-)
+
+commit 86f62a26c7730f1056f0b0ce8733ed021d7ee6d4
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sun Nov 24 15:49:12 2024 -0500
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7707133140115f0c408f384fb6ea861b62218f25
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sun Nov 24 15:47:37 2024 -0500
+
+    Update README.md
+
+ README.md | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+commit 7a80ac2f43d9035516eaff27747e0e8f0accbc51
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sun Nov 24 15:46:10 2024 -0500
+
+    Update README.md
+
+ README.md | 43 ++++++++++++++++++++++++++-----------------
+ 1 file changed, 26 insertions(+), 17 deletions(-)
+
+commit a95b6aa464efb4b1e4d7c56311f576844e44dddf
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sun Nov 24 13:22:42 2024 -0500
+
+    Update README.md
+
+ README.md | 27 +++++++++++++++------------
+ 1 file changed, 15 insertions(+), 12 deletions(-)
+
+commit a0ff517c64ee21aa4b73a9c0d5e8fb5abc5fe3f5
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sat Nov 23 17:24:05 2024 -0500
+
+    Update README.md
+
+ README.md | 39 +++++++++++++++++++++------------------
+ 1 file changed, 21 insertions(+), 18 deletions(-)
+
+commit 9703b3da2ac24285950f6e81316257da081f5866
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Sat Nov 23 15:05:36 2024 -0500
+
+    Stable with npx next build (hopefully)
+
+ src/app/buyer/bid/page.tsx          | 16 ++++++++++++++--
+ src/app/customer/viewItem/page.tsx  | 13 ++++++++++++-
+ src/app/seller/close/page.tsx       |  2 +-
+ src/app/seller/home/page.tsx        |  6 +++---
+ src/app/seller/publishItem/page.tsx | 13 ++++++++++++-
+ 5 files changed, 42 insertions(+), 8 deletions(-)
+
+commit 825b481fb20761988d518057c6d981a58b81a7c6
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Thu Nov 21 19:08:18 2024 -0500
+
+    Fixed greater than or equal to place bid
+
+ src/app/buyer/bid/page.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 09c34d5326004f667fe2857fa4fd061bf0a03315
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Thu Nov 21 18:52:28 2024 -0500
+
+    Fixed Close Buyer/Seller
+
+ src/app/buyer/funds/page.tsx  | 15 +++++++++++----
+ src/app/seller/close/page.tsx | 10 ++++++++--
+ 2 files changed, 19 insertions(+), 6 deletions(-)
+
+commit 1953dfd4b0352cb32a08510fac557addf67b8695
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Thu Nov 21 15:54:32 2024 -0500
+
+    buyer's view items
+
+ src/app/buyer/bid/page.tsx  | 158 ++++++++++++++++++++++++++++++++++----------
+ src/app/buyer/home/page.tsx |  56 ++++++++++++++--
+ 2 files changed, 175 insertions(+), 39 deletions(-)
+
+commit 801cf7d414534e995f226073eddaa72ab099e8d5
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Thu Nov 21 11:46:20 2024 -0500
+
+    make completed failed status items have disabled edit buttons
+
+ src/app/buyer/home/page.tsx  | 20 ++++++++++++++++++++
+ src/app/page.tsx             | 20 ++++++++++++++++++++
+ src/app/seller/home/page.tsx | 22 +++++++++++++++++++++-
+ 3 files changed, 61 insertions(+), 1 deletion(-)
+
+commit ecb9f317f3525a1970def8f25452f866c1140192
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Wed Nov 20 20:17:58 2024 -0500
+
+    showing funds in seller home
+
+ src/app/seller/home/page.tsx | 32 ++++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
+
+commit e0eeb502dab36c64faeaa951dd73e51f5837dab5
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Wed Nov 20 17:52:04 2024 -0500
+
+    fixed customer page
+
+ src/app/buyer/bid/page.tsx          | 3 ---
+ src/app/page.tsx                    | 6 ++++++
+ src/app/seller/editItem/page.tsx    | 9 ---------
+ src/app/seller/item/page.tsx        | 8 ++------
+ src/app/seller/publishItem/page.tsx | 2 --
+ 5 files changed, 8 insertions(+), 20 deletions(-)
+
+commit db9a75bb642c60ac8982f411a888eb32e4a84f2e
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Wed Nov 20 15:10:05 2024 -0500
+
+    updated publish
+
+ src/app/seller/editItem/page.tsx    | 24 +----------
+ src/app/seller/home/page.tsx        | 42 +++++++------------
+ src/app/seller/item/page.tsx        | 16 -------
+ src/app/seller/publishItem/page.tsx | 83 +++++++++++++++++++++++++++++++++++++
+ 4 files changed, 98 insertions(+), 67 deletions(-)
+
+commit 8f5d34ea640d1d5fe3af89b289d5554a91d08eb5
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Tue Nov 19 22:50:08 2024 -0500
+
+    revamp home page of buyer
+
+ src/app/buyer/home/page.tsx | 51 +--------------------------------------------
+ 1 file changed, 1 insertion(+), 50 deletions(-)
+
+commit 6c45eaee1f710e75d373e3bc19713c2933648c32
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Nov 18 12:56:34 2024 -0500
+
+    archiveItem functionality
+
+ src/app/seller/home/page.tsx | 31 +++++++++++++++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
+
+commit 95bafb235070a9f44bbc2d30bb9b2b3463e67466
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sun Nov 17 22:48:27 2024 -0500
+
+    unpublish functionality, highest bid column
+
+ src/app/buyer/home/page.tsx  |  8 ++++-
+ src/app/seller/home/page.tsx | 71 +++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 77 insertions(+), 2 deletions(-)
+
+commit 3d64f4dd6809b0dde75a23595eb23476b8a6b2f5
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Sun Nov 17 18:28:09 2024 -0500
+
+    fixed date.now() in place bid api
+
+ src/app/buyer/bid/page.tsx | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+commit 889043af536a75707497490e285106530dab5e34
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Sun Nov 17 16:42:05 2024 -0500
+
+    home for buyer
+
+ src/app/buyer/{home2 => home}/page.tsx | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 105461feaaf1d8a220d80e29e11c328057d56001
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Sun Nov 17 16:41:13 2024 -0500
+
+    deleted Home
+
+ src/app/buyer/Home/page.tsx | 253 --------------------------------------------
+ 1 file changed, 253 deletions(-)
+
+commit 72ca3b7594ad9cab816674018f858596a309ac9a
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Sun Nov 17 16:39:42 2024 -0500
+
+    home2 dir added
+
+ src/app/buyer/home2/page.tsx | 253 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 253 insertions(+)
+
+commit 1c43f2a49480844c5220282dd60be24b328ab3cc
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Sun Nov 17 16:09:27 2024 -0500
+
+    place bid partial
+
+ src/app/buyer/bid/page.tsx              | 9 +++++++--
+ src/app/buyer/reviewActiveBids/page.tsx | 4 +---
+ 2 files changed, 8 insertions(+), 5 deletions(-)
+
+commit b9816bc7dbd9d0deb64ba45cfe1d0a6ecc88ef7a
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Sun Nov 17 00:29:55 2024 -0500
+
+    place bid
+
+ README.md                          |   2 +-
+ src/app/buyer/Home/page.tsx        | 313 ++++++++++++++++++++++++-------------
+ src/app/buyer/bid/page.tsx         |  99 ++++++++++++
+ src/app/buyer/funds/page.tsx       | 162 +++++++++++++++++++
+ src/app/buyer/signin/page.tsx      |   2 +-
+ src/app/customer/viewItem/page.tsx |   6 -
+ src/app/page.tsx                   |   2 +-
+ src/app/seller/home/page.tsx       |   2 +-
+ 8 files changed, 467 insertions(+), 121 deletions(-)
+
+commit b63c230c179ec290dc1cf454b22f919475864a94
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sat Nov 16 16:34:15 2024 -0500
+
+    stable customer page
+
+ src/app/customer/viewItem/page.tsx | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 0ca40abccf977a603898bf90930f95d5b1575f66
+Merge: 6d19150 c1d405d
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sat Nov 16 16:25:54 2024 -0500
+
+    Merge branch 'iteration2' of https://github.com/amrutsavadatti/auction_house into iteration2
+
+commit 6d1915007d29da10d9dd9cc70dc4cdf5e0ea72cc
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sat Nov 16 16:25:38 2024 -0500
+
+    review active bids and no building errors
+
+ src/app/admin/activeItems/page.tsx      | 56 +-------------------
+ src/app/buyer/Home/page.tsx             | 12 +++++
+ src/app/buyer/reviewActiveBids/page.tsx | 93 +++++++++++++++++++++++++++++++++
+ src/app/customer/viewItem/page.tsx      | 11 +++-
+ src/app/page.tsx                        |  2 +
+ src/app/seller/home/page.tsx            |  4 +-
+ 6 files changed, 119 insertions(+), 59 deletions(-)
+
+commit c1d405d0d09dcce945eb18e054dff642f7dfc680
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Thu Nov 14 16:21:43 2024 -0500
+
+    Update README.md
+
+ README.md | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+commit d83ba74306c8ba9517907ddefff94f578998a8e7
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Wed Nov 13 18:45:57 2024 -0500
+
+    created basic admin FE- login, home page, and getActiveList. modified sorting into a drop down
+
+ src/app/admin/activeItems/page.tsx | 177 +++++++++++++++++++++++++++++++++++++
+ src/app/admin/home/page.tsx        |  67 ++++++++++++++
+ src/app/admin/signin/page.tsx      |  96 ++++++++++++++++++++
+ src/app/home/userType/page.tsx     |   9 +-
+ src/app/page.tsx                   |  27 +++---
+ 5 files changed, 363 insertions(+), 13 deletions(-)
+
+commit a4495b64a9dce9c8ced2359a590e475ff4b91f00
+Merge: f12ff32 f2662f9
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Wed Nov 13 00:16:09 2024 -0500
+
+    Merge pull request #3 from amrutsavadatti/master
+    
+    sort functionality (setPrice, startDate, expirationDate)  works, will…
+
+commit f12ff327824bd99a9e1038d11f0faa1b29b24e8c
+Author: Amrut <amrut@Amruts-Air.lan>
+Date:   Tue Nov 12 23:33:25 2024 -0500
+
+    publish and remove inactive item
+
+ src/app/components/LogoutButton.tsx |   2 +-
+ src/app/seller/home/page.tsx        | 109 +++++++++++++++++++++++++++---------
+ 2 files changed, 82 insertions(+), 29 deletions(-)
+
+commit f2662f90dc77464528125bb92b4f217ea8ecca41
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Tue Nov 12 21:58:52 2024 -0500
+
+    sort functionality (setPrice, startDate, expirationDate)  works, will fix ui later
+
+ src/app/customer/viewItem/page.tsx | 23 +++------------------
+ src/app/page.tsx                   | 41 +++++++++++++++++++++-----------------
+ src/app/seller/home/page.tsx       |  1 -
+ 3 files changed, 26 insertions(+), 39 deletions(-)
+
+commit dd9833997cb0e24ae119e7cfa1a3bcc7a8b25f9c
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Tue Nov 12 15:52:53 2024 -0500
+
+    search by price and search keyword functionality
+
+ src/app/customer/viewItem/page.tsx |  59 +++++++++
+ src/app/page.tsx                   | 241 +++++++++++++++++++++++++++++++++----
+ 2 files changed, 277 insertions(+), 23 deletions(-)
+
+commit dd9ea9237f7c642938f731baed4fcf8144e32134
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Sat Nov 9 22:40:48 2024 -0500
+
+    Finalize README.md
+
+ README.md | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+commit 918ec3058a9bd45c77bcf2c2c7fa4f48119551ee
+Merge: e0dfaf1 c58569a
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Sat Nov 9 22:34:37 2024 -0500
+
+    Merge branch 'master' of https://github.com/amrutsavadatti/auction_house
+    
+    commit
+
+commit e0dfaf1fc1c941738b0504d67a205f3738fbd30c
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Sat Nov 9 22:31:40 2024 -0500
+
+    Final Iteration One Code Push
+
+ src/app/seller/editItem/page.tsx | 61 +++++++++++++++++++++++++++++++++---
+ src/app/seller/item/page.tsx     | 67 ++++++++++++++++++++++++++--------------
+ 2 files changed, 101 insertions(+), 27 deletions(-)
+
+commit c58569a73343f49ed3c5fd890e804d734ccca8ee
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sat Nov 9 15:37:26 2024 -0500
+
+    Update README.md
+    
+    formatting
+
+ README.md | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
+
+commit 1aaa12a148541390c93a17f159994ca552f4516a
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Sat Nov 9 15:37:21 2024 -0500
+
+    Adding new getFunds lambda
+
+ lambda/getFunds/index.mjs         |  38 +++++++++++++
+ lambda/getFunds/package-lock.json | 109 ++++++++++++++++++++++++++++++++++++++
+ lambda/getFunds/package.json      |  14 +++++
+ 3 files changed, 161 insertions(+)
+
+commit 29c88ab2976e8298bf20b1bead29babb3888e0f3
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sat Nov 9 15:32:24 2024 -0500
+
+    Update README.md
+    
+    UPDATED landing page urls and descriptions
+
+ README.md | 54 +++++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 33 insertions(+), 21 deletions(-)
+
+commit 4515bb268678737e3bd34b66ae3ab60c666fcd25
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Sat Nov 9 15:26:32 2024 -0500
+
+    Removing old git log. Will add new one for submission
+
+ git.report.txt | Bin 34178 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3e8fab974fd43d04ea37f3433308f34d57c807fe
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Sat Nov 9 15:22:09 2024 -0500
+
+    Stable v3. On S3
+
+ src/app/api/s3-upload/route.ts   |  5 -----
+ src/app/buyer/Home/page.tsx      | 28 ++++++++++++++++++++++++++++
+ src/app/seller/editItem/page.tsx |  6 +++---
+ 3 files changed, 31 insertions(+), 8 deletions(-)
+
+commit d3284901e7740ac4957f1d2c5c2e98ed03168239
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Sat Nov 9 01:29:56 2024 -0500
+
+    pretty stable v2
+
+ src/app/seller/editItem/page.tsx |  4 ----
+ src/app/seller/item/page.tsx     | 32 +++++++++++++++++++++++++++++++-
+ 2 files changed, 31 insertions(+), 5 deletions(-)
+
+commit 5a23cca630d52f9705c9b51dfb8860f95c9489aa
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Fri Nov 8 23:42:57 2024 -0500
+
+    pretty
+
+ src/app/api/s3-upload/route.ts      |   5 +
+ src/app/components/HomeButton.tsx   |  30 ++++--
+ src/app/components/LogoutButton.tsx |   2 +-
+ src/app/components/SigninButton.tsx |   2 +-
+ src/app/globals.css                 |  18 ----
+ src/app/home/userType/page.tsx      |  22 ++--
+ src/app/layout.tsx                  |   7 +-
+ src/app/seller/close/page.tsx       |  25 +++--
+ src/app/seller/editItem/page.tsx    | 207 ++++++++++++------------------------
+ src/app/seller/home/page.tsx        | 164 ++++++++++++++--------------
+ src/app/seller/item/page.tsx        | 114 ++++++++++----------
+ src/app/seller/signin/page.tsx      |  69 ++++++++----
+ tailwind.config.ts                  |   2 +-
+ 13 files changed, 323 insertions(+), 344 deletions(-)
+
+commit 809d636460a262d50b6107707a266f22e592a365
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Nov 8 14:02:21 2024 -0500
+
+    Update README.md
+
+ README.md | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 09ec8b00e3d3241a2751d028dc5e0dcbed814eef
+Author: Jai Patel <jaipatel@Mac.lan>
+Date:   Fri Nov 8 10:58:54 2024 -0500
+
+    Stable v1 S3
+
+ package.json                        |  1 +
+ src/app/components/HomeButton.tsx   | 23 +++++++++++++++++++++++
+ src/app/components/SigninButton.tsx | 10 +++++++++-
+ src/app/layout.tsx                  |  8 ++++++--
+ src/app/seller/home/page.tsx        | 19 ++++++++++++++++---
+ 5 files changed, 55 insertions(+), 6 deletions(-)
+
+commit 371abf43af66e59ad86dd50e5c7a51d57e20ad27
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Thu Nov 7 17:51:37 2024 -0500
+
+    Next build works with this
+
+ src/app/seller/editItem/page.tsx | 4 ++--
+ src/app/seller/item/page.tsx     | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit b2cbeec4a43cc9d2d3b322b3ee5010efd53f4756
+Merge: 3dc74f7 ffe3ecf
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Thu Nov 7 17:17:58 2024 -0500
+
+    Merge branch 'master' of github.com:amrutsavadatti/auction_house
+
+commit 3dc74f77710b44ab092edfdb6f7df22f2409dc9e
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Thu Nov 7 17:15:40 2024 -0500
+
+    biuid
+
+ git.report.txt                                |  Bin 0 -> 34178 bytes
+ next.config.ts                                |    2 +-
+ package-lock.json                             | 2845 +++++--------------------
+ package.json                                  |    6 +-
+ src/app/api/auth/[...nextauth]/route.ts       |   49 -
+ src/app/api/edgestore/[...edgestore]/route.ts |   22 -
+ src/app/api/s3-upload/route.ts                |   42 -
+ src/app/components/Providers.tsx              |   14 -
+ src/app/home/page.tsx                         |    1 -
+ src/app/home/userType/page.tsx                |    2 +-
+ src/app/layout.tsx                            |    3 -
+ src/app/seller/close/page.tsx                 |    1 -
+ src/app/seller/editItem/page.tsx              |  110 +-
+ src/app/seller/home/page.tsx                  |    6 +-
+ src/app/seller/item/page.tsx                  |    2 +-
+ src/app/seller/signin/page.tsx                |    1 +
+ src/tsconfig.json                             |    5 +-
+ 17 files changed, 704 insertions(+), 2407 deletions(-)
+
+commit ffe3ecfd29be6ff8fbb55cd538b3fb08abbb378f
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Thu Nov 7 16:39:29 2024 -0500
+
+    Update README.md
+
+ README.md | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+commit b4ca8108d2494f033c56c3f406cce52c24aa7eba
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Thu Nov 7 16:33:19 2024 -0500
+
+    Update README.md
+
+ README.md | 29 ++++++++++++++++-------------
+ 1 file changed, 16 insertions(+), 13 deletions(-)
+
+commit 783ab0de5df828dbb45a38d0352d5f211b8f717b
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Thu Nov 7 16:29:40 2024 -0500
+
+    Update README.md
+
+ README.md | 90 ++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 54 insertions(+), 36 deletions(-)
+
+commit 7fb5bbc2b63bd37baf5d6e8b028787d8255ab336
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Thu Nov 7 16:03:25 2024 -0500
+
+    added lambda
+
+ lambda/addFunds/index.mjs            |  50 ++++++++++++++++
+ lambda/addFunds/package-lock.json    | 109 +++++++++++++++++++++++++++++++++++
+ lambda/addFunds/package.json         |  14 +++++
+ lambda/addItem/index.mjs             |  61 ++++++++++++++++++++
+ lambda/addItem/package-lock.json     | 109 +++++++++++++++++++++++++++++++++++
+ lambda/addItem/package.json          |  14 +++++
+ lambda/editItem/index.mjs            |  63 ++++++++++++++++++++
+ lambda/editItem/package-lock.json    | 109 +++++++++++++++++++++++++++++++++++
+ lambda/editItem/package.json         |  14 +++++
+ lambda/loginBuyer/index.mjs          |  53 +++++++++++++++++
+ lambda/loginBuyer/package-lock.json  | 109 +++++++++++++++++++++++++++++++++++
+ lambda/loginBuyer/package.json       |  14 +++++
+ lambda/loginSeller/index.mjs         |  53 +++++++++++++++++
+ lambda/loginSeller/package-lock.json | 109 +++++++++++++++++++++++++++++++++++
+ lambda/loginSeller/package.json      |  14 +++++
+ 15 files changed, 895 insertions(+)
+
+commit b0eca9891538871fbb890f228bc86f5e1d176f99
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Thu Nov 7 16:01:57 2024 -0500
+
+    Add files via upload
+
+ lambda/closeBuyer/index.mjs           |  46 ++++++++++++++
+ lambda/closeBuyer/package-lock.json   | 109 ++++++++++++++++++++++++++++++++++
+ lambda/closeBuyer/package.json        |  14 +++++
+ lambda/closeSeller/index.mjs          |  46 ++++++++++++++
+ lambda/closeSeller/package-lock.json  | 109 ++++++++++++++++++++++++++++++++++
+ lambda/closeSeller/package.json       |  14 +++++
+ lambda/createBuyer/index.mjs          |  38 ++++++++++++
+ lambda/createBuyer/package-lock.json  |  98 ++++++++++++++++++++++++++++++
+ lambda/createBuyer/package.json       |  14 +++++
+ lambda/createSeller/index.mjs         |  38 ++++++++++++
+ lambda/createSeller/package-lock.json | 109 ++++++++++++++++++++++++++++++++++
+ lambda/createSeller/package.json      |  14 +++++
+ lambda/reviewItems/index.mjs          |  47 +++++++++++++++
+ lambda/reviewItems/package-lock.json  | 109 ++++++++++++++++++++++++++++++++++
+ lambda/reviewItems/package.json       |  14 +++++
+ 15 files changed, 819 insertions(+)
+
+commit 8da40bf11542ab6773606ce07ca0e5146ac9048a
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Thu Nov 7 15:34:21 2024 -0500
+
+    last
+
+ src/app/api/auth/_[...nextauth].ts |  47 ------------
+ src/app/api/s3-upload/route.ts     |   7 ++
+ src/app/buyer/Home/page.tsx        |   1 +
+ src/app/home/notlayout.tsx         |  48 ------------
+ src/app/home/page.tsx              | 149 +------------------------------------
+ src/app/layout.tsx                 |   2 +-
+ src/app/seller/editItem/page.tsx   |  92 +++++++++++++++++++++++
+ src/app/seller/home/page.tsx       |  37 ++++++---
+ src/app/seller/item/page.tsx       | 116 ++++++++++++++++++++++++++---
+ src/app/seller/signup/page.tsx     |   2 +-
+ 10 files changed, 232 insertions(+), 269 deletions(-)
+
+commit d8ca2473791bf5fb972418737d947a27c5bcfd1e
+Merge: 2fab4ec b3bba44
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Thu Nov 7 13:42:06 2024 -0500
+
+    Merge branch 'auth_branch' of github.com:amrutsavadatti/auction_house into auth_branch
+
+commit b3bba44c69eb51e0bc13123a57a72ffa74e46af1
+Author: mkpise <mkpise@wpi.edu>
+Date:   Thu Nov 7 13:35:58 2024 -0500
+
+    Final Buyer side
+
+ src/app/buyer/signin/page.tsx | 2 +-
+ src/app/buyer/signup/page.tsx | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 2fab4ec79fd85df754c7a1d4b34c206a2cad16da
+Merge: dfcc660 9b66655
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Thu Nov 7 13:29:00 2024 -0500
+
+    Merge branch 'auth_branch' of github.com:amrutsavadatti/auction_house into auth_branch
+
+commit 9b6665535a2d615f6435c323e98c5fb9ef48970d
+Author: mkpise <mkpise@wpi.edu>
+Date:   Thu Nov 7 13:25:28 2024 -0500
+
+    Complete buyer side done
+
+ src/app/buyer/Home/page.tsx | 53 +++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 51 insertions(+), 2 deletions(-)
+
+commit dfcc66054d361350aafbf1b5de576bbfd8f724c9
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Thu Nov 7 13:10:15 2024 -0500
+
+    s3 file
+
+ package-lock.json                   |  1 +
+ package.json                        |  1 +
+ src/app/api/s3-upload/route.ts      | 35 +++++++++++++++++++++++++++++++++++
+ src/app/components/SigninButton.tsx | 12 +++++++++---
+ 4 files changed, 46 insertions(+), 3 deletions(-)
+
+commit 9ce27266f2e7130a8fdc968e9d6bb83cb61d7a90
+Author: mkpise <mkpise@wpi.edu>
+Date:   Thu Nov 7 12:26:15 2024 -0500
+
+    Buyer close account working
+
+ src/app/buyer/Home/page.tsx | 72 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 72 insertions(+)
+
+commit a215878fee0e341618babfd992570bb258361ea8
+Author: mkpise <mkpise@wpi.edu>
+Date:   Thu Nov 7 12:09:03 2024 -0500
+
+    Buyer login updated
+
+ src/app/buyer/Home/page.tsx   |  0
+ src/app/buyer/signin/page.tsx | 22 +++++++++++++---------
+ 2 files changed, 13 insertions(+), 9 deletions(-)
+
+commit e66bce87135b9789f9e1c9e0642c3154a0510b50
+Merge: 95af0fc a4cfb54
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Wed Nov 6 23:06:00 2024 -0500
+
+    Seller create, login, logout, review, close
+
+commit 95af0fcb70c16a62bbcffb760a8478c59c221f8a
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Wed Nov 6 22:09:20 2024 -0500
+
+    auth done
+
+ src/app/api/auth/[...nextauth]/route.ts       |  90 +++++++++---------
+ src/app/api/auth/signin/page.tsx              |  12 +++
+ src/app/api/edgestore/[...edgestore]/route.ts |  22 +++++
+ src/app/components/LogoutButton.tsx           |  21 +++++
+ src/app/components/SigninButton.tsx           |  24 +++--
+ src/app/seller/home/page.tsx                  |  24 ++++-
+ src/app/seller/signin/page.tsx                | 128 ++++++++++----------------
+ 7 files changed, 177 insertions(+), 144 deletions(-)
+
+commit a4cfb54b3596e68c4463186e30d54ac190f066b4
+Author: mkpise <mkpise@wpi.edu>
+Date:   Wed Nov 6 18:31:10 2024 -0500
+
+    Review item for seller works
+
+ package-lock.json            |  11 ++++
+ package.json                 |   1 +
+ src/app/seller/home/page.tsx | 121 ++++++++++++++++++++++++++++++++++++-------
+ 3 files changed, 113 insertions(+), 20 deletions(-)
+
+commit 2b15d5f28fa335c36c7233f3b35fa8f096901c7c
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Wed Nov 6 17:50:20 2024 -0500
+
+    nov11
+
+ next.config.ts                                |    2 +-
+ package-lock.json                             | 2830 ++++++++++++++++++++-----
+ package.json                                  |    8 +-
+ src/app/api/auth/[...nextauth]/route.ts       |   57 +
+ src/app/api/auth/_[...nextauth].ts            |   47 +
+ src/app/api/edgestore/[...edgestore]/route.ts |    0
+ src/app/components/Providers.tsx              |   14 +
+ src/app/components/SigninButton.tsx           |   26 +
+ src/app/home/{layout.tsx => notlayout.tsx}    |    8 +-
+ src/app/home/userType/page.tsx                |    2 +-
+ src/app/layout.tsx                            |   45 +-
+ src/app/seller/close/page.tsx                 |   48 +
+ src/app/seller/home/page.tsx                  |   23 +
+ src/app/seller/item/page.tsx                  |   16 +
+ src/app/seller/signin/page.tsx                |   42 +-
+ 15 files changed, 2639 insertions(+), 529 deletions(-)
+
+commit 40658a9d8fe6cc836d0790f5227481d2a54d5606
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Tue Nov 5 19:30:37 2024 -0500
+
+    home page lists
+
+ src/app/home/layout.tsx        |  31 +--------
+ src/app/home/page.tsx          | 149 ++++++++++++++++++++++++++++++++++++++++-
+ src/app/seller/signin/page.tsx |   8 ++-
+ 3 files changed, 155 insertions(+), 33 deletions(-)
+
+commit 81dd18e1766b702834752bea6f436a1527e861f7
+Author: amrut <amrutsavadatti@gmail.com>
+Date:   Tue Nov 5 15:36:12 2024 -0500
+
+    home page tweaks
+
+ src/app/buyer/signin/page.tsx  |  7 ++--
+ src/app/home/layout.tsx        | 75 ++++++++++++++++++++++++++++++++++++++++++
+ src/app/home/page.tsx          | 28 ++--------------
+ src/app/home/userType/page.tsx | 30 +++++++++++++++++
+ src/app/seller/signup/page.tsx |  2 +-
+ 5 files changed, 113 insertions(+), 29 deletions(-)
+
+commit 12d10317da7d570317e91954dcf6404eaea16949
+Author: mkpise <mkpise@wpi.edu>
+Date:   Tue Nov 5 01:10:44 2024 -0500
+
+    Added the buyer button to the home page
+
+ src/app/home/page.tsx | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 35e67cba73137b8f1f9e844d79d0c3d906d6cd84
+Merge: 1424136 4aaa2b9
+Author: ManasPise03 <151983653+ManasPise03@users.noreply.github.com>
+Date:   Tue Nov 5 00:58:13 2024 -0500
+
+    Merge pull request #1 from amrutsavadatti/buyer
+    
+    Buyer
+
+commit 4aaa2b9dd83e4199034ac146343450300ba34c39
+Author: mkpise <mkpise@wpi.edu>
+Date:   Tue Nov 5 00:53:51 2024 -0500
+
+    Buyer signup but getting the same error as signin
+
+ src/app/buyer/signup/page.tsx | 84 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+
+commit 0e3963db95ceecdcd6c0b0f3690d33ba39f453e9
+Author: mkpise <mkpise@wpi.edu>
+Date:   Tue Nov 5 00:41:46 2024 -0500
+
+    Buyer signin but getting an error called as (TypeError: NetworkError when attempting to fetch resource.)
+
+ src/app/buyer/signin/page.tsx | 80 +++++++++++++++++++++++++++++++++++++++++++
+ src/app/buyer/signup/page.tsx |  0
+ 2 files changed, 80 insertions(+)
+
+commit 1424136c73560cb49266b772254ae3a494bc2664
+Author: mkpise <mkpise@wpi.edu>
+Date:   Tue Nov 5 00:14:00 2024 -0500
+
+    Improved the home page
+
+ src/app/favicon.ico   | Bin 25931 -> 0 bytes
+ src/app/home/page.tsx |  51 +++++++++++++++-----------------------------------
+ 2 files changed, 15 insertions(+), 36 deletions(-)
+
+commit e6f6d3b2d9f00c395c888adf61e2aa9e9858d196
+Author: Amrut <amrut@Amruts-Air.lan>
+Date:   Mon Nov 4 22:49:24 2024 -0500
+
+    home page
+
+ src/app/home/[user]/page.tsx |  8 --------
+ src/app/home/page.tsx        | 42 +++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 41 insertions(+), 9 deletions(-)
+
+commit 7247f0e0aa7ccd3f8540e3f022c2b1eb6bb087ea
+Author: Amrut <amrut@autoreg-6692024.dyn.wpi.edu>
+Date:   Mon Nov 4 16:19:37 2024 -0500
+
+    fetch issue fix
+
+ src/app/home/[userId]/page.tsx |  9 ---------
+ src/app/home/[user]/page.tsx   |  8 ++++++++
+ src/app/home/page.tsx          |  8 ++++++++
+ src/app/seller/signin/page.tsx | 12 +++---------
+ src/app/seller/signup/page.tsx |  1 -
+ 5 files changed, 19 insertions(+), 19 deletions(-)
+
+commit e0a36abc9c3a235023dca17d49ec2466b77369e0
+Author: Amrut <amrut@Amruts-MacBook-Air.local>
+Date:   Fri Nov 1 14:26:44 2024 -0400
+
+    seller signin and login
+
+ .vscode/launch.json            |  29 ++++++++++++
+ src/app/home/[userId]/page.tsx |   9 ++++
+ src/app/seller/signin/page.tsx |  83 ++++++++++++++++++++++++--------
+ src/app/seller/signup/page.tsx | 104 +++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 206 insertions(+), 19 deletions(-)
+
+commit 8ac30a139f370eb7a1daf283c4b5b0ec1e49c893
+Author: Amrut <amrut@Amruts-Air.lan>
+Date:   Thu Oct 31 12:41:14 2024 -0400
+
+    routes tewak
+
+ src/app/seller/{login => signin}/page.tsx  | 0
+ src/app/seller/{create => signup}/page.tsx | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d21f1afc3d3be053ec06259489542d3f2ac98bf0
+Author: Amrut <amrut@Amruts-Air.lan>
+Date:   Thu Oct 31 12:39:42 2024 -0400
+
+    Frontend draft
+
+ package-lock.json                    | 48 ++++++++++++++++++++++++++--
+ package.json                         | 11 ++++---
+ src/app/components/Create.module.css |  8 +++++
+ src/app/layout.tsx                   |  2 +-
+ src/app/seller/create/page.tsx       |  0
+ src/app/seller/login/page.tsx        | 61 ++++++++++++++++++++++++++++++++++++
+ tailwind.config.ts                   |  7 ++++-
+ 7 files changed, 128 insertions(+), 9 deletions(-)
+
+commit ae06d758ea4883d0789f64cfe343a90a6acd3e37
+Author: Jai Patel <jaipatel@Jais-MacBook-Pro-882.local>
+Date:   Sun Oct 27 22:27:39 2024 -0400
+
+    Adding starter
+
+ next.config.ts                                     |    4 +
+ src/.next/app-build-manifest.json                  |   20 +
+ src/.next/build-manifest.json                      |   20 +
+ src/.next/cache/.rscinfo                           |    1 +
+ .../cache/webpack/client-development/0.pack.gz     |  Bin 0 -> 44279 bytes
+ .../cache/webpack/client-development/1.pack.gz     |  Bin 0 -> 9291504 bytes
+ .../cache/webpack/client-development/index.pack.gz |  Bin 0 -> 157210 bytes
+ .../webpack/client-development/index.pack.gz.old   |  Bin 0 -> 3169 bytes
+ .../cache/webpack/server-development/0.pack.gz     |  Bin 0 -> 1912967 bytes
+ .../cache/webpack/server-development/1.pack.gz     |  Bin 0 -> 282558 bytes
+ .../cache/webpack/server-development/2.pack.gz     |  Bin 0 -> 3876374 bytes
+ .../cache/webpack/server-development/index.pack.gz |  Bin 0 -> 175918 bytes
+ .../webpack/server-development/index.pack.gz.old   |  Bin 0 -> 169804 bytes
+ src/.next/package.json                             |    1 +
+ src/.next/react-loadable-manifest.json             |    1 +
+ src/.next/server/app-paths-manifest.json           |    5 +
+ src/.next/server/app/_not-found/page.js            |  133 +
+ .../_not-found/page_client-reference-manifest.js   |    1 +
+ src/.next/server/app/favicon.ico/route.js          |   86 +
+ src/.next/server/app/page.js                       |  176 +
+ .../server/app/page_client-reference-manifest.js   |    1 +
+ .../server/interception-route-rewrite-manifest.js  |    1 +
+ src/.next/server/middleware-build-manifest.js      |   22 +
+ src/.next/server/middleware-manifest.json          |    6 +
+ .../server/middleware-react-loadable-manifest.js   |    1 +
+ src/.next/server/next-font-manifest.js             |    1 +
+ src/.next/server/next-font-manifest.json           |    1 +
+ src/.next/server/pages-manifest.json               |    1 +
+ src/.next/server/server-reference-manifest.js      |    1 +
+ src/.next/server/server-reference-manifest.json    |    5 +
+ src/.next/server/vendor-chunks/@swc.js             |   55 +
+ src/.next/server/vendor-chunks/next.js             | 3641 ++++++++++++++++++++
+ src/.next/server/webpack-runtime.js                |  220 ++
+ src/.next/static/chunks/app-pages-internals.js     |  193 ++
+ src/.next/static/chunks/app/_not-found/page.js     |   39 +
+ src/.next/static/chunks/app/layout.js              |   69 +
+ src/.next/static/chunks/app/page.js                |  192 ++
+ src/.next/static/chunks/main-app.js                | 2343 +++++++++++++
+ src/.next/static/chunks/polyfills.js               |    1 +
+ src/.next/static/chunks/webpack.js                 | 1403 ++++++++
+ src/.next/static/css/app/layout.css                |  542 +++
+ src/.next/static/development/_buildManifest.js     |    1 +
+ src/.next/static/development/_ssgManifest.js       |    1 +
+ src/.next/static/media/4473ecc91f70f139-s.p.woff   |  Bin 0 -> 66268 bytes
+ src/.next/static/media/463dafcda517f24f-s.p.woff   |  Bin 0 -> 67864 bytes
+ .../webpack/633457081244afec._.hot-update.json     |    1 +
+ .../6a7dbc6a838d99b5.webpack.hot-update.json       |    1 +
+ .../webpack/webpack.6a7dbc6a838d99b5.hot-update.js |   18 +
+ src/.next/trace                                    |   12 +
+ src/.next/types/app/layout.ts                      |   84 +
+ src/.next/types/app/page.ts                        |   84 +
+ src/.next/types/cache-life.d.ts                    |  138 +
+ src/.next/types/package.json                       |    1 +
+ src/app/page.tsx                                   |   79 +-
+ src/tsconfig.json                                  |   35 +
+ 55 files changed, 9564 insertions(+), 77 deletions(-)
+
+commit de4b6a764aba960cc24f2205c3eacd032efab8f1
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Sun Oct 27 21:01:58 2024 -0400
+
+    Initial commit from Create Next App
+
+ .eslintrc.json                 |    3 +
+ .gitignore                     |   40 +
+ README.md                      |   36 +
+ next.config.ts                 |    7 +
+ package-lock.json              | 5726 ++++++++++++++++++++++++++++++++++++++++
+ package.json                   |   26 +
+ postcss.config.mjs             |    8 +
+ public/file.svg                |    1 +
+ public/globe.svg               |    1 +
+ public/next.svg                |    1 +
+ public/vercel.svg              |    1 +
+ public/window.svg              |    1 +
+ src/app/favicon.ico            |  Bin 0 -> 25931 bytes
+ src/app/fonts/GeistMonoVF.woff |  Bin 0 -> 67864 bytes
+ src/app/fonts/GeistVF.woff     |  Bin 0 -> 66268 bytes
+ src/app/globals.css            |   21 +
+ src/app/layout.tsx             |   35 +
+ src/app/page.tsx               |  101 +
+ tailwind.config.ts             |   19 +
+ tsconfig.json                  |   27 +
+ 20 files changed, 6054 insertions(+)

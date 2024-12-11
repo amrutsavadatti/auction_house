@@ -1,8 +1,6 @@
 "use client"; 
-import { useRouter } from 'next/navigation';
 import router from 'next/router';
 import { useEffect, useState } from 'react';
-import LogoutButton from '../../components/LogoutButton';
 
 
 interface SoldItem {
