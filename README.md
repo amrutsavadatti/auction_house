@@ -26,6 +26,19 @@
   19) Place Bid (Buyer)
   20) Review Active Bids (Buyer)
 
+## Iteration #3
+
+  21) Fulfill Item (Seller)
+  22) Review Purchases (Buyer)
+  23) Generate Auction Report (Admin)
+  24) Generate Forensics Report (Admin)
+  25) Search Recently Sold (Buyer)
+  26) Sort Recently Sold (Buyer)
+  27) Freeze Item (Admin)
+  28) Unfreeze Item (Admin)
+  29) Request Unfreeze Item (Seller)
+  30) Buy Now (Buyer)
+
 ## Landing Page URLs and Descriptions
 URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
 
@@ -100,6 +113,12 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
 - Amrut Savadatti: Front End Work
 - Jai Patel: Back End Work, S3 Bucket
 - Pooja Kawatkar: Front End Work
+
+## Iteration 2 Work Distribution
+- Manas Pise: 
+- Amrut Savadatti: 
+- Jai Patel: 
+- Pooja Kawatkar: 
 
 ## General Notes
 Please make sure not to refresh the live URLs, as it runs into a 404 not found/403 forbidden error. We reached out to the professor and other teams who are experiencing the same issue, but we are not sure how to go about solving it.
