@@ -1,0 +1,13 @@
+{
+    "name": "getRecentlySoldItems",
+    "version": "1.0.0",
+    "description": "get recently sold items",
+    "main": "index.mjs",
+    "repository": "TBA",
+    "author": "SAM CLI",
+    "license": "MIT",
+    "type" : "commonjs",
+    "dependencies": {
+      "mysql": "^2.18.1"
+    }
+  }
