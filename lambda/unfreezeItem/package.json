@@ -1,0 +1,15 @@
+{
+    "name": "unfreezeItem",
+    "version": "1.0.0",
+    "description": "unpublish item",
+    "main": "index.mjs",
+    "repository": "TBA",
+    "author": "SAM CLI",
+    "license": "MIT",
+    "type" : "commonjs",
+    "dependencies": {
+      "mysql": "^2.18.1"
+    }
+  }
+  
+
