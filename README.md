@@ -58,7 +58,7 @@ URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
     Sign Up page for Buyer that allows a buyer to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/buyer/signin).
     
   6) /buyer/home <br/>
-     Home page for the buyer. Similar to the landing page, the buyer is able to see all the active and published items. On the page, the buyer has the option to click "view item", rerouting to the bid page (/buyer/bid). The buyer can also click "active bids", rerouting to /buyer/reviewActiveBids. Finally, the buyer can click "Add Funds", rerouting to /buyer/funds.
+     Home page for the buyer. Similar to the landing page, the buyer is able to see all the active and published items. On the page, the buyer has the option to click "view item", rerouting to the bid page (/buyer/bid). The buyer can also click "active bids", rerouting to /buyer/reviewActiveBids. THe buyer can click "Review Purchases", rerouting to /buyer/reviewPurchases, and click "Recently Sold", rerouting to buyer/recentlySoldItems. Please see "21" and "22" for more info about the two pages. Finally, the buyer can click "Add Funds", rerouting to /buyer/funds.
 
   7) /buyer/bid <br/>
     Page for the buyer to view information about a specific item and to place a bid. They can also view all the previous bids made for that item. Buyer can click "place bid", should they have enough funds, rerouting to the /buyer/home page.
@@ -76,7 +76,7 @@ URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
     Sign Up page for seller that allows a seller to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/seller/signin). 
     
   12) /seller/home <br/>
-    On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. If the item is inactive, the seller has the option to remove the item altogether or archive it. If the item is frozen, the seller has the option to request to unfreeze the item.
+    On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. If the item is inactive, the seller has the option to remove the item altogether or archive it. If the item has been completed, the seller has the option to "fulfill" the item. If the item is frozen, the seller has the option to request to unfreeze the item.
     
   13) /seller/item <br/>
     This page allows the seller to enter all fields to add a new item. The seller can see the added item on the seller home page. 
@@ -101,6 +101,13 @@ URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
   
   20) /admin/forensicsReport <br/>
     On this page, the admin is able to view a list of statistics for the auction house. The admin can see the calculated mean, median, and mode of the final sale prices. They can also see the top 3 items by sale price.
+
+  21) /buyer/reviewPurchases <br/>
+    On this page, the buyer is able to view a list of all the items they have previously bought, with their final sale price.
+
+  22) /buyer/recentlySoldItems <br/>
+    On this page, the buyer is able to view 
+  
 
 
 ## INSTRUCTIONS:
