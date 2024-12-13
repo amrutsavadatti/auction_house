@@ -40,7 +40,7 @@
   30) Buy Now (Buyer)
 
 ## Landing Page URLs and Descriptions
-URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
+URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
 
   1) / <br/>
     Landing page. User is in customer mode and can view all active, published items (can view its set price, highest bid, seller name, published date). The customer has the option to search based off of a keyword or buy putting a price filter. They also can sort the items based on price, publish date, and expiration date.For every item, the user has the option to click "view item", redirecting you to /customer/viewItem. User can click on sign in button on the top right corner. Redirects you to /home/userType
@@ -76,7 +76,7 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
     Sign Up page for seller that allows a seller to sign up and create a new account. Once a new account is successfully made, the page reroutes to the sign-in page (/seller/signin). 
     
   12) /seller/home <br/>
-    On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. If the item is inactive, the seller has the option to remove the item altogether or archive it.
+    On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. If the item is inactive, the seller has the option to remove the item altogether or archive it. If the item is frozen, the seller has the option to request to unfreeze the item.
     
   13) /seller/item <br/>
     This page allows the seller to enter all fields to add a new item. The seller can see the added item on the seller home page. 
