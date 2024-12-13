@@ -142,10 +142,12 @@ URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
 - Manas Pise: Back End Work
 - Amrut Savadatti: Some back end some front end 
 - Jai Patel: Led back end
-- Pooja Kawatkar: Front End WOrk
+- Pooja Kawatkar: Front End Work
 
 ## General Notes
 Please make sure not to refresh the live URLs, as it runs into a 404 not found/403 forbidden error. We reached out to the professor and other teams who are experiencing the same issue, but we are not sure how to go about solving it.
 
 For the "Search Items (Customer)" and "Sort Items (Customer)" use cases, you may have to click on the search button and/or sorting filters twice in order to see the changes on the screen.
+
+Admin Credentials: admin@admin.com password- admin
 
