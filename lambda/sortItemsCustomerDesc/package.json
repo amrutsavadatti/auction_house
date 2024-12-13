@@ -1,0 +1,13 @@
+{
+    "name": "sortItemsCustomerDesc",
+    "version": "1.0.0",
+    "description": "sort items customer descending",
+    "main": "index.mjs",
+    "repository": "TBA",
+    "author": "SAM CLI",
+    "license": "MIT",
+    "type" : "commonjs",
+    "dependencies": {
+      "mysql": "^2.18.1"
+    }
+  }
