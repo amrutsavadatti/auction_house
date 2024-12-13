@@ -83,7 +83,24 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
     
   14) /seller/editItem <br/>
     This page is routed when the seller clicks "edit" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the /seller/home page.
-     
+
+  15) /admin/signIn <br/>
+    Sign-In page for admin that allows the admin to sign in using admin@admin.com
+
+  16) /admin/home <br/>
+    Home page for admin. On this page the admin is able to view their auction house funds. They are also able to choose from clicking "List of Active Items" (reroutes to /admin/activeItems), "List of Frozen Items" (reroutes to /admin), "Generate Auction Report" (reroutes to /admin), or "Generate Forensics Report" (reroutes to /admin).
+
+  17) /admin/activeItems <br/>
+      On this page, the admin is able to view all active items of the auction house. They have the option to freeze a specific item, if they wish, changing the status of the item to frozen.
+
+  18) /admin/frozenItems <br/>
+     On this page, the admin is able to view all the frozen items and a list of items that are requesting to be unfrozen. The admin has the option to unfreeze any of these frozen items and unfreeze request items.
+
+  19) /admin/auctionReport <br/>
+    On this page, the admin is able to view a list of bought items, their final sale price, and the commission value it gives for the auction house. The admin is able to view their total commission funds.
+  
+  20) /admin/forensicsReport <br/>
+    On this page, the admin is able to view a list of statistics for the auction house. The admin can see the calculated mean, median, and mode of the final sale prices. They can also see the top 3 items by sale price.
 
 
 ## INSTRUCTIONS:
@@ -114,11 +131,11 @@ URL for AWS APP: http://iteration2bucket.s3-website.us-east-2.amazonaws.com/
 - Jai Patel: Back End Work, S3 Bucket
 - Pooja Kawatkar: Front End Work
 
-## Iteration 2 Work Distribution
-- Manas Pise: 
-- Amrut Savadatti: 
-- Jai Patel: 
-- Pooja Kawatkar: 
+## Iteration 3 Work Distribution
+- Manas Pise: Back End Work
+- Amrut Savadatti: Some back end some front end 
+- Jai Patel: Led back end
+- Pooja Kawatkar: Front End WOrk
 
 ## General Notes
 Please make sure not to refresh the live URLs, as it runs into a 404 not found/403 forbidden error. We reached out to the professor and other teams who are experiencing the same issue, but we are not sure how to go about solving it.
