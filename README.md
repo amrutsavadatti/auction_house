@@ -79,7 +79,7 @@ URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
     On this page, the seller can review their items, add items, choose to edit items, and close their account. Closing their account will reroute them to the /seller/signin page, clicking the add item button will reroute to the /seller/item page, and clicking edit item will reroute to /seller/editItem. The seller should also have the ability to click on the "publish", "remove", or "archive" button. If the seller were to click on the "publish", they can publish the item and choose their expiration date, which disables the other buttons and enables only the "unpublish" button. Once it is published, the item is live/active and buyers are able to place bids until the chosen expiration date. If the item is inactive, the seller has the option to remove the item altogether or archive it. If the item has been completed, the seller has the option to "fulfill" the item. If the item is frozen, the seller has the option to request to unfreeze the item.
     
   13) /seller/item <br/>
-    This page allows the seller to enter all fields to add a new item. The seller can see the added item on the seller home page. 
+    This page allows the seller to enter all fields to add a new item. The seller can see the added item on the seller home page.  Seller has option to sell for auction ("For Auction") or to put it on sale ("For Sale").
     
   14) /seller/editItem <br/>
     This page is routed when the seller clicks "edit" next to an item on the items list. They will be able to make any modifications to the fields of the item. The updated item will be seen on the /seller/home page.
