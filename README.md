@@ -106,7 +106,7 @@ URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
     On this page, the buyer is able to view a list of all the items they have previously bought, with their final sale price.
 
   22) /buyer/recentlySoldItems <br/>
-    On this page, the buyer is able to view 
+    On this page, the buyer is able to view all recently sold items within the last 24 hours. If they click "view item", they will be able to view the item along with their bidding history too (rerouted to /buyer/bid).
   
 
 
