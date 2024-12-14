@@ -1,3 +1,322 @@
+commit 258ec305988a2d004446bcc4844b5674c5d58291
+Author: Amrut <amrut@Amruts-Air.lan>
+Date:   Fri Dec 13 17:03:33 2024 -0500
+
+    lambda
+
+ lambda/editItemGET/index.mjs         |  63 ++++++++++++++++++++
+ lambda/editItemGET/package-lock.json | 109 +++++++++++++++++++++++++++++++++++
+ lambda/editItemGET/package.json      |  14 +++++
+ 3 files changed, 186 insertions(+)
+
+commit e490c404266fff890dfbef3d2c688d4e0470e321
+Author: mkpise <mkpise@wpi.edu>
+Date:   Fri Dec 13 12:15:02 2024 -0500
+
+    Lambdas for iteration3 final iteration
+
+ lambda/addItemBuyNow/index.mjs                 |  59 +++++++++
+ lambda/addItemBuyNow/package-lock.json         |  98 +++++++++++++++
+ lambda/addItemBuyNow/package.json              |  14 +++
+ lambda/buyNowBuyer/index.mjs                   |  67 ++++++++++
+ lambda/buyNowBuyer/package-lock.json           | 109 +++++++++++++++++
+ lambda/buyNowBuyer/package.json                |  14 +++
+ lambda/completion/index.mjs                    | 162 +++++++++++++++++++++++++
+ lambda/completion/package-lock.json            | 109 +++++++++++++++++
+ lambda/completion/package.json                 |  16 +++
+ lambda/fullfillBuyNow/index.mjs                |  80 ++++++++++++
+ lambda/fullfillBuyNow/package-lock.json        | 109 +++++++++++++++++
+ lambda/fullfillBuyNow/package.json             |  14 +++
+ lambda/fullfillItem/index.mjs                  | 156 ++++++++++++++++++++++++
+ lambda/fullfillItem/package-lock.json          | 109 +++++++++++++++++
+ lambda/fullfillItem/package.json               |  14 +++
+ lambda/getUnfreezeRequests/index.mjs           |  52 ++++++++
+ lambda/getUnfreezeRequests/package-lock.json   | 109 +++++++++++++++++
+ lambda/getUnfreezeRequests/package.json        |  14 +++
+ lambda/requestUnfreezeItem/index.mjs           |  52 ++++++++
+ lambda/requestUnfreezeItem/package-lock.json   | 109 +++++++++++++++++
+ lambda/requestUnfreezeItem/package.json        |  14 +++
+ lambda/sortItemsCustomerDesc/index.mjs         |  80 ++++++++++++
+ lambda/sortItemsCustomerDesc/package-lock.json | 109 +++++++++++++++++
+ lambda/sortItemsCustomerDesc/package.json      |  13 ++
+ lambda/turnOffBuyNow/index.mjs                 |  52 ++++++++
+ lambda/turnOffBuyNow/package-lock.json         | 109 +++++++++++++++++
+ lambda/turnOffBuyNow/package.json              |  14 +++
+ 27 files changed, 1857 insertions(+)
+
+commit 2a38610f15dced92efb5d9456c1ca984586159cb
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Dec 13 11:32:45 2024 -0500
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 797bc372ee901ce6bd4c6c701bf609a03c1bfa56
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Dec 13 11:08:21 2024 -0500
+
+    Update README.md
+
+ README.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 64c0b75c4062c2ab52637935b59e659a380e7c1b
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Dec 13 11:06:50 2024 -0500
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit cd77b895d6a46eb8dcf1aa32467f51c9ca98ab4d
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Dec 13 10:55:28 2024 -0500
+
+    Update README.md
+
+ README.md | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+commit 0a32ab857068018bb3b071048726c3d7943908b9
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Dec 13 10:20:35 2024 -0500
+
+    Update README.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit c25b0fa33fae4fb43094e805fcda9bb09909063f
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Dec 13 09:57:38 2024 -0500
+
+    Update README.md
+
+ README.md | 29 +++++++++++++++++++++++------
+ 1 file changed, 23 insertions(+), 6 deletions(-)
+
+commit 4f227bcdac14a45fe92c2dbd959e97a78e1226c0
+Author: Amrut <amrut@Amruts-Air.lan>
+Date:   Thu Dec 12 15:09:33 2024 -0500
+
+    Added Lambdas
+
+ lambda/freezeItem/index.mjs             |  51 +++++++++++++++
+ lambda/freezeItem/package-lock.json     | 109 ++++++++++++++++++++++++++++++++
+ lambda/freezeItem/package.json          |  14 ++++
+ lambda/getFrozenItems/index.mjs         |  52 +++++++++++++++
+ lambda/getFrozenItems/package-lock.json | 109 ++++++++++++++++++++++++++++++++
+ lambda/getFrozenItems/package.json      |  14 ++++
+ lambda/turnOnBuyNow/index.mjs           |  50 +++++++++++++++
+ lambda/turnOnBuyNow/package-lock.json   | 109 ++++++++++++++++++++++++++++++++
+ lambda/turnOnBuyNow/package.json        |  15 +++++
+ lambda/unfreezeItem/index.mjs           |  57 +++++++++++++++++
+ lambda/unfreezeItem/package-lock.json   | 109 ++++++++++++++++++++++++++++++++
+ lambda/unfreezeItem/package.json        |  15 +++++
+ 12 files changed, 704 insertions(+)
+
+commit 4c7266195aba19767838aa2c17aca6cd4bc2be1f
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Thu Dec 12 12:19:15 2024 -0500
+
+    Adding six lambdas
+
+ lambda/generateForensicsReport/index.mjs           | 111 ++++++++++++++++++++
+ lambda/generateForensicsReport/package-lock.json   | 109 +++++++++++++++++++
+ lambda/generateForensicsReport/package.json        |  14 +++
+ lambda/generateauctionReport/index.mjs             |  48 +++++++++
+ lambda/generateauctionReport/package-lock.json     |  98 +++++++++++++++++
+ lambda/generateauctionReport/package.json          |  14 +++
+ lambda/getRecentlySoldItems/index.mjs              |  65 ++++++++++++
+ lambda/getRecentlySoldItems/package-lock.json      | 109 +++++++++++++++++++
+ lambda/getRecentlySoldItems/package.json           |  13 +++
+ lambda/searchRecentlySold/index.mjs                |  71 +++++++++++++
+ lambda/searchRecentlySold/package-lock.json        | 109 +++++++++++++++++++
+ lambda/searchRecentlySold/package.json             |  14 +++
+ lambda/sortRecentlySoldAscending/index.mjs         | 116 +++++++++++++++++++++
+ lambda/sortRecentlySoldAscending/package-lock.json |  98 +++++++++++++++++
+ lambda/sortRecentlySoldAscending/package.json      |  14 +++
+ lambda/sortRecentlySoldDesc/index.mjs              | 116 +++++++++++++++++++++
+ lambda/sortRecentlySoldDesc/package-lock.json      | 109 +++++++++++++++++++
+ lambda/sortRecentlySoldDesc/package.json           |  13 +++
+ 18 files changed, 1241 insertions(+)
+
+commit fc696346ce7892b4b74a5c00a1e8b9163d1aa2ba
+Author: Jai Patel <jaipatel@autoreg-6635082.dyn.wpi.edu>
+Date:   Wed Dec 11 17:57:24 2024 -0500
+
+    Resolved build errors and fixed fulfill error
+
+ src/app/buyer/recentlySoldItems/page.tsx |  3 +--
+ src/app/buyer/viewBidHistory/page.tsx    | 44 --------------------------------
+ src/app/seller/home/page.tsx             |  9 ++++---
+ 3 files changed, 6 insertions(+), 50 deletions(-)
+
+commit 3b7fe3259d5ccaa1280189433f8a83c6ffd5bd13
+Author: Jai Patel <92940919+jaipatel2003@users.noreply.github.com>
+Date:   Wed Dec 11 13:38:24 2024 -0500
+
+    Update README.md
+
+ README.md | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+commit f7141361629d944b1dda669c8457dfcddb766f8f
+Author: Jai Patel <jaipatel@Jais-MacBook-Pro-3452.local>
+Date:   Wed Dec 11 12:36:22 2024 -0500
+
+    Resolved more build errors
+
+ src/app/admin/auctionReport/page.tsx     | 2 +-
+ src/app/admin/forensicsReport/page.tsx   | 2 +-
+ src/app/buyer/recentlySoldItems/page.tsx | 2 +-
+ src/app/buyer/reviewPurchases/page.tsx   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 5bb20e3fa4a4502c2c07159a457e50f257b7da45
+Author: Jai Patel <jaipatel@Jais-MacBook-Pro-3452.local>
+Date:   Wed Dec 11 12:29:37 2024 -0500
+
+    fixed some build errors
+
+ git.report.txt                         | 1011 ++++++++++++++++++++++++++++++++
+ src/app/admin/auctionReport/page.tsx   |    2 -
+ src/app/admin/forensicsReport/page.tsx |    6 -
+ src/app/buyer/reviewPurchases/page.tsx |    2 -
+ src/app/buyer/viewBidHistory/page.tsx  |    2 +-
+ 5 files changed, 1012 insertions(+), 11 deletions(-)
+
+commit a1fffcb6861bb43a5269301d0a8fd907544c25b2
+Author: Amrut <amrut@autoreg-6692024.dyn.wpi.edu>
+Date:   Mon Dec 9 15:03:13 2024 -0500
+
+    updated fullfill for Buy Now
+
+ src/app/seller/home/page.tsx | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
+
+commit 47d13032297a89a836a96010fb53b64fb06e3e5b
+Author: Amrut <amrut@autoreg-6692024.dyn.wpi.edu>
+Date:   Mon Dec 9 14:46:42 2024 -0500
+
+    added buy now on byers side
+
+ src/app/buyer/bid/page.tsx  | 80 +++++++++++++++++++++++++++++++++++----------
+ src/app/buyer/home/page.tsx |  8 +++--
+ 2 files changed, 68 insertions(+), 20 deletions(-)
+
+commit 590b68b81e30d52204195851033f106b01213caf
+Author: Amrut <amrut@autoreg-6692024.dyn.wpi.edu>
+Date:   Mon Dec 9 14:09:41 2024 -0500
+
+    added edit item for Buy Now
+
+ src/app/seller/editItem/page.tsx | 98 +++++++++++++++++++++++++++++++++++++++-
+ src/app/seller/home/page.tsx     | 12 +++--
+ 2 files changed, 106 insertions(+), 4 deletions(-)
+
+commit d50cc41fa03aaaa4df4ea615218aef0bc2b19b64
+Author: Amrut <amrut@Amruts-MacBook-Air.local>
+Date:   Mon Dec 9 13:32:06 2024 -0500
+
+    buy fixes in add for sale
+
+ src/app/seller/item/page.tsx | 60 +++++++++++++-------------------------------
+ 1 file changed, 18 insertions(+), 42 deletions(-)
+
+commit 102c9f3f0b6de48782b7c76db3481691107f32a6
+Author: Amrut <amrut@Amruts-MacBook-Air.local>
+Date:   Mon Dec 9 13:26:31 2024 -0500
+
+    added buynow at seller add item end
+
+ src/app/seller/item/page.tsx | 91 ++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 87 insertions(+), 4 deletions(-)
+
+commit 3d78ab746726572100d593c494d33fa77d41968c
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Dec 9 13:23:53 2024 -0500
+
+    admin funds appearing on admin home page
+
+ src/app/admin/auctionReport/page.tsx |  3 ---
+ src/app/admin/home/page.tsx          | 49 ++++++++++++++++++++++++++++++++++--
+ 2 files changed, 47 insertions(+), 5 deletions(-)
+
+commit 025d178450a1b0dbbe8c3543619a1cafb09898f5
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Dec 9 13:03:14 2024 -0500
+
+    request unfreeze usecase
+
+ src/app/admin/frozenItems/page.tsx | 107 ++++++++++++++++++++++++++++++++-----
+ src/app/seller/home/page.tsx       |  32 ++++++++++-
+ 2 files changed, 123 insertions(+), 16 deletions(-)
+
+commit 2d6e83f7bf92bb61e86314ba406d21c986ebbf28
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Sun Dec 8 22:34:59 2024 -0500
+
+    freeze item, unfreeze item, view bid history, sort/search buyer
+
+ src/app/admin/activeItems/page.tsx       |  73 +++++---
+ src/app/admin/frozenItems/page.tsx       | 146 ++++++++++++++++
+ src/app/buyer/home/page.tsx              | 107 ++----------
+ src/app/buyer/recentlySoldItems/page.tsx | 276 +++++++++++++++++++++++++++++++
+ src/app/buyer/viewBidHistory/page.tsx    | 187 +++++++++++++++++++++
+ src/app/page.tsx                         |   2 +
+ 6 files changed, 671 insertions(+), 120 deletions(-)
+
+commit b953e73bb01c04c64a45a83f66a98cf6504dad3e
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Fri Dec 6 00:21:07 2024 -0500
+
+    forensics report
+
+ src/app/admin/auctionReport/page.tsx   |   4 --
+ src/app/admin/forensicsReport/page.tsx | 113 +++++++++++++++++++++++++++++++++
+ 2 files changed, 113 insertions(+), 4 deletions(-)
+
+commit 6c8a0d4b5b6735e23e25cb8bca3318d76bbc1c8e
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Wed Dec 4 00:33:52 2024 -0500
+
+    fulfill item and review purchases
+
+ src/app/buyer/home/page.tsx            |  8 ++++
+ src/app/buyer/reviewPurchases/page.tsx | 80 ++++++++++++++++++++++++++++++++++
+ src/app/seller/home/page.tsx           |  5 ++-
+ 3 files changed, 91 insertions(+), 2 deletions(-)
+
+commit e2b5ea2e96e20379529dcfc22d4829137db3b1f3
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Tue Dec 3 23:56:50 2024 -0500
+
+    generate auction report with calculated sum commission value
+
+ src/app/admin/auctionReport/page.tsx | 95 ++++++++++++++++++++++++++++++++++++
+ src/app/seller/home/page.tsx         | 29 ++++++++++-
+ 2 files changed, 123 insertions(+), 1 deletion(-)
+
+commit 89eece47dbfee3428b203a10f279212ebd701d0b
+Merge: b11fb49 acdbf76
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Dec 2 18:57:38 2024 -0500
+
+    Merge branch 'iteration2' of https://github.com/amrutsavadatti/auction_house into iteration2
+
+commit b11fb49e90932ae61a3c233e8dc88b926d555eaf
+Author: pkawatkar <pkawatkar@yahoo.com>
+Date:   Mon Dec 2 18:57:30 2024 -0500
+
+    edit and publish links are disabled when item is archived
+
+ src/app/seller/home/page.tsx | 35 ++++++++++++++++++++++++-----------
+ 1 file changed, 24 insertions(+), 11 deletions(-)
+
 commit acdbf76f179a80e2718aaeda2ce6e355683187b3
 Author: ManasPise03 <151983653+ManasPise03@users.noreply.github.com>
 Date:   Tue Nov 26 11:56:42 2024 -0500

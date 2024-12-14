@@ -107,23 +107,6 @@ URL for AWS APP: http://finaliterationbucket.s3-website.us-east-2.amazonaws.com/
 
   22) /buyer/recentlySoldItems <br/>
     On this page, the buyer is able to view all recently sold items within the last 24 hours. If they click "view item", they will be able to view the item along with their bidding history too (rerouted to /buyer/bid).
-  
-
-
-## INSTRUCTIONS:
-  1) Once you're on the landing page, you should be able to view all the active items that are published. Since you're in customer view, you will be able to see the item's set price, current highest bid, the seller, publishing date, and an option to view the item.
-  2) Use the search fields to filter by keyword and price range. If you leave the lower bound blank, the upper bound will act as the maximum price filter (Vice versa). Feel free to experiment with different combinations to get different results.
-  3) The customer also has the ability to sort through the active items list based on either price, published date, and expiration date.
-  4) Let's say the customer wants to buy one of these items. Click the top right corner "Sign In" button, which reroutes to /home/userType. Choose "buyer? click here" button to sign in as a buyer. When signing in, write in ur credentials "a@a.com" with password "a". Click Login.
-  5) Now you're in buyer mode. You should be able to see the same active items as you did when you were on the home page (Customer View). However now if you click the "view item" button next to item "activePH1", you not only see the general item description, set price, and image, but you also see the option to place bid. On the right you should be able to see the bid history of the item.
-  6) Let's place a bid on activePH1. It must be higher than the highest bid, which is currently $46. Enter $50 and click place bid.
-  7) At the buyer home page, you should see a green button on the top left "Active Bids". Click the button, rerouting to /buyer/reviewActiveBids.
-  8) Here, as buyer, you will be able to see all your active bids. This is shown through a table with the item name and the bid value.
-  9) As usual, if you click "Add Funds", you should be able to see and add any funds.
-  10) Logout and log in as seller this time. Use credentials: "i@i.com" with password "i"
-  11) You should be rerouted to /seller/home. Here, you should see a list of all the items created by i@i.com seller.
-  12) You can click the "remove" button to remove the "testitem" item that is currently inactive. This represents the remove inactive item usecase.
-  13) Now you can publish the "dance team photo" item by clicking the "publish" button. This brings you to a page where you can specify the end date, which indicates how long the item is up for. You will now see that the item status is "active". You will see that the item now has the option to "Unpublish" since there are no active bids made for the item. Now you can hit "Unpublish", which will set the item status back to inactive. Finally, you can click the "archive" button for the item, which will change the status to "archived".
 
 
 ## Iteration 1 Work Distribution
@@ -149,5 +132,5 @@ Please make sure not to refresh the live URLs, as it runs into a 404 not found/4
 
 For the "Search Items (Customer)" and "Sort Items (Customer)" use cases, you may have to click on the search button and/or sorting filters twice in order to see the changes on the screen.
 
-Admin Credentials: admin@admin.com password- admin
+Admin Credentials: login - admin@admin.com , password - admin
 
